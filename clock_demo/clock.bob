@@ -34,6 +34,7 @@
     </background_color>
     <precision>2</precision>
     <show_units>false</show_units>
+    <horizontal_alignment>2</horizontal_alignment>
     <actions>
     </actions>
     <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -63,6 +64,7 @@
     </background_color>
     <precision>2</precision>
     <show_units>false</show_units>
+    <horizontal_alignment>2</horizontal_alignment>
     <actions>
     </actions>
     <rules>
@@ -99,6 +101,7 @@
     </background_color>
     <precision>0</precision>
     <show_units>false</show_units>
+    <horizontal_alignment>2</horizontal_alignment>
     <actions>
     </actions>
     <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -128,6 +131,7 @@
     </background_color>
     <precision>0</precision>
     <show_units>false</show_units>
+    <horizontal_alignment>2</horizontal_alignment>
     <actions>
     </actions>
     <border_alarm_sensitive>false</border_alarm_sensitive>

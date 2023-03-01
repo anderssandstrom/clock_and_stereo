@@ -221,7 +221,7 @@ $(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=8, SAMPLE_RATE_MS=100,FILE=
 ##############################################################################
 ############# Configure diagnostics:
 
-#asynSetTraceMask(MC_CPU1, -1, 0x0)
+
 
 ecmcConfigOrDie "Cfg.EcSetDiagnostics(1)"
 ecmcConfigOrDie "Cfg.EcEnablePrintouts(0)"
@@ -235,6 +235,14 @@ $(SCRIPTEXEC) ($(ecmccfg_DIR)setAppMode.cmd)
 
 iocInit()
 
-# dbpf $(IOC):timing.SPAM 0
-# dbpf $(IOC):phase.SPAM 0
-# dbpf $(IOC):phys.SPAM 0
+# Reduce printouts
+asynSetTraceMask(MC_CPU1, -1, 0x0)
+dbpf $(IOC):ns.SPAM 0
+dbpf $(IOC):s.SPAM 0
+dbpf $(IOC):m.SPAM 0
+dbpf $(IOC):h.SPAM 0
+dbpf $(IOC):n_phase.SPAM 0
+dbpf $(IOC):s_phase.SPAM 0
+dbpf $(IOC):m_phase.SPAM 0
+dbpf $(IOC):h_phase.SPAM 0
+
