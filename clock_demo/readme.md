@@ -181,6 +181,6 @@ dbpf IOC_TEST:Set-Mode-RB 0
 ## Start on dev-asm-02
 
 ```
-source /epics/base-7.0.6.1/require/4.0.0/bin/setE3Env.bash 
+source ~/sources/base-7.0.6.1/require/4.0.0/bin/setE3Env.bash 
 iocsh clock.script -l ~/cellMods/ -l ~/sources/e3-ecmccfg/cellMods/
 ```

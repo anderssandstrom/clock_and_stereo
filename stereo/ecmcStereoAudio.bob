@@ -335,4 +335,15 @@
       </trace>
     </traces>
   </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>ecmc stereo demo</text>
+    <x>468</x>
+    <width>726</width>
+    <height>90</height>
+    <font>
+      <font family="Source Sans Pro" style="BOLD_ITALIC" size="60.0">
+      </font>
+    </font>
+  </widget>
 </display>
