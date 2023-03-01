@@ -1,0 +1,240 @@
+##############################################################################
+## Example config for sync 4 motors to system time (hours, minutes, seconds, nanos).
+## The setup consists of 4 virtual and 4 physical axes. The virtual axes corresponds 
+## to the phase error beween system time and the physcal axis.
+##
+## The following sequence is executed:
+## 1. The physical axes are enabled and reference to 0 at current position. (so start with any indicators pointing vertically)
+## 2. For the faster axes (nanos), the physcal axis is ramped up to the same velocity as the system nanos.
+## 3. The virtual axes is enabled
+## 4. The virtual axes is controlled to 0 phase error.
+## 5. Now the 4 motors should show system time
+##
+## Notes:;
+## 1. This demo does not utilize the dc clocks of teh terminals
+## 2. Actually only the nanos axis needs a virtual phase axes, because of speed. But for consistensy all 4 axes are controlled through avirt axis.
+## 3. The idea is that system time should be controlled by ptp or mrf (time2ntp).
+##
+
+##############################################################################
+## Initiation:
+epicsEnvSet("IOC" ,"$(IOC="IOC_TEST")")
+epicsEnvSet("ECMCCFG_INIT" ,"")  #Only run startup once (auto at PSI, need call at ESS), variable set to "#" in startup.cmd
+epicsEnvSet("SCRIPTEXEC" ,"$(SCRIPTEXEC="iocshLoad")")
+
+require ecmccfg master
+
+# run module startup.cmd (only needed at ESS  PSI auto call at require)
+$(ECMCCFG_INIT)$(SCRIPTEXEC) ${ecmccfg_DIR}startup.cmd, "IOC=$(IOC),ECMC_VER=v8.1"
+
+##############################################################################
+## Configure hardware:
+
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "1")
+epicsEnvSet("ECMC_EC_SLAVE_NUM_HOUR",        "$(ECMC_EC_SLAVE_NUM)")
+${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL7031, CONFIG=-Motor-Trinamic-QMot-QSH4218-41-10-035"
+
+#- Set max current to 1000mA (max current is 2A for this motor)
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,1000,2)"
+#- Reduced current 100mA
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x2,300,2)"
+
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "2")
+epicsEnvSet("ECMC_EC_SLAVE_NUM_MINUTE",        "$(ECMC_EC_SLAVE_NUM)")
+${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL7031, CONFIG=-Motor-Trinamic-QMot-QSH4218-41-10-035"
+
+#- Set max current to 1000mA (max current is 2A for this motor)
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,1000,2)"
+#- Reduced current 100mA
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x2,300,2)"
+
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "3")
+epicsEnvSet("ECMC_EC_SLAVE_NUM_SECOND",        "$(ECMC_EC_SLAVE_NUM)")
+${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL7037, CONFIG=-Motor-Trinamic-QMot-QSH4218-41-10-035"
+
+#- Set max current to 500mA (actually max current is 1.8A for this motor)
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,500,2)"
+#- Reduced current 200mA
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x2,200,2)"
+
+epicsEnvSet("ECMC_EC_SLAVE_NUM",              "4")
+epicsEnvSet("ECMC_EC_SLAVE_NUM_NANO",        "$(ECMC_EC_SLAVE_NUM)")
+${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=$(ECMC_EC_SLAVE_NUM), HW_DESC=EL7037, CONFIG=-Motor-Trinamic-QMot-QSH4218-41-10-035"
+
+#- Set max current to 500mA (actually max current is 1.8A for this motor)
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,500,2)"
+#- Reduced current 200mA
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x2,200,2)"
+
+
+#Apply hardware configuration
+ecmcConfigOrDie "Cfg.EcApplyConfig(1)"
+
+##############################################################################
+## PLC 0: Calc time source for all axes
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=1,FILE=./plc/time.plc,PLC_MACROS=''"
+dbLoadRecords("ecmcPlcBinary.db","P=$(IOC):,PORT=MC_CPU1,ASYN_NAME=plcs.global.mode,REC_NAME=-Mode")
+
+##############################################################################
+# Config motion
+
+epicsEnvSet("ECMC_AXIS_HOUR_NUM_P",           "1")
+epicsEnvSet("ECMC_AXIS_HOUR_NUM",             "2")
+epicsEnvSet("ECMC_AXIS_MINUTE_NUM_P",         "3")
+epicsEnvSet("ECMC_AXIS_MINUTE_NUM",           "4")
+epicsEnvSet("ECMC_AXIS_SECOND_NUM_P",         "5")
+epicsEnvSet("ECMC_AXIS_SECOND_NUM",           "6")
+epicsEnvSet("ECMC_AXIS_NANOS_NUM_P",          "7")
+epicsEnvSet("ECMC_AXIS_NANOS_NUM",            "8")
+
+##############################################################################
+## AXIS 1: Virtual axis hour
+#
+epicsEnvSet("DEV",        "$(IOC)")
+epicsEnvSet("AX_ID",      "${ECMC_AXIS_HOUR_NUM_P}")
+epicsEnvSet("AX_NAME",    "h_phase")
+epicsEnvSet("AX_DESC",    "Hours phase")
+epicsEnvSet("AX_EGU",     "h")
+epicsEnvSet("AX_VELO",    "0.1")
+epicsEnvSet("AX_MOD",     "12")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/phase.vax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/phase.sax)
+
+##############################################################################
+## AXIS 2: Physical axis hour
+#
+epicsEnvSet("ECMC_EC_SLAVE_NUM_DRIVE",        "$(ECMC_EC_SLAVE_NUM_HOUR)")
+epicsEnvSet("AX_ID",      "${ECMC_AXIS_HOUR_NUM}")
+epicsEnvSet("AX_NAME",    "h")
+epicsEnvSet("AX_DESC",    "Hours")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureAxis.cmd, CONFIG=./cfg/phys.ax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/phys.sax)
+ecmcConfigOrDie "Cfg.SetAxisAllowSourceChangeWhenEnabled(${ECMC_AXIS_HOUR_NUM},1)"
+
+##############################################################################
+## PLC 1: Hour
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=1, SAMPLE_RATE_MS=1,FILE=./plc/phys_and_phase.plc,PLC_MACROS='AX_PHYS=${ECMC_AXIS_HOUR_NUM},AX_PHASE=${ECMC_AXIS_HOUR_NUM_P},TIME_SOURCE=global.hour, AX_MOD=${AX_MOD}'"
+
+##############################################################################
+## PLC 2: Hour seq
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=2, SAMPLE_RATE_MS=100,FILE=./plc/seq.plc,PLC_MACROS='AX_PHYS=${ECMC_AXIS_HOUR_NUM},AX_PHASE=${ECMC_AXIS_HOUR_NUM_P},AX_VELO=1,AX_ACC=1,PLC_ID=2'"
+
+##############################################################################
+## AXIS 3: Virtual axis minutes
+#
+epicsEnvSet("DEV",        "$(IOC)")
+epicsEnvSet("AX_ID",      "${ECMC_AXIS_MINUTE_NUM_P}")
+epicsEnvSet("AX_NAME",    "m_phase")
+epicsEnvSet("AX_DESC",    "Minutes phase")
+epicsEnvSet("AX_EGU",     "min")
+epicsEnvSet("AX_VELO",    "0.1")
+epicsEnvSet("AX_MOD",     "60")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/phase.vax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/phase.sax)
+
+##############################################################################
+## AXIS 4: Physical axis minutes
+#
+epicsEnvSet("ECMC_EC_SLAVE_NUM_DRIVE",        "$(ECMC_EC_SLAVE_NUM_MINUTE)")
+epicsEnvSet("AX_ID",      "${ECMC_AXIS_MINUTE_NUM}")
+epicsEnvSet("AX_NAME",    "m")
+epicsEnvSet("AX_DESC",    "Minutes")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureAxis.cmd, CONFIG=./cfg/phys.ax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/phys.sax)
+ecmcConfigOrDie "Cfg.SetAxisAllowSourceChangeWhenEnabled(${ECMC_AXIS_MINUTE_NUM},1)"
+
+##############################################################################
+## PLC 3: Minute
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=3, SAMPLE_RATE_MS=1,FILE=./plc/phys_and_phase.plc,PLC_MACROS='AX_PHYS=${ECMC_AXIS_MINUTE_NUM},AX_PHASE=${ECMC_AXIS_MINUTE_NUM_P},TIME_SOURCE=global.minute,AX_MOD=${AX_MOD}'"
+
+##############################################################################
+## PLC 4: Minute seq
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=4, SAMPLE_RATE_MS=100,FILE=./plc/seq.plc,PLC_MACROS='AX_PHYS=${ECMC_AXIS_MINUTE_NUM},AX_PHASE=${ECMC_AXIS_MINUTE_NUM_P},AX_VELO=5,AX_ACC=5,PLC_ID=4'"
+
+##############################################################################
+## AXIS 5: Virtual axis seconds
+#
+epicsEnvSet("DEV",        "$(IOC)")
+epicsEnvSet("AX_ID",      "${ECMC_AXIS_SECOND_NUM_P}")
+epicsEnvSet("AX_NAME",    "s_phase")
+epicsEnvSet("AX_DESC",    "Seconds phase")
+epicsEnvSet("AX_EGU",     "s")
+epicsEnvSet("AX_VELO",    "0.1")
+epicsEnvSet("AX_MOD",     "60")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/phase.vax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/phase.sax)
+
+##############################################################################
+## AXIS 6: Physical axis seconds
+#
+epicsEnvSet("ECMC_EC_SLAVE_NUM_DRIVE",        "$(ECMC_EC_SLAVE_NUM_SECOND)")
+epicsEnvSet("AX_ID",      "${ECMC_AXIS_SECOND_NUM}")
+epicsEnvSet("AX_NAME",    "s")
+epicsEnvSet("AX_DESC",    "Seconds")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureAxis.cmd, CONFIG=./cfg/phys.ax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/phys.sax)
+ecmcConfigOrDie "Cfg.SetAxisAllowSourceChangeWhenEnabled(${ECMC_AXIS_SECOND_NUM},1)"
+
+##############################################################################
+## PLC 5: Second
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=5, SAMPLE_RATE_MS=1,FILE=./plc/phys_and_phase.plc,PLC_MACROS='AX_PHYS=${ECMC_AXIS_SECOND_NUM},AX_PHASE=${ECMC_AXIS_SECOND_NUM_P},TIME_SOURCE=global.second,AX_MOD=${AX_MOD}'"
+
+##############################################################################
+## PLC 6: Second seq 
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=6, SAMPLE_RATE_MS=100,FILE=./plc/seq.plc,PLC_MACROS='AX_PHYS=${ECMC_AXIS_SECOND_NUM},AX_PHASE=${ECMC_AXIS_SECOND_NUM_P},AX_VELO=5,AX_ACC=5,PLC_ID=6'"
+
+##############################################################################
+## AXIS 7: Virtual axis nanos
+#
+epicsEnvSet("DEV",        "$(IOC)")
+epicsEnvSet("AX_ID",      "${ECMC_AXIS_NANOS_NUM_P}")
+epicsEnvSet("AX_NAME",    "n_phase")
+epicsEnvSet("AX_DESC",    "Nanos phase")
+epicsEnvSet("AX_EGU",     "ns")
+epicsEnvSet("AX_VELO",    "0.1")
+epicsEnvSet("AX_MOD",     "1")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/phase.vax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/phase.sax)
+
+##############################################################################
+## AXIS 8: Physical axis nanos
+#
+epicsEnvSet("ECMC_EC_SLAVE_NUM_DRIVE",        "$(ECMC_EC_SLAVE_NUM_NANO)")
+epicsEnvSet("AX_ID",      "${ECMC_AXIS_NANOS_NUM}")
+epicsEnvSet("AX_NAME",    "ns")
+epicsEnvSet("AX_DESC",    "nanoseconds")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureAxis.cmd, CONFIG=./cfg/phys.ax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/phys.sax)
+ecmcConfigOrDie "Cfg.SetAxisAllowSourceChangeWhenEnabled(${ECMC_AXIS_NANOS_NUM},1)"
+
+##############################################################################
+## PLC 7: Nano
+
+system "cat ./plc/phys_and_phase.plc"
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=7, SAMPLE_RATE_MS=1,FILE=./plc/phys_and_phase.plc,PLC_MACROS='AX_PHYS=${ECMC_AXIS_NANOS_NUM},AX_PHASE=${ECMC_AXIS_NANOS_NUM_P},TIME_SOURCE=global.nano,AX_MOD=${AX_MOD}'"
+
+system "cat ./plc/seq.plc"
+##############################################################################
+## PLC 8: Nano seq 
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=8, SAMPLE_RATE_MS=100,FILE=./plc/seq.plc,PLC_MACROS='AX_PHYS=${ECMC_AXIS_NANOS_NUM},AX_PHASE=${ECMC_AXIS_NANOS_NUM_P},AX_VELO=1,AX_ACC=0.1,PLC_ID=8,VELO_RAMP_ENA=1'"
+
+##############################################################################
+############# Configure diagnostics:
+
+asynSetTraceMask(MC_CPU1, -1, 0x0)
+
+ecmcConfigOrDie "Cfg.EcSetDiagnostics(1)"
+ecmcConfigOrDie "Cfg.EcEnablePrintouts(0)"
+ecmcConfigOrDie "Cfg.EcSetDomainFailedCyclesLimit(100)"
+#ecmcConfigOrDie "Cfg.SetDiagAxisIndex(1)"
+ecmcConfigOrDie "Cfg.SetDiagAxisFreq(2)"
+ecmcConfigOrDie "Cfg.SetDiagAxisEnable(0)"
+
+# go active
+$(SCRIPTEXEC) ($(ecmccfg_DIR)setAppMode.cmd)
+
+iocInit()
+
+# dbpf $(IOC):timing.SPAM 0
+# dbpf $(IOC):phase.SPAM 0
+# dbpf $(IOC):phys.SPAM 0
