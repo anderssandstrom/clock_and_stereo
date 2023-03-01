@@ -108,6 +108,8 @@
     </background_color>
     <major_tick_step_hint>50</major_tick_step_hint>
     <scale_format></scale_format>
+    <level_hihi>900.0</level_hihi>
+    <level_high>800.0</level_high>
     <level_low>0.0</level_low>
     <level_lolo>0.0</level_lolo>
     <actions>
@@ -251,13 +253,30 @@
     <y>198</y>
     <width>600</width>
     <height>500</height>
+    <x_axis>
+      <title>Samples [100kHz]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Source Sans Pro" style="REGULAR" size="16.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
     <y_axes>
       <y_axis>
-        <title>Y</title>
-        <autoscale>true</autoscale>
+        <title>Sound intensity []</title>
+        <autoscale>false</autoscale>
         <log_scale>false</log_scale>
-        <minimum>0.0</minimum>
-        <maximum>100.0</maximum>
+        <minimum>-1000.0</minimum>
+        <maximum>1000.0</maximum>
         <show_grid>false</show_grid>
         <title_font>
           <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
@@ -296,13 +315,30 @@
     <y>198</y>
     <width>600</width>
     <height>500</height>
+    <x_axis>
+      <title>Samples [100kHz]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Source Sans Pro" style="REGULAR" size="16.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
     <y_axes>
       <y_axis>
-        <title>Y</title>
-        <autoscale>true</autoscale>
+        <title>Sound intensity []</title>
+        <autoscale>false</autoscale>
         <log_scale>false</log_scale>
-        <minimum>0.0</minimum>
-        <maximum>100.0</maximum>
+        <minimum>-1000.0</minimum>
+        <maximum>1000.0</maximum>
         <show_grid>false</show_grid>
         <title_font>
           <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
