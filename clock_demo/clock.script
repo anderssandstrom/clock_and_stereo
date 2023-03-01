@@ -221,7 +221,7 @@ $(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=8, SAMPLE_RATE_MS=100,FILE=
 ##############################################################################
 ############# Configure diagnostics:
 
-asynSetTraceMask(MC_CPU1, -1, 0x0)
+#asynSetTraceMask(MC_CPU1, -1, 0x0)
 
 ecmcConfigOrDie "Cfg.EcSetDiagnostics(1)"
 ecmcConfigOrDie "Cfg.EcEnablePrintouts(0)"
