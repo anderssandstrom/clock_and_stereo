@@ -177,3 +177,10 @@ dbpf IOC_TEST:Set-Mode-RB 0
 ## NOTES (TODO):
 1. This demo does not take full advantage of dc-clocks (compensate for encoder dc time and drive dc-time). Need to look into....
 2. In this example CLOCK_REALTIME is not currently used (CLOCK_MONOTONIC is used). Consider switch to CLOCK_REALTIME.
+
+## Start on dev-asm-02
+
+```
+source /epics/base-7.0.6.1/require/4.0.0/bin/setE3Env.bash 
+iocsh clock.script -l ~/cellMods/ -l ~/sources/e3-ecmccfg/cellMods/
+```
