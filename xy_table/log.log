@@ -1,8 +1,8 @@
 #
-# Start at "2023-W09-Mar02-1546-41-CET"
+# Start at "2023-W09-Mar02-1552-02-CET"
 #
 # Version information:
-# European Spallation Source ERIC : iocsh (4.0.0-PID-11769)
+# European Spallation Source ERIC : iocsh (4.0.0-PID-13015)
 #
 # --->--> snip -->--> 
 # Please Use Version and other environment variables
@@ -32,10 +32,10 @@
 # --->--> snip -->--> 
 #
 # Set REQUIRE_IOC for its internal PVs
-epicsEnvSet REQUIRE_IOC "REQMOD:localhost-11769"
+epicsEnvSet REQUIRE_IOC "REQMOD:localhost-13015"
 #
 # Enable an exit subroutine for sotfioc
-dbLoadRecords "/home/anderssandstrom/sources/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:localhost-11769"
+dbLoadRecords "/home/anderssandstrom/sources/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:localhost-13015"
 #
 # Set E3_IOCSH_TOP for the absolute path where iocsh is executed.
 epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/clock_and_stereo/xy_table"
@@ -246,9 +246,9 @@ epicsEnvUnset(ECMC_CMD_FRM_OTHER_PLC_ENABLE)
 epicsEnvUnset(ECMC_CMD_AXIS_PLC_ENABLE)
 epicsEnvUnset(ECMC_AXIS_EXPR_LINE_1)
 epicsEnvUnset(ECMC_AXIS_EXPR_LINE_2)
-epicsEnvUnse2023/03/02 15:46:41.985 
+epicsEnvUnse2023/03/02 15:52:02.763 
 ECMC Initializes.............
-2023/03/02 15:46:41.985 ESS Open Source EtherCAT Motion Control Epics Module2023/03/02 15:46:41.985 
+2023/03/02 15:52:02.764 ESS Open Source EtherCAT Motion Control Epics Module2023/03/02 15:52:02.764 
 Mode: Configuration
 t(ECMC_AXIS_EXPR_LINE_3)
 epicsEnvUnset(ECMC_AXIS_EXPR_LINE_4)
@@ -669,13 +669,13 @@ epicsEnvSet("ECMC_JAR",                   "0.0")                      # JAR defa
 epicsEnvSet("ECMC_ACCS_EGU_PER_S2",       "10")
 epicsEnvSet("ECMC_EMERG_DECEL",           "100")             # Emergency deceleration
 #Homing
-epicsEnvSet("ECMC_HOME_PROC",             "3")
-epicsEnvSet("ECMC_HOME_POS",              "0.0")
+epicsEnvSet("ECMC_HOME_PROC",             "1")
+epicsEnvSet("ECMC_HOME_POS",              "-90")
 epicsEnvSet("ECMC_HOME_VEL_TO",           "5")
 epicsEnvSet("ECMC_HOME_VEL_FRM",          "4")
 epicsEnvSet("ECMC_HOME_ACC",              "21")
 epicsEnvSet("ECMC_HOME_DEC",              "100")
-epicsEnvSet("ECMC_HOME_POS_MOVE_ENA",     "0")                        # Enable move to position after successfull homing 
+epicsEnvSet("ECMC_HOME_POS_MOVE_ENA",     "1")                        # Enable move to position after successfull homing 
 epicsEnvSet("ECMC_HOME_POS_MOVE_TARG_POS","0")                        # Target position to go to after successfull homing
 #Controller
 epicsEnvSet("ECMC_CNTRL_KP",              "15.0")
@@ -689,8 +689,8 @@ epicsEnvSet("ECMC_EC_MON_HIGHLIM",        "ec0.s9.binaryInput03.0")           # 
 epicsEnvSet("ECMC_EC_MON_HOME_SWITCH",    "ec0.s9.ONE.0")               #  Ethercat entry for home switch input
 epicsEnvSet("ECMC_EC_MON_EXT_INTERLOCK",  "ec0.s9.ONE.0")               #  Ethercat entry for external interlock input
 # Softlimits (disable with 0,0,0)
-epicsEnvSet("ECMC_SOFT_LOW_LIM",          "-20")
-epicsEnvSet("ECMC_SOFT_HIGH_LIM",         "130")
+epicsEnvSet("ECMC_SOFT_LOW_LIM",          "-60")
+epicsEnvSet("ECMC_SOFT_HIGH_LIM",         "60")
 epicsEnvSet("ECMC_DXLM_ENABLE",           "1")
 # Position lag
 epicsEnvSet("ECMC_MON_LAG_MON_TOL",       "0.5")
@@ -826,13 +826,13 @@ ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax1.enc.latchstatus")"
 OK
 ecmcConfigOrDie "Cfg.SetAxisEncHomeLatchCountOffset(1,0.0)"
 OK
-ecmcConfigOrDie "Cfg.SetAxisEncRefToOtherEncAtStartup(1,2023/03/02 15:46:42.167 ecmcMotorRecord:: setIntegerParam(1 motorPowerAutoOnOff_)=2
-2023/03/02 15:46:42.167 ecmcMotorRecord:: setDoubleParam(1 motorPowerOnDelay_)=6
-2023/03/02 15:46:42.167 ecmcMotorRecord:: setDoubleParam(1 motorPowerOffDelay_=-1
-2023/03/02 15:46:42.167 ecmcMotorRecord:: udateMotorLimitsRO(1) enabledHighAndLow=1 valid=1 fValueHigh=130 fValueLow=-20
-2023/03/02 15:46:42.167 ecmcMotorRecord:: connected(1)
-2023/03/02 15:46:42.167 ecmcMotorRecord:: initialPoll(1) status=0
--1)"
+ecmcConfigOrDie "Cfg.SetAxisEncRefToOtherEncAtStartup(1,-2023/03/02 15:52:02.991 ecmcMotorRecord:: setIntegerParam(1 motorPowerAutoOnOff_)=2
+2023/03/02 15:52:02.991 ecmcMotorRecord:: setDoubleParam(1 motorPowerOnDelay_)=6
+2023/03/02 15:52:02.991 ecmcMotorRecord:: setDoubleParam(1 motorPowerOffDelay_=-1
+2023/03/02 15:52:02.991 ecmcMotorRecord:: udateMotorLimitsRO(1) enabledHighAndLow=1 valid=1 fValueHigh=60 fValueLow=-60
+2023/03/02 15:52:02.991 ecmcMotorRecord:: connected(1)
+2023/03/02 15:52:02.991 ecmcMotorRecord:: initialPoll(1) status=0
+1)"
 OK
 ecmcConfigOrDie "Cfg.SelectAxisEncPrimary(1,-1)"
 OK
@@ -872,11 +872,11 @@ ecmcConfigOrDie "Cfg.SetAxisDrvBrakeOpenDelayTime(1,0)"
 OK
 ecmcConfigOrDie "Cfg.SetAxisDrvBrakeCloseAheadTime(1,0)"
 OK
-ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosBwd(1,-20)"
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosBwd(1,-60)"
 OK
 ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitBwd(1,1)"
 OK
-ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosFwd(1,130)"
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosFwd(1,60)"
 OK
 ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitFwd(1,1)"
 OK
@@ -910,9 +910,9 @@ ecmcConfigOrDie "Cfg.SetAxisMonMaxVelTrajILDelay(1,100)"
 OK
 ecmcConfigOrDie "Cfg.SetAxisMonHomeSwitchPolarity(1,0)"
 OK
-ecmcConfigOrDie "Cfg.SetAxisHomePosition(1,0.0)"
+ecmcConfigOrDie "Cfg.SetAxisHomePosition(1,-90)"
 OK
-ecmcConfigOrDie "Cfg.SetAxisHomePostMoveEnable(1, 0)"
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveEnable(1, 1)"
 OK
 ecmcConfigOrDie "Cfg.SetAxisHomePostMoveTargetPosition(1, 0)"
 OK
@@ -924,10 +924,10 @@ ecmcMotorRecordCreateAxis(MCU1, "1", "6", )
 ecmcEpicsEnvSetCalc("ECMC_TEMP_SREV","if(abs(12800)>0){RESULT:=abs(12800);} else {RESULT:=1.0};","%d")
 ecmcEpicsEnvSetCalc("ECMC_TEMP_UREV","if(abs(60)>0){RESULT:=abs(60);} else {RESULT:=1.0};","%lf")
 ecmcFileExist(ecmcMotorRecord.template,1,1)
- dbLoadRecords(ecmcMotorRecord.template, "PREFIX=IOC_TEST:, MOTOR_NAME=X, MOTOR_PORT=MCU1, AXIS_NO=1, DESC=X, EGU=mm, PREC=3, VELO=10.0, JVEL=5, JAR=0.0, ACCS=10, RDBD=0.1, DLLM=-20, DHLM=130, HOMEPROC=3,SREV=12800,UREV=60.000000, ")
+ dbLoadRecords(ecmcMotorRecord.template, "PREFIX=IOC_TEST:, MOTOR_NAME=X, MOTOR_PORT=MCU1, AXIS_NO=1, DESC=X, EGU=mm, PREC=3, VELO=10.0, JVEL=5, JAR=0.0, ACCS=10, RDBD=0.1, DLLM=-60, DHLM=60, HOMEPROC=1,SREV=12800,UREV=60.000000, ")
 epicsEnvSet("ECMC_AXISFIELDINIT",  "")
 ecmcFileExist(ecmcMotorRecordhome.template,1,1)
-dbLoadRecords(ecmcMotorRecordhome.template, "PREFIX=IOC_TEST:, MOTOR_NAME=X, MOTOR_PORT=MCU1, AXIS_NO=1,HOMEPROC=3, HOMEPOS=0.0, HVELTO=5, HVELFRM=4, HOMEACC=21, HOMEDEC=100")
+dbLoadRecords(ecmcMotorRecordhome.template, "PREFIX=IOC_TEST:, MOTOR_NAME=X, MOTOR_PORT=MCU1, AXIS_NO=1,HOMEPROC=1, HOMEPOS=-90, HVELTO=5, HVELFRM=4, HOMEACC=21, HOMEDEC=100")
 epicsEnvUnset(ECMC_TEMP_SREV)
 epicsEnvUnset(ECMC_TEMP_UREV)
 # Add ECMC_AXIS_NO to ECMC_AXES_CFG
@@ -1091,13 +1091,13 @@ epicsEnvSet("ECMC_JAR",                   "0.0")                      # JAR defa
 epicsEnvSet("ECMC_ACCS_EGU_PER_S2",       "10")
 epicsEnvSet("ECMC_EMERG_DECEL",           "100")             # Emergency deceleration
 #Homing
-epicsEnvSet("ECMC_HOME_PROC",             "3")
-epicsEnvSet("ECMC_HOME_POS",              "0.0")
+epicsEnvSet("ECMC_HOME_PROC",             "1")
+epicsEnvSet("ECMC_HOME_POS",              "-90")
 epicsEnvSet("ECMC_HOME_VEL_TO",           "5")
 epicsEnvSet("ECMC_HOME_VEL_FRM",          "4")
 epicsEnvSet("ECMC_HOME_ACC",              "21")
 epicsEnvSet("ECMC_HOME_DEC",              "100")
-epicsEnvSet("ECMC_HOME_POS_MOVE_ENA",     "0")                        # Enable move to position after successfull homing 
+epicsEnvSet("ECMC_HOME_POS_MOVE_ENA",     "1")                        # Enable move to position after successfull homing 
 epicsEnvSet("ECMC_HOME_POS_MOVE_TARG_POS","0")                        # Target position to go to after successfull homing
 #Controller
 epicsEnvSet("ECMC_CNTRL_KP",              "15.0")
@@ -1236,13 +1236,13 @@ ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax2.enc.alarm0")"
 OK
 ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax2.enc.alarm1")"
 OK
-ecmcConfigOrDie "2023/03/02 15:46:42.175 ecmcMotorRecord:: setIntegerParam(2 motorPowerAutoOnOff_)=2
-2023/03/02 15:46:42.175 ecmcMotorRecord:: setDoubleParam(2 motorPowerOnDelay_)=6
-2023/03/02 15:46:42.175 ecmcMotorRecord:: setDoubleParam(2 motorPowerOffDelay_=-1
-2023/03/02 15:46:42.175 ecmcMotorRecord:: udateMotorLimitsRO(2) enabledHighAndLow=1 valid=1 fValueHigh=130 fValueLow=-20
-2023/03/02 15:46:42.175 ecmcMotorRecord:: connected(2)
-2023/03/02 15:46:42.175 ecmcMotorRecord:: initialPoll(2) status=0
-Cfg.LinkEcEntryToObject(,"ax2.enc.alarm2")"
+ecmcConfigOrDie "Cfg2023/03/02 15:52:02.998 ecmcMotorRecord:: setIntegerParam(2 motorPowerAutoOnOff_)=2
+2023/03/02 15:52:02.998 ecmcMotorRecord:: setDoubleParam(2 motorPowerOnDelay_)=6
+2023/03/02 15:52:02.998 ecmcMotorRecord:: setDoubleParam(2 motorPowerOffDelay_=-1
+2023/03/02 15:52:02.998 ecmcMotorRecord:: udateMotorLimitsRO(2) enabledHighAndLow=1 valid=1 fValueHigh=130 fValueLow=-20
+2023/03/02 15:52:02.998 ecmcMotorRecord:: connected(2)
+2023/03/02 15:52:02.998 ecmcMotorRecord:: initialPoll(2) status=0
+.LinkEcEntryToObject(,"ax2.enc.alarm2")"
 OK
 ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax2.enc.warning")"
 OK
@@ -1332,9 +1332,9 @@ ecmcConfigOrDie "Cfg.SetAxisMonMaxVelTrajILDelay(2,100)"
 OK
 ecmcConfigOrDie "Cfg.SetAxisMonHomeSwitchPolarity(2,0)"
 OK
-ecmcConfigOrDie "Cfg.SetAxisHomePosition(2,0.0)"
+ecmcConfigOrDie "Cfg.SetAxisHomePosition(2,-90)"
 OK
-ecmcConfigOrDie "Cfg.SetAxisHomePostMoveEnable(2, 0)"
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveEnable(2, 1)"
 OK
 ecmcConfigOrDie "Cfg.SetAxisHomePostMoveTargetPosition(2, 0)"
 OK
@@ -1346,10 +1346,10 @@ ecmcMotorRecordCreateAxis(MCU1, "2", "6", )
 ecmcEpicsEnvSetCalc("ECMC_TEMP_SREV","if(abs(12800)>0){RESULT:=abs(12800);} else {RESULT:=1.0};","%d")
 ecmcEpicsEnvSetCalc("ECMC_TEMP_UREV","if(abs(60)>0){RESULT:=abs(60);} else {RESULT:=1.0};","%lf")
 ecmcFileExist(ecmcMotorRecord.template,1,1)
- dbLoadRecords(ecmcMotorRecord.template, "PREFIX=IOC_TEST:, MOTOR_NAME=Y, MOTOR_PORT=MCU1, AXIS_NO=2, DESC=Y, EGU=mm, PREC=3, VELO=10.0, JVEL=5, JAR=0.0, ACCS=10, RDBD=0.1, DLLM=-20, DHLM=130, HOMEPROC=3,SREV=12800,UREV=60.000000, ")
+ dbLoadRecords(ecmcMotorRecord.template, "PREFIX=IOC_TEST:, MOTOR_NAME=Y, MOTOR_PORT=MCU1, AXIS_NO=2, DESC=Y, EGU=mm, PREC=3, VELO=10.0, JVEL=5, JAR=0.0, ACCS=10, RDBD=0.1, DLLM=-20, DHLM=130, HOMEPROC=1,SREV=12800,UREV=60.000000, ")
 epicsEnvSet("ECMC_AXISFIELDINIT",  "")
 ecmcFileExist(ecmcMotorRecordhome.template,1,1)
-dbLoadRecords(ecmcMotorRecordhome.template, "PREFIX=IOC_TEST:, MOTOR_NAME=Y, MOTOR_PORT=MCU1, AXIS_NO=2,HOMEPROC=3, HOMEPOS=0.0, HVELTO=5, HVELFRM=4, HOMEACC=21, HOMEDEC=100")
+dbLoadRecords(ecmcMotorRecordhome.template, "PREFIX=IOC_TEST:, MOTOR_NAME=Y, MOTOR_PORT=MCU1, AXIS_NO=2,HOMEPROC=1, HOMEPOS=-90, HVELTO=5, HVELFRM=4, HOMEACC=21, HOMEDEC=100")
 epicsEnvUnset(ECMC_TEMP_SREV)
 epicsEnvUnset(ECMC_TEMP_UREV)
 # Add ECMC_AXIS_NO to ECMC_AXES_CFG
@@ -1455,149 +1455,149 @@ epicsEnvUnset(ECMC_TRAJ_TYPE)
 epicsEnvUnset(ECMC_JERK)
 epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
 ##############################################################################
-#########2023/03/02 15:46:42.185 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000018
-2023/03/02 15:46:42.185 ecmcMotorRecord:: poll(1) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
-2023/03/02 15:46:42.185 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
-2023/03/02 15:46:42.185 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000041
-2023/03/02 15:46:42.185 ecmcMotorRecord:: poll(2) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
-2023/03/02 15:46:42.185 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
-2023/03/02 15:46:43.179 EtherCAT bus ready (not scaning).
-2023/03/02 15:46:43.179 INFO: Locking memory
-2023/03/02 15:46:43.191 Starting up EtherCAT bus: 0 second(s). Max wait time 30 second(s).
-2023/03/02 15:46:43.280 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 16).
-2023/03/02 15:46:43.280 ../devEcmcSup/motion/ecmcMonitor.cpp/checkLimits:494: ERROR_MON_BOTH_LIMIT_INTERLOCK (0x14c10).
-2023/03/02 15:46:43.280 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 7).
-2023/03/02 15:46:43.280 ../devEcmcSup/motion/ecmcAxisReal.cpp/execute:182: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315).
-2023/03/02 15:46:43.280 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 16).
-2023/03/02 15:46:43.280 ../devEcmcSup/motion/ecmcMonitor.cpp/checkLimits:494: ERROR_MON_BOTH_LIMIT_INTERLOCK (0x14c10).
-2023/03/02 15:46:43.280 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 7).
-2023/03/02 15:46:43.280 ../devEcmcSup/motion/ecmcAxisReal.cpp/execute:182: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315).
-2023/03/02 15:46:43.280 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 7: Not operational (0x24011).
-2023/03/02 15:46:43.280 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
-2023/03/02 15:46:43.280 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 8: Not operational (0x24011).
-2023/03/02 15:46:43.280 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
-2023/03/02 15:46:43.280 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 9: Not operational (0x24011).
-2023/03/02 15:46:43.280 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
-2023/03/02 15:46:43.385 ecmcMotorRecord:: poll(1) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000005
-2023/03/02 15:46:43.385 ecmcMotorRecord:: poll(1) bError=1 drvlocal.statusBinData.onChangeData.error=0x14315
-2023/03/02 15:46:43.385 ecmcMotorRecord:: sErrorMessage(1)="ERROR_AXIS_HARDWARE_STATUS_NOT_OK"
-2023/03/02 15:46:43.385 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=1 old=4 ErrID=0x14315 old=0x0 Warn=0 nCmd=0 old=0 txt=E: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315)
-2023/03/02 15:46:43.385 ecmcMotorRecord:: poll(2) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000002
-2023/03/02 15:46:43.385 ecmcMotorRecord:: poll(2) bError=1 drvlocal.statusBinData.onChangeData.error=0x14315
-2023/03/02 15:46:43.385 ecmcMotorRecord:: sErrorMessage(2)="ERROR_AXIS_HARDWARE_STATUS_NOT_OK"
-2023/03/02 15:46:43.385 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=1 old=4 ErrID=0x14315 old=0x0 Warn=0 nCmd=0 old=0 txt=E: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315)
-2023/03/02 15:46:43.952 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 16).
-2023/03/02 15:46:43.952 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 16).
-2023/03/02 15:46:44.191 Starting up EtherCAT bus: 1 second(s). Max wait time 30 second(s).
-2023/03/02 15:46:44.283 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:46:44.283 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 1): Motion interlock cleared.
-2023/03/02 15:46:44.283 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:46:44.283 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:46:44.283 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 2): Motion interlock cleared.
-2023/03/02 15:46:44.283 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:46:44.283 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:46:44.385 ecmcMotorRecord:: poll(1) LLS=0
-2023/03/02 15:46:44.385 ecmcMotorRecord:: poll(1) HLS=0
-2023/03/02 15:46:44.385 ecmcMotorRecord:: poll(1) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
-2023/03/02 15:46:44.385 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=1 ErrID=0x0 old=0x14315 Warn=0 nCmd=0 old=0 txt=NULL
-2023/03/02 15:46:44.385 ecmcMotorRecord:: poll(2) LLS=0
-2023/03/02 15:46:44.385 ecmcMotorRecord:: poll(2) HLS=0
-2023/03/02 15:46:44.385 ecmcMotorRecord:: poll(2) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
-2023/03/02 15:46:44.385 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=1 ErrID=0x0 old=0x14315 Warn=0 nCmd=0 old=0 txt=NULL
-2023/03/02 15:46:46.191 EtherCAT bus started!
-2023/03/02 15:46:46.191 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtIocBuild (0). Allow callbacks: true.
+############2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000015
+2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(1) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000004
+2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(2) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 15:52:04.002 EtherCAT bus ready (not scaning).
+2023/03/02 15:52:04.002 INFO: Locking memory
+2023/03/02 15:52:04.013 Starting up EtherCAT bus: 0 second(s). Max wait time 30 second(s).
+2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 16).
+2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcMonitor.cpp/checkLimits:494: ERROR_MON_BOTH_LIMIT_INTERLOCK (0x14c10).
+2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 7).
+2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisReal.cpp/execute:182: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315).
+2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 16).
+2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcMonitor.cpp/checkLimits:494: ERROR_MON_BOTH_LIMIT_INTERLOCK (0x14c10).
+2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 7).
+2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisReal.cpp/execute:182: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315).
+2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 7: Not operational (0x24011).
+2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
+2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 8: Not operational (0x24011).
+2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
+2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 9: Not operational (0x24011).
+2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
+2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(1) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000005
+2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(1) bError=1 drvlocal.statusBinData.onChangeData.error=0x14315
+2023/03/02 15:52:04.164 ecmcMotorRecord:: sErrorMessage(1)="ERROR_AXIS_HARDWARE_STATUS_NOT_OK"
+2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=1 old=4 ErrID=0x14315 old=0x0 Warn=0 nCmd=0 old=0 txt=E: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315)
+2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(2) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000002
+2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(2) bError=1 drvlocal.statusBinData.onChangeData.error=0x14315
+2023/03/02 15:52:04.164 ecmcMotorRecord:: sErrorMessage(2)="ERROR_AXIS_HARDWARE_STATUS_NOT_OK"
+2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=1 old=4 ErrID=0x14315 old=0x0 Warn=0 nCmd=0 old=0 txt=E: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315)
+2023/03/02 15:52:04.775 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 16).
+2023/03/02 15:52:04.775 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 16).
+2023/03/02 15:52:05.013 Starting up EtherCAT bus: 1 second(s). Max wait time 30 second(s).
+2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 15:52:05.106 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 1): Motion interlock cleared.
+2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 15:52:05.106 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 2): Motion interlock cleared.
+2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(1) LLS=0
+2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(1) HLS=0
+2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(1) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=1 ErrID=0x0 old=0x14315 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(2) LLS=0
+2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(2) HLS=0
+2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(2) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=1 ErrID=0x0 old=0x14315 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 15:52:07.014 EtherCAT bus started!
+2023/03/02 15:52:07.014 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtIocBuild (0). Allow callbacks: true.
 Starting iocInit
-2023/03/02 15:46:46.192 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtBeginning (1). Allow callbacks: true.
-2023/03/02 15:46:46.194 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCallbackInit (2). Allow callbacks: true.
-2023/03/02 15:46:46.195 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCaLinkInit (3). Allow callbacks: true.
-2023/03/02 15:46:46.195 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDrvSup (4). Allow callbacks: true.
-2023/03/02 15:46:46.195 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitRecSup (5). Allow callbacks: true.
-2023/03/02 15:46:46.196 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDevSup (6). Allow callbacks: true.
-2023/03/02 15:46:46.197 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.reset linked to record (asyn reason 1).
-2023/03/02 15:46:46.197 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.command linked to record (asyn reason 2).
-2023/03/02 15:46:46.198 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.command linked to record (asyn reason 3).
-2023/03/02 15:46:46.198 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.driveControl01 linked to record (asyn reason 4).
-2023/03/02 15:46:46.198 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.velocitySetpoint01 linked to record (asyn reason 5).
-2023/03/02 15:46:46.198 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderControl01 linked to record (asyn reason 6).
-2023/03/02 15:46:46.199 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderValue01 linked to record (asyn reason 7).
-2023/03/02 15:46:46.199 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.driveControl01 linked to record (asyn reason 8).
-2023/03/02 15:46:46.199 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.velocitySetpoint01 linked to record (asyn reason 9).
-2023/03/02 15:46:46.199 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderControl01 linked to record (asyn reason 10).
-2023/03/02 15:46:46.200 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderValue01 linked to record (asyn reason 11).
-2023/03/02 15:46:46.200 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.targpos linked to record (asyn reason 12).
-2023/03/02 15:46:46.201 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.targvelo linked to record (asyn reason 13).
-2023/03/02 15:46:46.201 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.targpos linked to record (asyn reason 14).
-2023/03/02 15:46:46.202 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.targvelo linked to record (asyn reason 15).
-2023/03/02 15:46:46.204 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.driveStatus01 linked to record (asyn reason 16).
-2023/03/02 15:46:46.204 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderStatus01 linked to record (asyn reason 17).
-2023/03/02 15:46:46.204 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.driveStatus01 linked to record (asyn reason 18).
-2023/03/02 15:46:46.205 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderStatus01 linked to record (asyn reason 19).
-2023/03/02 15:46:46.205 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.diagnostic linked to record (asyn reason 20).
-2023/03/02 15:46:46.205 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.plc.expression linked to record (asyn reason 21).
-2023/03/02 15:46:46.205 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.diagnostic linked to record (asyn reason 22).
-2023/03/02 15:46:46.205 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.plc.expression linked to record (asyn reason 23).
-2023/03/02 15:46:46.206 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.msg linked to record (asyn reason 24).
-2023/03/02 15:46:46.206 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.updated linked to record (asyn reason 25).
-2023/03/02 15:46:46.206 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.slavestatus linked to record (asyn reason 26).
-2023/03/02 15:46:46.206 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.slavestatus linked to record (asyn reason 27).
-2023/03/02 15:46:46.207 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.slavestatus linked to record (asyn reason 28).
-2023/03/02 15:46:46.207 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.status linked to record (asyn reason 29).
-2023/03/02 15:46:46.207 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.errorid linked to record (asyn reason 30).
-2023/03/02 15:46:46.208 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.warningid linked to record (asyn reason 31).
-2023/03/02 15:46:46.208 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.status linked to record (asyn reason 32).
-2023/03/02 15:46:46.209 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.errorid linked to record (asyn reason 33).
-2023/03/02 15:46:46.209 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.warningid linked to record (asyn reason 34).
-2023/03/02 15:46:46.209 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.masterstatus linked to record (asyn reason 35).
-2023/03/02 15:46:46.210 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.slavecounter linked to record (asyn reason 36).
-2023/03/02 15:46:46.210 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.memmapcounter linked to record (asyn reason 37).
-2023/03/02 15:46:46.210 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.domainfailcountertotal linked to record (asyn reason 38).
-2023/03/02 15:46:46.211 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.entrycounter linked to record (asyn reason 39).
-2023/03/02 15:46:46.211 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.domainstatus linked to record (asyn reason 40).
-2023/03/02 15:46:46.211 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput01 linked to record (asyn reason 41).
-2023/03/02 15:46:46.212 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput02 linked to record (asyn reason 42).
-2023/03/02 15:46:46.213 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput03 linked to record (asyn reason 43).
-2023/03/02 15:46:46.213 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput04 linked to record (asyn reason 44).
-2023/03/02 15:46:46.214 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.enable linked to record (asyn reason 45).
-2023/03/02 15:46:46.215 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.firstscan linked to record (asyn reason 46).
-2023/03/02 15:46:46.215 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.enable linked to record (asyn reason 47).
-2023/03/02 15:46:46.216 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.firstscan linked to record (asyn reason 48).
-2023/03/02 15:46:46.217 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.ok linked to record (asyn reason 49).
-2023/03/02 15:46:46.218 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.control linked to record (asyn reason 50).
-2023/03/02 15:46:46.237 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.control linked to record (asyn reason 51).
-2023/03/02 15:46:46.239 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.ONE linked to record (asyn reason 52).
-2023/03/02 15:46:46.240 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.ZERO linked to record (asyn reason 53).
-2023/03/02 15:46:46.241 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.ONE linked to record (asyn reason 54).
-2023/03/02 15:46:46.242 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.ZERO linked to record (asyn reason 55).
-2023/03/02 15:46:46.242 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.ONE linked to record (asyn reason 56).
-2023/03/02 15:46:46.243 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.ZERO linked to record (asyn reason 57).
-2023/03/02 15:46:46.244 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.cmddata linked to record (asyn reason 58).
-2023/03/02 15:46:46.245 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.cmddata linked to record (asyn reason 59).
-2023/03/02 15:46:46.247 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.positionActual01 linked to record (asyn reason 60).
-2023/03/02 15:46:46.248 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderLatchPostion01 linked to record (asyn reason 61).
-2023/03/02 15:46:46.251 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.positionActual01 linked to record (asyn reason 62).
-2023/03/02 15:46:46.252 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderLatchPostion01 linked to record (asyn reason 63).
-2023/03/02 15:46:46.254 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.actpos linked to record (asyn reason 64).
-2023/03/02 15:46:46.255 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.actvel linked to record (asyn reason 65).
-2023/03/02 15:46:46.256 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.setpos linked to record (asyn reason 66).
-2023/03/02 15:46:46.257 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.poserr linked to record (asyn reason 67).
-2023/03/02 15:46:46.257 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.error linked to record (asyn reason 68).
-2023/03/02 15:46:46.258 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.actpos linked to record (asyn reason 69).
-2023/03/02 15:46:46.259 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.actvel linked to record (asyn reason 70).
-2023/03/02 15:46:46.260 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.setpos linked to record (asyn reason 71).
-2023/03/02 15:46:46.261 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.poserr linked to record (asyn reason 72).
-2023/03/02 15:46:46.261 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.error linked to record (asyn reason 73).
-2023/03/02 15:46:46.262 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.appmode linked to record (asyn reason 74).
-2023/03/02 15:46:46.266 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.id linked to record (asyn reason 75).
-2023/03/02 15:46:46.267 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.latency.min linked to record (asyn reason 76).
-2023/03/02 15:46:46.268 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.latency.max linked to record (asyn reason 77).
-2023/03/02 15:46:46.269 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.period.min linked to record (asyn reason 78).
-2023/03/02 15:46:46.270 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.period.max linked to record (asyn reason 79).
-2023/03/02 15:46:46.271 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.execute.min linked to record (asyn reason 80).
-2023/03/02 15:46:46.272 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.execute.max linked to record (asyn reason 81).
-2023/03/02 15:46:46.273 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.send.min linked to record (asyn reason 82).
-2023/03/02 15:46:46.274 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.send.max linked to record (asyn reason 83).
-2023/03/02 15:46:46.276 ecmcMotorRecord:: setIntegerParam(1 motorUpdateStatus_)=0
-#### Configure diagnostics:
+2023/03/02 15:52:07.014 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtBeginning (1). Allow callbacks: true.
+2023/03/02 15:52:07.015 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCallbackInit (2). Allow callbacks: true.
+2023/03/02 15:52:07.017 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCaLinkInit (3). Allow callbacks: true.
+2023/03/02 15:52:07.017 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDrvSup (4). Allow callbacks: true.
+2023/03/02 15:52:07.017 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitRecSup (5). Allow callbacks: true.
+2023/03/02 15:52:07.020 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDevSup (6). Allow callbacks: true.
+2023/03/02 15:52:07.023 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.reset linked to record (asyn reason 1).
+2023/03/02 15:52:07.024 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.command linked to record (asyn reason 2).
+2023/03/02 15:52:07.024 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.command linked to record (asyn reason 3).
+2023/03/02 15:52:07.024 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.driveControl01 linked to record (asyn reason 4).
+2023/03/02 15:52:07.024 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.velocitySetpoint01 linked to record (asyn reason 5).
+2023/03/02 15:52:07.025 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderControl01 linked to record (asyn reason 6).
+2023/03/02 15:52:07.025 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderValue01 linked to record (asyn reason 7).
+2023/03/02 15:52:07.025 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.driveControl01 linked to record (asyn reason 8).
+2023/03/02 15:52:07.025 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.velocitySetpoint01 linked to record (asyn reason 9).
+2023/03/02 15:52:07.026 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderControl01 linked to record (asyn reason 10).
+2023/03/02 15:52:07.027 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderValue01 linked to record (asyn reason 11).
+2023/03/02 15:52:07.028 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.targpos linked to record (asyn reason 12).
+2023/03/02 15:52:07.028 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.targvelo linked to record (asyn reason 13).
+2023/03/02 15:52:07.029 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.targpos linked to record (asyn reason 14).
+2023/03/02 15:52:07.029 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.targvelo linked to record (asyn reason 15).
+2023/03/02 15:52:07.030 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.driveStatus01 linked to record (asyn reason 16).
+2023/03/02 15:52:07.030 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderStatus01 linked to record (asyn reason 17).
+2023/03/02 15:52:07.030 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.driveStatus01 linked to record (asyn reason 18).
+2023/03/02 15:52:07.030 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderStatus01 linked to record (asyn reason 19).
+2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.diagnostic linked to record (asyn reason 20).
+2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.plc.expression linked to record (asyn reason 21).
+2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.diagnostic linked to record (asyn reason 22).
+2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.plc.expression linked to record (asyn reason 23).
+2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.msg linked to record (asyn reason 24).
+2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.updated linked to record (asyn reason 25).
+2023/03/02 15:52:07.032 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.slavestatus linked to record (asyn reason 26).
+2023/03/02 15:52:07.032 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.slavestatus linked to record (asyn reason 27).
+2023/03/02 15:52:07.032 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.slavestatus linked to record (asyn reason 28).
+2023/03/02 15:52:07.033 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.status linked to record (asyn reason 29).
+2023/03/02 15:52:07.033 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.errorid linked to record (asyn reason 30).
+2023/03/02 15:52:07.034 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.warningid linked to record (asyn reason 31).
+2023/03/02 15:52:07.036 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.status linked to record (asyn reason 32).
+2023/03/02 15:52:07.036 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.errorid linked to record (asyn reason 33).
+2023/03/02 15:52:07.036 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.warningid linked to record (asyn reason 34).
+2023/03/02 15:52:07.036 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.masterstatus linked to record (asyn reason 35).
+2023/03/02 15:52:07.037 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.slavecounter linked to record (asyn reason 36).
+2023/03/02 15:52:07.037 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.memmapcounter linked to record (asyn reason 37).
+2023/03/02 15:52:07.037 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.domainfailcountertotal linked to record (asyn reason 38).
+2023/03/02 15:52:07.038 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.entrycounter linked to record (asyn reason 39).
+2023/03/02 15:52:07.038 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.domainstatus linked to record (asyn reason 40).
+2023/03/02 15:52:07.039 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput01 linked to record (asyn reason 41).
+2023/03/02 15:52:07.039 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput02 linked to record (asyn reason 42).
+2023/03/02 15:52:07.058 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput03 linked to record (asyn reason 43).
+2023/03/02 15:52:07.059 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput04 linked to record (asyn reason 44).
+2023/03/02 15:52:07.059 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.enable linked to record (asyn reason 45).
+2023/03/02 15:52:07.061 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.firstscan linked to record (asyn reason 46).
+2023/03/02 15:52:07.063 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.enable linked to record (asyn reason 47).
+2023/03/02 15:52:07.065 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.firstscan linked to record (asyn reason 48).
+2023/03/02 15:52:07.065 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.ok linked to record (asyn reason 49).
+2023/03/02 15:52:07.067 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.control linked to record (asyn reason 50).
+2023/03/02 15:52:07.067 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.control linked to record (asyn reason 51).
+2023/03/02 15:52:07.069 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.ONE linked to record (asyn reason 52).
+2023/03/02 15:52:07.070 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.ZERO linked to record (asyn reason 53).
+2023/03/02 15:52:07.071 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.ONE linked to record (asyn reason 54).
+2023/03/02 15:52:07.073 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.ZERO linked to record (asyn reason 55).
+2023/03/02 15:52:07.075 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.ONE linked to record (asyn reason 56).
+2023/03/02 15:52:07.076 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.ZERO linked to record (asyn reason 57).
+2023/03/02 15:52:07.079 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.cmddata linked to record (asyn reason 58).
+2023/03/02 15:52:07.081 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.cmddata linked to record (asyn reason 59).
+2023/03/02 15:52:07.085 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.positionActual01 linked to record (asyn reason 60).
+2023/03/02 15:52:07.087 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderLatchPostion01 linked to record (asyn reason 61).
+2023/03/02 15:52:07.094 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.positionActual01 linked to record (asyn reason 62).
+2023/03/02 15:52:07.096 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderLatchPostion01 linked to record (asyn reason 63).
+2023/03/02 15:52:07.100 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.actpos linked to record (asyn reason 64).
+2023/03/02 15:52:07.102 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.actvel linked to record (asyn reason 65).
+2023/03/02 15:52:07.103 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.setpos linked to record (asyn reason 66).
+2023/03/02 15:52:07.105 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.poserr linked to record (asyn reason 67).
+2023/03/02 15:52:07.107 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.error linked to record (asyn reason 68).
+2023/03/02 15:52:07.109 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.actpos linked to record (asyn reason 69).
+2023/03/02 15:52:07.110 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.actvel linked to record (asyn reason 70).
+2023/03/02 15:52:07.112 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.setpos linked to record (asyn reason 71).
+2023/03/02 15:52:07.114 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.poserr linked to record (asyn reason 72).
+2023/03/02 15:52:07.115 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.error linked to record (asyn reason 73).
+2023/03/02 15:52:07.117 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.appmode linked to record (asyn reason 74).
+2023/03/02 15:52:07.119 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.id linked to record (asyn reason 75).
+2023/03/02 15:52:07.120 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.latency.min linked to record (asyn reason 76).
+2023/03/02 15:52:07.122 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.latency.max linked to record (asyn reason 77).
+2023/03/02 15:52:07.123 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.period.min linked to record (asyn reason 78).
+2023/03/02 15:52:07.125 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.period.max linked to record (asyn reason 79).
+2023/03/02 15:52:07.127 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.execute.min linked to record (asyn reason 80).
+2023/03/02 15:52:07.128 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.execute.max linked to record (asyn reason 81).
+2023/03/02 15:52:07.129 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.send.min linked to record (asyn reason 82).
+2023/03/02 15:52:07.130 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.send.max linked to record (asyn reason 83).
+2023/03/02 15:52:07.131 ecmcMotorRecord:: setIntegerParam(1 motorUpdateStatus_)=0
+# Configure diagnostics:
 ecmcConfigOrDie "Cfg.EcSetDiagnostics(1)"
 OK
 ecmcConfigOrDie "Cfg.EcEnablePrintouts(0)"
@@ -1645,7 +1645,7 @@ ecmcConfigOrDie "Cfg.SetAppMode(1)"
 OK
 epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/cellMods//base-7.0.6.1/require-4.0.0:/home/anderssandstrom/sources/base-7.0.6.1/require/4.0.0/siteMods
 # Set the IOC Prompt String One 
-epicsEnvSet IOCSH_PS1 "localhost-11769 > "
+epicsEnvSet IOCSH_PS1 "localhost-13015 > "
 #
 # 
 iocInit
@@ -1653,45 +1653,46 @@ iocInit
 ## EPICS R7.0.6.1-E3-7.0.6.1-patch
 ## Rev. 2022-03-09T15:26+0100
 ############################################################################
-2023/03/02 15:46:46.275 [devMotorAsyn.c:439  IOC_TEST:X] init_record IOC_TEST:X position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x0b0a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
-2023/03/02 15:46:46.276 [devMotorAsyn.c:185  IOC_TEST:X] init_controller IOC_TEST:X set encoder ratio=1.000000 status=0
-2023/03/02 15:46:46.276 [devMotorAsyn.c:266  IOC_TEST:X] update_soft_limits IOC_TEST:X RawHLM_RO=130.000000 RawLLM_RO=-20.000000 valid=1 DHLM_RO=130.000000 DLLM_RO=-20.000000
-2023/03/02 15:46:46.276 [motorDevSup.c:327  IOC_TEST:X] PositionRestoreNeeded IOC_TEST:X rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=0.100000 pmr->mres=0.004687 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
-2023/03/02 15:46:46.276 [motorRecord.cc:782  IOC_TEST:X] init_re_init start neverPolled=0 stat=17 nsta=0
-2023/03/02 15:46:46.276 [motorRecord.cc:720  IOC_TEST:X] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=0.004687
-2023/03/02 15:46:46.276 [motorRecord.cc:4484 IOC_TEST:X] pmr->dhlm=130 softLimitRO=130
-2023/03/02 15:46:46.276 [motorRecord.cc:4545 IOC_TEST:X] pmr->dllm=-20 softLimitRO=-20
-2023/03/02 15:46:46.276 [motorRecord.cc:833  IOC_TEST:X] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
-2023/03/02 15:46:46.276 [motorRecord.cc:968  IOC_TEST:X] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0xb0a neverPolled=0
-2023/03/02 15:46:46.276 [devMotorAsyn.c:439  IOC_TEST:Y] init_record IOC_TEST:Y position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x0b0a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
-2023/03/02 15:46:46.276 [devMotorAsyn.c:185  IOC_TEST:Y] init_controller IOC_TEST:Y set encoder ratio2023/03/02 15:46:46.276 ecmcMotorRecord:: setIntegerParam(2 motorUpdateStatus_)=0
-2023/03/02 15:46:46.282 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDatabase (7). Allow callbacks: true.
-2023/03/02 15:46:46.282 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterFinishDevSup (8). Allow callbacks: true.
-2023/03/02 15:46:46.793 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterScanInit (9). Allow callbacks: true.
-2023/03/02 15:46:46.793 ecmcMotorRecord:: setDoubleParam(1 HomPos_)=0.000000
-2023/03/02 15:46:46.793 ecmcMotorRecord:: setDoubleParam(2 HomPos_)=0.000000
-2023/03/02 15:46:46.794 ecmcMotorRecord:: setIntegerParam(1 HomProc_)=3 motorNotHomedProblem=0
-2023/03/02 15:46:46.794 ecmcMotorRecord:: setIntegerParam(2 HomProc_)=3 motorNotHomedProblem=0
-2023/03/02 15:46:46.794 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitialProcess (10). Allow callbacks: true.
-2023/03/02 15:46:46.796 ecmcAsynPortDriver:getEpicsState: EPICS state: Unknown state (11). Allow callbacks: true.
-2023/03/02 15:46:46.796 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterIocBuilt (12). Allow callbacks: true.
-2023/03/02 15:46:46.800 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtIocRun (13). Allow callbacks: true.
-2023/03/02 15:46:46.800 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterDatabaseRunning (14). Allow callbacks: true.
-2023/03/02 15:46:46.801 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInterruptAccept (28). Allow callbacks: true.
-2023/03/02 15:46:46.801 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCaServerRunning (15). Allow callbacks: true.
-2023/03/02 15:46:46.801 ecmcAsynPortDriver:getEpicsState: EPICS state: Unknown state (29). Allow callbacks: true.
+2023/03/02 15:52:07.131 [devMotorAsyn.c:439  IOC_TEST:X] init_record IOC_TEST:X position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x0b0a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
+2023/03/02 15:52:07.131 [devMotorAsyn.c:185  IOC_TEST:X] init_controller IOC_TEST:X set encoder ratio=1.000000 status=0
+2023/03/02 15:52:07.131 [devMotorAsyn.c:266  IOC_TEST:X] update_soft_limits IOC_TEST:X RawHLM_RO=60.000000 RawLLM_RO=-60.000000 valid=1 DHLM_RO=60.000000 DLLM_RO=-60.000000
+2023/03/02 15:52:07.131 [motorDevSup.c:327  IOC_TEST:X] PositionRestoreNeeded IOC_TEST:X rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=0.100000 pmr->mres=0.004687 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
+2023/03/02 15:52:07.131 [motorRecord.cc:782  IOC_TEST:X] init_re_init start neverPolled=0 stat=17 nsta=0
+2023/03/02 15:52:07.131 [motorRecord.cc:720  IOC_TEST:X] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=0.004687
+2023/03/02 15:52:07.131 [motorRecord.cc:4484 IOC_TEST:X] pmr->dhlm=60 softLimitRO=60
+2023/03/02 15:52:07.131 [motorRecord.cc:4545 IOC_TEST:X] pmr->dllm=-60 softLimitRO=-60
+2023/03/02 15:52:07.131 [motorRecord.cc:833  IOC_TEST:X] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
+2023/03/02 15:52:07.131 [motorRecord.cc:968  IOC_TEST:X] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0xb0a neverPolled=0
+2023/03/02 15:52:07.131 [devMotorAsyn.c:439  IOC_TEST:Y] init_record IOC_TEST:Y position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x0b0a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
+2023/03/02 15:52:07.131 [devMotorAsyn.c:185  IOC_TEST:Y] init_controller IOC_TEST:Y set encoder ratio=1.00002023/03/02 15:52:07.131 ecmcMotorRecord:: setIntegerParam(2 motorUpdateStatus_)=0
+2023/03/02 15:52:07.147 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDatabase (7). Allow callbacks: true.
+2023/03/02 15:52:07.147 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterFinishDevSup (8). Allow callbacks: true.
+2023/03/02 15:52:07.656 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterScanInit (9). Allow callbacks: true.
+2023/03/02 15:52:07.656 ecmcMotorRecord:: setDoubleParam(1 HomPos_)=-90.000000
+2023/03/02 15:52:07.656 ecmcMotorRecord:: setDoubleParam(2 HomPos_)=-90.000000
+2023/03/02 15:52:07.657 ecmcMotorRecord:: setIntegerParam(1 HomProc_)=1 motorNotHomedProblem=0
+2023/03/02 15:52:07.657 ecmcMotorRecord:: setIntegerParam(2 HomProc_)=1 motorNotHomedProblem=0
+2023/03/02 15:52:07.657 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitialProcess (10). Allow callbacks: true.
+2023/03/02 15:52:07.659 ecmcAsynPortDriver:getEpicsState: EPICS state: Unknown state (11). Allow callbacks: true.
+2023/03/02 15:52:07.659 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterIocBuilt (12). Allow callbacks: true.
+2023/03/02 15:52:07.663 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtIocRun (13). Allow callbacks: true.
+2023/03/02 15:52:07.664 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterDatabaseRunning (14). Allow callbacks: true.
+2023/03/02 15:52:07.664 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInterruptAccept (28). Allow callbacks: true.
+2023/03/02 15:52:07.664 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCaServerRunning (15). Allow callbacks: true.
+2023/03/02 15:52:07.664 ecmcAsynPortDriver:getEpicsState: EPICS state: Unknown state (29). Allow callbacks: true.
 iocRun: All initialization complete
-2023/03/02 15:46:46.808 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterIocRunning (16). Allow callbacks: true.
-=1.000000 status=0
-2023/03/02 15:46:46.276 [devMotorAsyn.c:266  IOC_TEST:Y] update_soft_limits IOC_TEST:Y RawHLM_RO=130.000000 RawLLM_RO=-20.000000 valid=1 DHLM_RO=130.000000 DLLM_RO=-20.000000
-2023/03/02 15:46:46.276 [motorDevSup.c:327  IOC_TEST:Y] PositionRestoreNeeded IOC_TEST:Y rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=0.100000 pmr->mres=0.004687 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
-2023/03/02 15:46:46.276 [motorRecord.cc:782  IOC_TEST:Y] init_re_init start neverPolled=0 stat=17 nsta=0
-2023/03/02 15:46:46.276 [motorRecord.cc:720  IOC_TEST:Y] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=0.004687
-2023/03/02 15:46:46.276 [motorRecord.cc:4484 IOC_TEST:Y] pmr->dhlm=130 softLimitRO=130
-2023/03/02 15:46:46.276 [motorRecord.cc:4545 IOC_TEST:Y] pmr->dllm=-20 softLimitRO=-20
-2023/03/02 15:46:46.276 [motorRecord.cc:833  IOC_TEST:Y] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
-2023/03/02 15:46:46.276 [motorRecord.cc:968  IOC_TEST:Y] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0xb0a neverPolled=0
-[?1034hlocalhost-11769 > dbl
+2023/03/02 15:52:07.680 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterIocRunning (16). Allow callbacks: true.
+00 status=0
+2023/03/02 15:52:07.131 [devMotorAsyn.c:266  IOC_TEST:Y] update_soft_limits IOC_TEST:Y RawHLM_RO=130.000000 RawLLM_RO=-20.000000 valid=1 DHLM_RO=130.000000 DLLM_RO=-20.000000
+2023/03/02 15:52:07.131 [motorDevSup.c:327  IOC_TEST:Y] PositionRestoreNeeded IOC_TEST:Y rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=0.100000 pmr->mres=0.004687 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
+2023/03/02 15:52:07.131 [motorRecord.cc:782  IOC_TEST:Y] init_re_init start neverPolled=0 stat=17 nsta=0
+2023/03/02 15:52:07.131 [motorRecord.cc:720  IOC_TEST:Y] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=0.004687
+2023/03/02 15:52:07.131 [motorRecord.cc:4484 IOC_TEST:Y] pmr->dhlm=130 softLimitRO=130
+2023/03/02 15:52:07.131 [motorRecord.cc:4545 IOC_TEST:Y] pmr->dllm=-20 softLimitRO=-20
+2023/03/02 15:52:07.131 [motorRecord.cc:833  IOC_TEST:Y] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
+2023/03/02 15:52:07.131 [motorRecord.cc:968  IOC_TEST:Y] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0xb0a neverPolled=0
+[?1034hlocalhost-13015 > 
+localhost-13015 > dbl
 IOC_TEST:m0s007-Enc01-LtchAutRst
 IOC_TEST:m0s008-Enc01-LtchAutRst
 IOC_TEST:m0s007-Enc01-LtchRst
@@ -1778,9 +1779,9 @@ IOC_TEST:X-Stat_
 IOC_TEST:Y-Stat_
 IOC_TEST:m0-Stat_
 IOC_TEST:m0-Dom-Stat_
-REQMOD:localhost-11769:MODULES
-REQMOD:localhost-11769:VERSIONS
-REQMOD:localhost-11769:MOD_VER
+REQMOD:localhost-13015:MODULES
+REQMOD:localhost-13015:VERSIONS
+REQMOD:localhost-13015:MOD_VER
 IOC_TEST:X-Arr-Stat
 IOC_TEST:X-PLC-Expr-RB
 IOC_TEST:Y-Arr-Stat
@@ -1930,15 +1931,15 @@ IOC_TEST:Y-DIR_
 IOC_TEST:Y-ErrRst
 IOC_TEST:Y-HomProc
 IOC_TEST:Y-MtnCmdData
-REQMOD:localhost-11769:exit
-REQMOD:localhost-11769:BaseVersion
-REQMOD:localhost-11769:require_VER
-REQMOD:localhost-11769:ecmccfg_VER
-REQMOD:localhost-11769:asyn_VER
-REQMOD:localhost-11769:exprtk_VER
-REQMOD:localhost-11769:motor_VER
-REQMOD:localhost-11769:ruckig_VER
-REQMOD:localhost-11769:ecmc_VER
+REQMOD:localhost-13015:exit
+REQMOD:localhost-13015:BaseVersion
+REQMOD:localhost-13015:require_VER
+REQMOD:localhost-13015:ecmccfg_VER
+REQMOD:localhost-13015:asyn_VER
+REQMOD:localhost-13015:exprtk_VER
+REQMOD:localhost-13015:motor_VER
+REQMOD:localhost-13015:ruckig_VER
+REQMOD:localhost-13015:ecmc_VER
 IOC_TEST:m0s007-HWType
 IOC_TEST:m0s008-HWType
 IOC_TEST:m0s009-HWType
@@ -2019,59 +2020,67 @@ IOC_TEST:Y-MCU1-asyn
 IOC_TEST:MCU-Cmd
 IOC_TEST:X
 IOC_TEST:Y
-localhost-11769 > dbpf IOC_TEST:X 10
-2023/03/02 15:46:54.251 [motorRecord.cc:1696 IOC_TEST:X] motor is stopped dval=0.000000 drbv=0.000000 pp=0 udf=0 stat=0 stop=0 pmr->spmg=GO mip=0x0('') msta=0xb0a
-2023/03/02 15:46:54.251 [motorRecord.cc:2013 IOC_TEST:X] doRetryOrDone dval=10.000000 rdbd=0.100000 spdb=0.100000 udf=0 stat=0 rcnt=0 pref_dir=1 relpos=10.000000 relbpos=10.000000 drbv=0.000000
-2023/03/02 15:46:54.251 [motorRecord.cc:2030 IOC_TEST:X] mipSetBit MOVE(Mo) old='' new=MOVE(Mo)
-DBF_DOUBLE:         10        
-localhost-11769 > 2023/03/02 15:46:54.951 2023/03/02 15:46:54.951 [motorRecord.cc:1530 IOC_TEST:X] msta.Bits.RA_DONE=0
-ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=1 atTarget=1 wf=3 ENC=2133 fPos=0 fActPosition=0 time=0.000003
-2023/03/02 15:46:54.951 [motorRecord.cc:1510 IOC_TEST:X] msta.Bits.RA_MOVING=1
-2023/03/02 15:46:54.951 [motorRecord.cc:1522 IOC_TEST:X] msta.Bits.EA_POSITION power on=1
-2023/03/02 15:46:55.151 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=1 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=2175 fPos=10 fActPosition=0.196875 time=0.000004
-2023/03/02 15:46:55.151 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=3 old=0 txt=NULL
-2023/03/02 15:46:57.152 ecmcMotorRecord:: poll(1) mvnNRdy=0 bBusy=0 bExecute=1 bEnabled=1 atTarget=1 wf=0 ENC=4266 fPos=10 fActPosition=9.99844 time=0.000002
-2023/03/02 15:46:57.152 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=3 txt=NULL
-2023/03/02 15:46:57.152 [motorRecord.cc:1510 IOC_TEST:X] msta.Bits.RA_MOVING=0
-2023/03/02 15:46:57.152 [motorRecord.cc:1530 IOC_TEST:X] msta.Bits.RA_DONE=1
-2023/03/02 15:46:57.152 [motorRecord.cc:1696 IOC_TEST:X] motor is stopped dval=10.000000 drbv=9.998437 pp=0 udf=0 stat=7 stop=0 pmr->spmg=GO mip=0x20(MOVE(Mo)) msta=0xb2a
-2023/03/02 15:46:57.152 [motorRecord.cc:1243 IOC_TEST:X] maybeRetry: close enough commandedDval=10.000000 last.dval=0.000000 dval=10.000000 drbv=9.998437 rdbd=0.100000 diff=0.001563 rcnt=0 pmr->rtry=1 mip=0x20(MOVE(Mo))
-2023/03/02 15:46:57.152 [motorRecord.cc:1292 IOC_TEST:X] mipClrBit 'Jf Jr J1 Hf Hr Mo Ry Lp Mb St Dr Da jS J2 Ex' old=MOVE(Mo) new=''
-2023/03/02 15:46:57.152 [motorRecord.cc:2201 IOC_TEST:X] too_small dval=10.000000 spdb=0.100000 mres=0.004687 drbv=9.998437
-
-localhost-11769 > dbpf IOC_TEST:X 10[C[1P 10Y 10
-2023/03/02 15:47:02.727 [motorRecord.cc:1696 IOC_TEST:Y] motor is stopped dval=0.000000 drbv=0.000000 pp=0 udf=0 stat=0 stop=0 pmr->spmg=GO mip=0x0('') msta=0xb0a
-2023/03/02 15:47:02.727 [motorRecord.cc:2013 IOC_TEST:Y] doRetryOrDone dval=10.000000 rdbd=0.100000 spdb=0.100000 udf=0 stat=0 rcnt=0 pref_dir=1 relpos=10.000000 relbpos=10.000000 drbv=0.000000
-2023/03/02 15:47:02.727 [motorRecord.cc:2030 IOC_TEST:Y] mipSetBit MOVE(Mo) old='' new=MOVE(Mo)
-DBF_DOUBLE:         10        
-localhost-11769 > 2023/03/02 15:47:03.427 [motorRecord.cc:1530 IOC_TEST:Y] msta.Bits.RA_DONE=0
-2023/03/02 15:47:03.427 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=1 atTarget=1 wf=3 ENC=6399 fPos=0 fActPosition=0 time=0.000001
-2023/03/02 15:47:03.427 [motorRecord.cc:1510 IOC_TEST:Y] msta.Bits.RA_MOVING=1
-2023/03/02 15:47:03.427 [motorRecord.cc:1522 IOC_TEST:Y] msta.Bits.EA_POSITION power on=1
-2023/03/02 15:47:03.627 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=1 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=6441 fPos=10 fActPosition=0.196875 time=0.000001
-2023/03/02 15:47:03.627 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=3 old=0 txt=NULL
-2023/03/02 15:47:05.628 ecmcMotorRecord:: poll(2) mvnNRdy=0 bBusy=0 bExecute=1 bEnabled=1 atTarget=1 wf=0 ENC=8532 fPos=10 fActPosition=9.99844 time=0.000001
-2023/03/02 15:47:05.628 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=3 txt=NULL
-2023/03/02 15:47:05.628 [motorRecord.cc:1510 IOC_TEST:Y] msta.Bits.RA_MOVING=0
-2023/03/02 15:47:05.628 [motorRecord.cc:1530 IOC_TEST:Y] msta.Bits.RA_DONE=1
-2023/03/02 15:47:05.628 [motorRecord.cc:1696 IOC_TEST:Y] motor is stopped dval=10.000000 drbv=9.998437 pp=0 udf=0 stat=7 stop=0 pmr->spmg=GO mip=0x20(MOVE(Mo)) msta=0xb2a
-2023/03/02 15:47:05.628 [motorRecord.cc:1243 IOC_TEST:Y] maybeRetry: close enough commandedDval=10.000000 last.dval=0.000000 dval=10.000000 drbv=9.998437 rdbd=0.100000 diff=0.001563 rcnt=0 pmr->rtry=1 mip=0x20(MOVE(Mo))
-2023/03/02 15:47:05.628 [motorRecord.cc:1292 IOC_TEST:Y] mipClrBit 'Jf Jr J1 Hf Hr Mo Ry Lp Mb St Dr Da jS J2 Ex' old=MOVE(Mo) new=''
-2023/03/02 15:47:05.628 [motorRecord.cc:2201 IOC_TEST:Y] too_small dval=10.000000 spdb=0.100000 mres=0.004687 drbv=9.998437
-dbpf IOC_TEST:Y 10X[C[C[C-10
-2023/03/02 15:47:10.491 [motorRecord.cc:2013 IOC_TEST:X] doRetryOrDone dval=-10.000000 rdbd=0.100000 spdb=0.100000 udf=0 stat=7 rcnt=0 pref_dir=1 relpos=-19.998438 relbpos=-19.998438 drbv=9.998437
-2023/03/02 15:47:10.491 [motorRecord.cc:2030 IOC_TEST:X] mipSetBit MOVE(Mo) old='' new=MOVE(Mo)
-DBF_DOUBLE:         -10       
-2023/03/02 15:47:10.491 [motorRecord.cc:1530 IOC_TEST:X] msta.Bits.RA_DONE=0
-2023/03/02 15:47:10.491 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=1 bEnabled=1 atTarget=1 wf=3 ENC=4266 fPos=10 fActPosition=9.99844 time=0.000002
-2023/03/02 15:47:10.491 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=3 old=0 txt=NULL
-2023/03/02 15:47:10.491 [motorRecord.cc:1510 IOC_TEST:X] msta.Bits.RA_MOVING=1
-localhost-11769 > 2023/03/02 15:47:10.691 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=1 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=4224 fPos=-10 fActPosition=9.80156 time=0.000030
-2023/03/02 15:47:13.693 ecmcMotorRecord:: poll(1) mvnNRdy=0 bBusy=0 bExecute=1 bEnabled=1 atTarget=1 wf=0 ENC=65535 fPos=-10 fActPosition=-9.99844 time=0.000003
-2023/03/02 15:47:13.693 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=3 txt=NULL
-2023/03/02 15:47:13.693 [motorRecord.cc:1510 IOC_TEST:X] msta.Bits.RA_MOVING=0
-2023/03/02 15:47:13.693 [motorRecord.cc:1530 IOC_TEST:X] msta.Bits.RA_DONE=1
-2023/03/02 15:47:13.693 [motorRecord.cc:1696 IOC_TEST:X] motor is stopped dval=-10.000000 drbv=-9.998437 pp=0 udf=0 stat=7 stop=0 pmr->spmg=GO mip=0x20(MOVE(Mo)) msta=0xb2a
-2023/03/02 15:47:13.693 [motorRecord.cc:1243 IOC_TEST:X] maybeRetry: close enough commandedDval=-10.000000 last.dval=10.000000 dval=-10.000000 drbv=-9.998437 rdbd=0.100000 diff=-0.001563 rcnt=0 pmr->rtry=1 mip=0x20(MOVE(Mo))
-2023/03/02 15:47:13.693 [motorRecord.cc:1292 IOC_TEST:X] mipClrBit 'Jf Jr J1 Hf Hr Mo Ry Lp Mb St Dr Da jS J2 Ex' old=MOVE(Mo) new=''
-2023/03/02 15:47:13.693 [motorRecord.cc:2201 IOC_TEST:X] too_small dval=-10.000000 spdb=0.100000 mres=0.004687 drbv=-9.998437
+localhost-13015 > dn[Kbpf IOC_TEST:X [K.HOMF 1
+2023/03/02 15:52:17.297 ecmcMotorRecord:: setDoubleParam(1 motorVelocity_=0
+2023/03/02 15:52:17.297 [motorRecord.cc:2789 IOC_TEST:X] mipSetVal old='' new=HOMF(Hf)
+2023/03/02 15:52:17.297 ecmcMotorRecord:: setDoubleParam(1 motorVelBase_)=0
+2023/03/02 15:52:17.297 ecmcMotorRecord:: setDoubleParam(1 motorHome__)=1
+DBF_SHORT:          1 = 0x1   
+localhost-13015 > dbpf IOC_TEST:X.HOMF 12023/03/02 15:52:17.998 [motorRecord.cc:1530 IOC_TEST:X] msta.Bits.RA_DONE=0
+2023/03/02 15:52:17.998 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=1 atTarget=1 wf=3 ENC=62979 fPos=0 fActPosition=0 time=0.000006
+2023/03/02 15:52:17.998 [motorRecord.cc:1510 IOC_TEST:X] msta.Bits.RA_MOVING=1
+2023/03/02 15:52:17.998 [motorRecord.cc:1522 IOC_TEST:X] msta.Bits.EA_POSITION power on=1
+2023/03/02 15:52:18.198 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=1 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=62890 fPos=-0.4179 fActPosition=-0.417187 time=0.000003
+2023/03/02 15:52:18.198 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=0 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=10 old=0 txt=NULL
+2023/03/02 15:52:18.198 [motorRecord.cc:1512 IOC_TEST:X] msta.Bits.RA_PROBLEM=0
+l[KiocInit[4Pdblpf IOC_TEST:X.HOMF 1[1P[1@Y
+2023/03/02 15:52:23.602 ecmcMotorRecord:: setDoubleParam(2 motorVelocity_=0
+2023/03/02 15:52:23.602 [motorRecord.cc:2789 IOC_TEST:Y] mipSetVal old='' new=HOMF(Hf)
+2023/03/02 15:52:23.602 ecmcMotorRecord:: setDoubleParam(2 motorVelBase_)=0
+2023/03/02 15:52:23.602 ecmcMotorRecord:: setDoubleParam(2 motorHome__)=1
+DBF_SHORT:          1 = 0x1   
+localhost-13015 > 2023/03/02 15:52:24.303 [motorRecord.cc:1530 IOC_TEST:Y] msta.Bits.RA_DONE=0
+2023/03/02 15:52:24.303 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=1 atTarget=1 wf=3 ENC=115 fPos=0 fActPosition=0 time=0.000002
+2023/03/02 15:52:24.303 [motorRecord.cc:1510 IOC_TEST:Y] msta.Bits.RA_MOVING=1
+2023/03/02 15:52:24.303 [motorRecord.cc:1522 IOC_TEST:Y] msta.Bits.EA_POSITION power on=1
+2023/03/02 15:52:24.503 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=1 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=26 fPos=-0.4179 fActPosition=-0.417187 time=0.000002
+2023/03/02 15:52:24.503 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=0 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=10 old=0 txt=NULL
+2023/03/02 15:52:24.503 [motorRecord.cc:1512 IOC_TEST:Y] msta.Bits.RA_PROBLEM=0
+2023/03/02 15:52:34.285 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 3).
+2023/03/02 15:52:34.307 ecmcMotorRecord:: poll(1) LLS=1
+2023/03/02 15:52:34.307 [motorRecord.cc:1504 IOC_TEST:X] msta.Bits.RA_MINUS_LS=1
+2023/03/02 15:52:34.976 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 1): Motion interlock cleared.
+2023/03/02 15:52:34.978 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 5).
+2023/03/02 15:52:35.108 ecmcMotorRecord:: poll(1) LLS=0
+2023/03/02 15:52:35.108 [motorRecord.cc:1504 IOC_TEST:X] msta.Bits.RA_MINUS_LS=0
+2023/03/02 15:52:35.269 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 1): Motion interlock cleared.
+2023/03/02 15:52:35.308 ecmcMotorRecord:: poll(1) homed=1
+2023/03/02 15:52:35.308 [motorRecord.cc:1502 IOC_TEST:X] msta.Bits.RA_HOMED=1
+2023/03/02 15:52:40.633 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 3).
+2023/03/02 15:52:40.710 ecmcMotorRecord:: poll(2) LLS=1
+2023/03/02 15:52:40.710 [motorRecord.cc:1504 IOC_TEST:Y] msta.Bits.RA_MINUS_LS=1
+2023/03/02 15:52:41.379 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 2): Motion interlock cleared.
+2023/03/02 15:52:41.381 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 5).
+2023/03/02 15:52:41.511 ecmcMotorRecord:: poll(2) LLS=0
+2023/03/02 15:52:41.511 [motorRecord.cc:1504 IOC_TEST:Y] msta.Bits.RA_MINUS_LS=0
+2023/03/02 15:52:41.673 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 2): Motion interlock cleared.
+2023/03/02 15:52:41.711 ecmcMotorRecord:: poll(2) homed=1
+2023/03/02 15:52:41.711 [motorRecord.cc:1502 IOC_TEST:Y] msta.Bits.RA_HOMED=1
+2023/03/02 15:52:53.516 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=65112 fPos=0 fActPosition=0 time=0.000002
+2023/03/02 15:52:53.716 ecmcMotorRecord:: poll(1) mvnNRdy=0 bBusy=0 bExecute=1 bEnabled=1 atTarget=1 wf=0 ENC=65112 fPos=0 fActPosition=0 time=0.000003
+2023/03/02 15:52:53.716 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=0 old=0 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=10 txt=NULL
+2023/03/02 15:52:53.716 [motorRecord.cc:1510 IOC_TEST:X] msta.Bits.RA_MOVING=0
+2023/03/02 15:52:53.716 [motorRecord.cc:1530 IOC_TEST:X] msta.Bits.RA_DONE=1
+2023/03/02 15:52:53.716 [motorRecord.cc:1696 IOC_TEST:X] motor is stopped dval=0.000000 drbv=0.000000 pp=1 udf=0 stat=0 stop=0 pmr->spmg=GO mip=0x8(HOMF(Hf)) msta=0x492a
+2023/03/02 15:52:53.716 [motorRecord.cc:4733 IOC_TEST:X] clear_home_buttons homf=1 homr=0
+2023/03/02 15:52:53.716 [motorRecord.cc:1212 IOC_TEST:X] mipClrBit STOP(St) old=HOMF(Hf) new=HOMF(Hf)
+2023/03/02 15:52:53.716 [motorRecord.cc:1854 IOC_TEST:X] mipSetVal old=HOMF(Hf) new=''
+2023/03/02 15:52:59.919 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=0 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=2249 fPos=0 fActPosition=0 time=0.000007
+2023/03/02 15:53:00.119 ecmcMotorRecord:: poll(2) mvnNRdy=0 bBusy=0 bExecute=1 bEnabled=1 atTarget=1 wf=0 ENC=2249 fPos=0 fActPosition=0 time=0.000002
+2023/03/02 15:53:00.119 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=0 old=0 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=10 txt=NULL
+2023/03/02 15:53:00.119 [motorRecord.cc:1510 IOC_TEST:Y] msta.Bits.RA_MOVING=0
+2023/03/02 15:53:00.119 [motorRecord.cc:1530 IOC_TEST:Y] msta.Bits.RA_DONE=1
+2023/03/02 15:53:00.119 [motorRecord.cc:1696 IOC_TEST:Y] motor is stopped dval=0.000000 drbv=0.000000 pp=1 udf=0 stat=0 stop=0 pmr->spmg=GO mip=0x8(HOMF(Hf)) msta=0x492a
+2023/03/02 15:53:00.119 [motorRecord.cc:4733 IOC_TEST:Y] clear_home_buttons homf=1 homr=0
+2023/03/02 15:53:00.119 [motorRecord.cc:1212 IOC_TEST:Y] mipClrBit STOP(St) old=HOMF(Hf) new=HOMF(Hf)
+2023/03/02 15:53:00.119 [motorRecord.cc:1854 IOC_TEST:Y] mipSetVal old=HOMF(Hf) new=''
