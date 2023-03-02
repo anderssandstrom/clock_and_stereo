@@ -1,8 +1,8 @@
 #
-# Start at "2023-W09-Mar02-1552-02-CET"
+# Start at "2023-W09-Mar02-1610-41-CET"
 #
 # Version information:
-# European Spallation Source ERIC : iocsh (4.0.0-PID-13015)
+# European Spallation Source ERIC : iocsh (4.0.0-PID-21089)
 #
 # --->--> snip -->--> 
 # Please Use Version and other environment variables
@@ -32,10 +32,10 @@
 # --->--> snip -->--> 
 #
 # Set REQUIRE_IOC for its internal PVs
-epicsEnvSet REQUIRE_IOC "REQMOD:localhost-13015"
+epicsEnvSet REQUIRE_IOC "REQMOD:localhost-21089"
 #
 # Enable an exit subroutine for sotfioc
-dbLoadRecords "/home/anderssandstrom/sources/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:localhost-13015"
+dbLoadRecords "/home/anderssandstrom/sources/base-7.0.6.1/db/softIocExit.db" "IOC=REQMOD:localhost-21089"
 #
 # Set E3_IOCSH_TOP for the absolute path where iocsh is executed.
 epicsEnvSet E3_IOCSH_TOP "/home/anderssandstrom/sources/clock_and_stereo/xy_table"
@@ -246,9 +246,9 @@ epicsEnvUnset(ECMC_CMD_FRM_OTHER_PLC_ENABLE)
 epicsEnvUnset(ECMC_CMD_AXIS_PLC_ENABLE)
 epicsEnvUnset(ECMC_AXIS_EXPR_LINE_1)
 epicsEnvUnset(ECMC_AXIS_EXPR_LINE_2)
-epicsEnvUnse2023/03/02 15:52:02.763 
+epicsEnvUnse2023/03/02 16:10:41.246 
 ECMC Initializes.............
-2023/03/02 15:52:02.764 ESS Open Source EtherCAT Motion Control Epics Module2023/03/02 15:52:02.764 
+2023/03/02 16:10:41.247 ESS Open Source EtherCAT Motion Control Epics Module2023/03/02 16:10:41.247 
 Mode: Configuration
 t(ECMC_AXIS_EXPR_LINE_3)
 epicsEnvUnset(ECMC_AXIS_EXPR_LINE_4)
@@ -611,7 +611,7 @@ ecmcEpicsEnvSetCalc("SLAVE_ID", "9+1","%d")
 ecmcConfigOrDie "Cfg.EcApplyConfig(1)"
 OK
 ##############################################################################
-## AXIS 1
+## X
 #
 epicsEnvSet("DEV",      "IOC_TEST")
 iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/configureAxis.cmd, CONFIG=./cfg/x.ax)
@@ -826,14 +826,14 @@ ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax1.enc.latchstatus")"
 OK
 ecmcConfigOrDie "Cfg.SetAxisEncHomeLatchCountOffset(1,0.0)"
 OK
-ecmcConfigOrDie "Cfg.SetAxisEncRefToOtherEncAtStartup(1,-2023/03/02 15:52:02.991 ecmcMotorRecord:: setIntegerParam(1 motorPowerAutoOnOff_)=2
-2023/03/02 15:52:02.991 ecmcMotorRecord:: setDoubleParam(1 motorPowerOnDelay_)=6
-2023/03/02 15:52:02.991 ecmcMotorRecord:: setDoubleParam(1 motorPowerOffDelay_=-1
-2023/03/02 15:52:02.991 ecmcMotorRecord:: udateMotorLimitsRO(1) enabledHighAndLow=1 valid=1 fValueHigh=60 fValueLow=-60
-2023/03/02 15:52:02.991 ecmcMotorRecord:: connected(1)
-2023/03/02 15:52:02.991 ecmcMotorRecord:: initialPoll(1) status=0
-1)"
-OK
+ecmcConfigOrDie "Cfg.SetAxisEncRefToOtherEncAtStartup(1,-1)"
+O2023/03/02 16:10:41.426 ecmcMotorRecord:: setIntegerParam(1 motorPowerAutoOnOff_)=2
+2023/03/02 16:10:41.426 ecmcMotorRecord:: setDoubleParam(1 motorPowerOnDelay_)=6
+2023/03/02 16:10:41.426 ecmcMotorRecord:: setDoubleParam(1 motorPowerOffDelay_=-1
+2023/03/02 16:10:41.426 ecmcMotorRecord:: udateMotorLimitsRO(1) enabledHighAndLow=1 valid=1 fValueHigh=60 fValueLow=-60
+2023/03/02 16:10:41.426 ecmcMotorRecord:: connected(1)
+2023/03/02 16:10:41.426 ecmcMotorRecord:: initialPoll(1) status=0
+K
 ecmcConfigOrDie "Cfg.SelectAxisEncPrimary(1,-1)"
 OK
 ecmcConfigOrDie "Cfg.SelectAxisEncHome(1,-1)"
@@ -1033,7 +1033,7 @@ epicsEnvUnset(ECMC_TRAJ_TYPE)
 epicsEnvUnset(ECMC_JERK)
 epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
 ##############################################################################
-## AXIS 2
+## Y
 #
 epicsEnvSet("DEV",      "IOC_TEST")
 iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/configureAxis.cmd, CONFIG=./cfg/y.ax)
@@ -1236,13 +1236,13 @@ ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax2.enc.alarm0")"
 OK
 ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax2.enc.alarm1")"
 OK
-ecmcConfigOrDie "Cfg2023/03/02 15:52:02.998 ecmcMotorRecord:: setIntegerParam(2 motorPowerAutoOnOff_)=2
-2023/03/02 15:52:02.998 ecmcMotorRecord:: setDoubleParam(2 motorPowerOnDelay_)=6
-2023/03/02 15:52:02.998 ecmcMotorRecord:: setDoubleParam(2 motorPowerOffDelay_=-1
-2023/03/02 15:52:02.998 ecmcMotorRecord:: udateMotorLimitsRO(2) enabledHighAndLow=1 valid=1 fValueHigh=130 fValueLow=-20
-2023/03/02 15:52:02.998 ecmcMotorRecord:: connected(2)
-2023/03/02 15:52:02.998 ecmcMotorRecord:: initialPoll(2) status=0
-.LinkEcEntryToObject(,"ax2.enc.alarm2")"
+ecmcConfigOrDie "Cfg.LinkEcEnt2023/03/02 16:10:41.434 ecmcMotorRecord:: setIntegerParam(2 motorPowerAutoOnOff_)=2
+2023/03/02 16:10:41.434 ecmcMotorRecord:: setDoubleParam(2 motorPowerOnDelay_)=6
+2023/03/02 16:10:41.434 ecmcMotorRecord:: setDoubleParam(2 motorPowerOffDelay_=-1
+2023/03/02 16:10:41.434 ecmcMotorRecord:: udateMotorLimitsRO(2) enabledHighAndLow=1 valid=1 fValueHigh=130 fValueLow=-20
+2023/03/02 16:10:41.434 ecmcMotorRecord:: connected(2)
+2023/03/02 16:10:41.434 ecmcMotorRecord:: initialPoll(2) status=0
+ryToObject(,"ax2.enc.alarm2")"
 OK
 ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax2.enc.warning")"
 OK
@@ -1455,149 +1455,1997 @@ epicsEnvUnset(ECMC_TRAJ_TYPE)
 epicsEnvUnset(ECMC_JERK)
 epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
 ##############################################################################
-############2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000015
-2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(1) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
-2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
-2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000004
-2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(2) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
-2023/03/02 15:52:03.164 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
-2023/03/02 15:52:04.002 EtherCAT bus ready (not scaning).
-2023/03/02 15:52:04.002 INFO: Locking memory
-2023/03/02 15:52:04.013 Starting up EtherCAT bus: 0 second(s). Max wait time 30 second(s).
-2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 16).
-2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcMonitor.cpp/checkLimits:494: ERROR_MON_BOTH_LIMIT_INTERLOCK (0x14c10).
-2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 7).
-2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisReal.cpp/execute:182: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315).
-2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 16).
-2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcMonitor.cpp/checkLimits:494: ERROR_MON_BOTH_LIMIT_INTERLOCK (0x14c10).
-2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 7).
-2023/03/02 15:52:04.103 ../devEcmcSup/motion/ecmcAxisReal.cpp/execute:182: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315).
-2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 7: Not operational (0x24011).
-2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
-2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 8: Not operational (0x24011).
-2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
-2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 9: Not operational (0x24011).
-2023/03/02 15:52:04.103 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
-2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(1) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000005
-2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(1) bError=1 drvlocal.statusBinData.onChangeData.error=0x14315
-2023/03/02 15:52:04.164 ecmcMotorRecord:: sErrorMessage(1)="ERROR_AXIS_HARDWARE_STATUS_NOT_OK"
-2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=1 old=4 ErrID=0x14315 old=0x0 Warn=0 nCmd=0 old=0 txt=E: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315)
-2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(2) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000002
-2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(2) bError=1 drvlocal.statusBinData.onChangeData.error=0x14315
-2023/03/02 15:52:04.164 ecmcMotorRecord:: sErrorMessage(2)="ERROR_AXIS_HARDWARE_STATUS_NOT_OK"
-2023/03/02 15:52:04.164 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=1 old=4 ErrID=0x14315 old=0x0 Warn=0 nCmd=0 old=0 txt=E: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315)
-2023/03/02 15:52:04.775 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 16).
-2023/03/02 15:52:04.775 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 16).
-2023/03/02 15:52:05.013 Starting up EtherCAT bus: 1 second(s). Max wait time 30 second(s).
-2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:52:05.106 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 1): Motion interlock cleared.
-2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:52:05.106 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 2): Motion interlock cleared.
-2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:52:05.106 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
-2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(1) LLS=0
-2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(1) HLS=0
-2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(1) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
-2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=1 ErrID=0x0 old=0x14315 Warn=0 nCmd=0 old=0 txt=NULL
-2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(2) LLS=0
-2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(2) HLS=0
-2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(2) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
-2023/03/02 15:52:05.164 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=1 ErrID=0x0 old=0x14315 Warn=0 nCmd=0 old=0 txt=NULL
-2023/03/02 15:52:07.014 EtherCAT bus started!
-2023/03/02 15:52:07.014 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtIocBuild (0). Allow callbacks: true.
+## X amplitude
+#
+epicsEnvSet("DEV",      "IOC_TEST")
+iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/configureVirtualAxis.cmd, CONFIG=./cfg/amplitude_x.vax)
+#==============================================================================
+# configureVirtualAxis.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
+iocshLoad ./cfg/amplitude_x.vax
+#General
+epicsEnvSet("ECMC_MOTOR_NAME",            "amplitudeX")
+epicsEnvSet("ECMC_R",                     "amplitudeX-")
+epicsEnvSet("ECMC_AXIS_NO",               "3")
+epicsEnvSet("ECMC_DESC",                  "Amplitude X")
+epicsEnvSet("ECMC_EGU",                   "mm")                       # Motor Record Unit
+epicsEnvSet("ECMC_PREC",                  "3")                        # Motor Record Precision
+epicsEnvSet("ECMC_AXISCONFIG",            "")                         # Extra parameters to driver
+epicsEnvSet("ECMC_EC_AXIS_HEALTH",        "")                         # Entry for axis health output (example: ec0.s1.binaryOutput01.0)
+epicsEnvSet("ECMC_MOD_RANGE" ,            "0")                        # Modulo range (traj setpoints and encoder values will be in range 0..ECMC_MOD_RANGE)
+epicsEnvSet("ECMC_MOD_TYPE",              "0")                        # For positioning and MOD_RANGE>0: 0 = Normal, 1 = Always Fwd, 2 = Always Bwd, 3 = Closest Distance
+# Encoder
+epicsEnvSet("ECMC_ENC_SCALE_NUM"          "1")
+epicsEnvSet("ECMC_ENC_SCALE_DENOM"        "1")
+epicsEnvSet("ECMC_ENC_TYPE"               "1")                        # Type: 0=Incremental, 1=Absolute
+epicsEnvSet("ECMC_ENC_BITS"               "16")                       # Total bit count of encoder raw data
+epicsEnvSet("ECMC_ENC_ABS_BITS",          "0")                        # Absolute bit count (for absolute encoders) always least significant part of ECMC_ENC_BITS
+epicsEnvSet("ECMC_ENC_ABS_OFFSET"         "0")                        # Encoder offset in eng units (for absolute encoders)
+epicsEnvSet("ECMC_EC_ENC_ACTPOS",         "ec0.s-1.ZERO")              # Ethercat entry for actual position input (encoder)
+epicsEnvSet("ECMC_EC_ENC_RESET",          "")                         # Reset   (if no encoder reset bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_0",        "")                         # Error 0 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_1",        "")                         # Error 1 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_2",        "")                         # Error 2 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_WARNING",        "")                         # Warning (if no encoder warning bit then leave empty)
+#Trajectory
+epicsEnvSet("ECMC_VELO",                  "5")
+epicsEnvSet("ECMC_JOG_VEL",               "5")
+epicsEnvSet("ECMC_JAR",                   "0.0")                      # JAR defaults to VELO/ACCL
+epicsEnvSet("ECMC_ACCS_EGU_PER_S2",       "0.3")
+epicsEnvSet("ECMC_EMERG_DECEL",           "100")             # Emergency deceleration
+#Homing
+epicsEnvSet("ECMC_HOME_PROC",             "3")
+epicsEnvSet("ECMC_HOME_POS",              "0.0")
+epicsEnvSet("ECMC_HOME_VEL_TO",           "5")
+epicsEnvSet("ECMC_HOME_VEL_FRM",          "4")
+epicsEnvSet("ECMC_HOME_ACC",              "21")
+epicsEnvSet("ECMC_HOME_DEC",              "100")
+epicsEnvSet("ECMC_HOME_POS_MOVE_ENA",     "0")                        # Enable move to position after successfull homing 
+epicsEnvSet("ECMC_HOME_POS_MOVE_TARG_POS","0")                        # Target position to go to after successfull homing
+#Monitoring
+# Switches
+epicsEnvSet("ECMC_EC_MON_LOWLIM",         "ec0.s-1.ONE.0")           #  Ethercat entry for low limit switch input
+epicsEnvSet("ECMC_EC_MON_HIGHLIM",        "ec0.s-1.ONE.0")           #  Ethercat entry for high limit switch inpuit
+epicsEnvSet("ECMC_EC_MON_HOME_SWITCH",    "ec0.s-1.ONE.0")           #  Ethercat entry for home switch input
+epicsEnvSet("ECMC_EC_MON_EXT_INTERLOCK",  "ec0.s-1.ONE.0")           #  Ethercat entry for external interlock input
+# Softlimits (disable with 0,0)
+epicsEnvSet("ECMC_SOFT_LOW_LIM",          "-70")
+epicsEnvSet("ECMC_SOFT_HIGH_LIM",         "70")
+epicsEnvSet("ECMC_DXLM_ENABLE",           "1")
+# Position lag
+epicsEnvSet("ECMC_MON_LAG_MON_TOL",       "0.5")
+epicsEnvSet("ECMC_MON_LAG_MON_TIME",      "100")
+epicsEnvSet("ECMC_MON_LAG_MON_ENA",       "0")
+# At target
+epicsEnvSet("ECMC_MON_AT_TARGET_TOL",     "0.1")
+epicsEnvSet("ECMC_MON_AT_TARGET_TIME",     "100")
+epicsEnvSet("ECMC_MON_AT_TARGET_ENA",     "1")
+# Velocity
+epicsEnvSet("ECMC_MON_VELO_MAX",          "100.0")
+epicsEnvSet("ECMC_MON_VELO_MAX_TRAJ_TIME","100")
+epicsEnvSet("ECMC_MON_VELO_MAX_DRV_TIME", "200")
+epicsEnvSet("ECMC_MON_VELO_MAX_ENA",      "1")
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/addVirtualAxis.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/addVirtualAxis.cmd
+#==============================================================================
+# addVirtualAxis.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis-records.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis-records.cmd
+#==============================================================================
+# ecmc_virt_axis-records.cmd
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis.cmd",1)
+iocshLoad( /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis.cmd )
+#==============================================================================
+# ecmc_virt_axis.cmd
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd "EXPR_STR='abs(1)<>0',SUCCESS_STR='ECMC_ENC_SCALE_NUM value OK == 1...',ERROR_STR='ECMC_ENC_SCALE_NUM == 0...'"
+#==============================================================================
+# verifyOrDie.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"abs(1)<>0","# ECMC_ENC_SCALE_NUM value OK == 1...", "ecmcExit Error: ECMC_ENC_SCALE_NUM == 0...")
+# ECMC_ENC_SCALE_NUM value OK == 1...
+epicsEnvUnset(ECMC_EXE_CMD)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd "EXPR_STR='abs(1)<>0',SUCCESS_STR='ECMC_ENC_SCALE_DENOM value OK == 1...',ERROR_STR='ECMC_ENC_SCALE_DENOM == 0...'"
+#==============================================================================
+# verifyOrDie.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"abs(1)<>0","# ECMC_ENC_SCALE_DENOM value OK == 1...", "ecmcExit Error: ECMC_ENC_SCALE_DENOM == 0...")
+# ECMC_ENC_SCALE_DENOM value OK == 1...
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd "EXPR_STR='-1>0',WARNING_STR='WARNING: ECMC_MRES setting is deprecated and will not be used. (MRES will be calulated instead: ECMC_ENC_SCALE_NUM/ECMC_ENC_SCALE_DENOM).. '"
+#==============================================================================
+# issueWarning.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"-1>0","", "#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcConfigOrDie "Cfg.CreateAxis(3,2,0,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisTrajStartPos(3,0)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax3.health")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisModRange(3, 0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisModType(3, 0)"
+OK
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd "EXPR_STR='-1>02023/03/02 16:10:41.440 ecmcMotorRecord:: setIntegerParam(3 motorPowerAutoOnOff_)=2
+2023/03/02 16:10:41.440 ecmcMotorRecord:: setDoubleParam(3 motorPowerOnDelay_)=6
+2023/03/02 16:10:41.440 ecmcMotorRecord:: setDoubleParam(3 motorPowerOffDelay_=-1
+2023/03/02 16:10:41.440 ecmcMotorRecord:: udateMotorLimitsRO(3) enabledHighAndLow=1 valid=1 fValueHigh=70 fValueLow=-70
+2023/03/02 16:10:41.440 ecmcMotorRecord:: connected(3)
+2023/03/02 16:10:41.440 ecmcMotorRecord:: initialPoll(3) status=0
+',WARNING_STR='WARNING: ECMC_ACCL setting is deprecated. Please use ECMC_ACCS_EGU_PER_S2 instead..'"
+#==============================================================================
+# issueWarning.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"-1>0","", "#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcEpicsEnvSetCalcTernary(ECMC_BLOCK_ACCL,"'EMPTY'!='EMPTY'","", "#-")
+ecmcEpicsEnvSetCalcTernary(ECMC_BLOCK_ACCS,"'EMPTY'=='EMPTY'","", "#-")
+ ecmcConfigOrDie "Cfg.SetAxisAcc(3,0.3)"
+OK
+ ecmcConfigOrDie "Cfg.SetAxisDec(3,0.3)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisJerk(3,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisVel(3,5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEmergDeceleration(3,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeVelTowardsCam(3,5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeVelOffCam(3,4)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ZERO,"ax3.enc.actpos")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncScaleDenom(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncScaleNum(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncType(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncBits(3,16)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncAbsBits(3,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncOffset(3,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncVelFilterSize(3,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncPosFilterSize(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncPosFilterEnable(3,0)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax3.enc.reset")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax3.enc.alarm0")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax3.enc.alarm1")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax3.enc.alarm2")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax3.enc.warning")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax3.enc.latchpos")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax3.enc.latchcontrol")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax3.enc.latchstatus")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax3.mon.lowlim")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax3.mon.highlim")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax3.mon.homesensor")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax3.mon.extinterlock")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonAtTargetTol(3,0.1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonAtTargetTime(3,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableAtTargetMon(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonPosLagTol(3,0.5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonPosLagTime(3,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableLagMon(3,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVel(3,100.0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableMaxVel(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVelDriveILDelay(3,200)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVelTrajILDelay(3,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosBwd(3,-70)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitBwd(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosFwd(3,70)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitFwd(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonHomeSwitchPolarity(3,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeLatchCountOffset(3,0.0)"
+WARNING: The command Cfg.SetAxisHomeLatchCountOffset() will be obsolete in newer versions.Please use Cfg.SetAxisEncHomeLatchCountOffset() instead.
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePosition(3,0.0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveEnable(3, 0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveTargetPosition(3, 0)"
+OK
+ ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_mr.cmd",1)
+ iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_mr.cmd
+#==============================================================================
+# ecmc_axis_mr.cmd
+ecmcMotorRecordCreateAxis(MCU1, "3", "6", )
+ecmcEpicsEnvSetCalc("ECMC_TEMP_SREV","if(abs(1)>0){RESULT:=abs(1);} else {RESULT:=1.0};","%d")
+ecmcEpicsEnvSetCalc("ECMC_TEMP_UREV","if(abs(1)>0){RESULT:=abs(1);} else {RESULT:=1.0};","%lf")
+ecmcFileExist(ecmcMotorRecord.template,1,1)
+ dbLoadRecords(ecmcMotorRecord.template, "PREFIX=IOC_TEST:, MOTOR_NAME=amplitudeX, MOTOR_PORT=MCU1, AXIS_NO=3, DESC=Amplitude X, EGU=mm, PREC=3, VELO=5, JVEL=5, JAR=0.0, ACCS=0.3, RDBD=0.1, DLLM=-70, DHLM=70, HOMEPROC=3,SREV=1,UREV=1.000000, ")
+epicsEnvSet("ECMC_AXISFIELDINIT",  "")
+ecmcFileExist(ecmcMotorRecordhome.template,1,1)
+dbLoadRecords(ecmcMotorRecordhome.template, "PREFIX=IOC_TEST:, MOTOR_NAME=amplitudeX, MOTOR_PORT=MCU1, AXIS_NO=3,HOMEPROC=3, HOMEPOS=0.0, HVELTO=5, HVELFRM=4, HOMEACC=21, HOMEDEC=100")
+epicsEnvUnset(ECMC_TEMP_SREV)
+epicsEnvUnset(ECMC_TEMP_UREV)
+# Add ECMC_AXIS_NO to ECMC_AXES_CFG
+epicsEnvSet(ECMC_AXES_CFG,"1, 2, 3, ")
+epicsEnvUnset(ECMC_BLOCK_ACCL)
+epicsEnvUnset(ECMC_BLOCK_ACCS)
+ecmcFileExist("ecmcAxis.db",1,1)
+dbLoadRecords("ecmcAxis.db","P=IOC_TEST:,AXIS_NAME=amplitudeX,AXIS_NO=3,PORT=MC_CPU1,ADDR=0,TIMEOUT=1,T_SMP_MS=10,TSE=0")
+ecmcFileExist("ecmcAxisType.db",1,1)
+dbLoadRecords("ecmcAxisType.db","P=IOC_TEST:,AXIS_NAME=amplitudeX,AXIS_TYPE=2,DRV_TYPE=2,TRAJ_TYPE=0")
+ecmcFileExist(/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis_unset.cmd,1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis_unset.cmd
+#==============================================================================
+# ecmc_virt_axis_unset.cmd
+epicsEnvUnset(ECMC_AXISCONFIG)
+epicsEnvUnset(ECMC_AXISFIELDINIT)
+epicsEnvUnset(ECMC_PREC)
+epicsEnvUnset(ECMC_EGU)
+epicsEnvUnset(ECMC_DESC)
+epicsEnvUnset(ECMC_R)
+epicsEnvUnset(ECMC_MOTOR_NAME)
+epicsEnvUnset(ECMC_EC_AXIS_HEALTH)
+epicsEnvUnset(ECMC_MOD_RANGE)
+epicsEnvUnset(ECMC_MOD_TYPE)
+epicsEnvUnset(ECMC_EMERG_DECEL)
+epicsEnvUnset(ECMC_ACCL)
+epicsEnvUnset(ECMC_ACCS_EGU_PER_S2)
+epicsEnvUnset(ECMC_HOME_VEL_TO)
+epicsEnvUnset(ECMC_HOME_VEL_FRM)
+epicsEnvUnset(ECMC_EC_ENC_ACTPOS)
+epicsEnvUnset(ECMC_ENC_SCALE_DENOM)
+epicsEnvUnset(ECMC_ENC_SCALE_NUM)
+epicsEnvUnset(ECMC_ENC_TYPE)
+epicsEnvUnset(ECMC_ENC_BITS)
+epicsEnvUnset(ECMC_ENC_ABS_BITS)
+epicsEnvUnset(ECMC_ENC_ABS_OFFSET)
+epicsEnvUnset(ECMC_ENC_VEL_FILTER_SIZE)
+epicsEnvUnset(ECMC_ENC_POS_FILTER_SIZE)
+epicsEnvUnset(ECMC_ENC_POS_FILTER_ENABLE)
+epicsEnvUnset(ECMC_EC_ENC_RESET)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_0)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_1)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_2)
+epicsEnvUnset(ECMC_EC_ENC_WARNING)
+epicsEnvUnset(ECMC_EC_MON_LOWLIM)
+epicsEnvUnset(ECMC_EC_MON_HIGHLIM)
+epicsEnvUnset(ECMC_EC_MON_HOME_SWITCH)
+epicsEnvUnset(ECMC_EC_MON_EXT_INTERLOCK)
+epicsEnvUnset(ECMC_MON_AT_TARGET_TOL)
+epicsEnvUnset(ECMC_MON_AT_TARGET_TIME)
+epicsEnvUnset(ECMC_MON_AT_TARGET_ENA)
+epicsEnvUnset(ECMC_MON_LAG_MON_TOL)
+epicsEnvUnset(ECMC_MON_LAG_MON_TIME)
+epicsEnvUnset(ECMC_MON_LAG_MON_ENA)
+epicsEnvUnset(ECMC_MON_VELO_MAX)
+epicsEnvUnset(ECMC_MON_VELO_MAX_ENA)
+epicsEnvUnset(ECMC_MON_VELO_MAX_DRV_TIME)
+epicsEnvUnset(ECMC_MON_VELO_MAX_TRAJ_TIME)
+epicsEnvUnset(ECMC_MRES)
+epicsEnvUnset(ECMC_JOG_VEL)
+epicsEnvUnset(ECMC_JAR)
+epicsEnvUnset(ECMC_HOME_PROC)
+epicsEnvUnset(ECMC_HOME_POS)
+epicsEnvUnset(ECMC_HOME_ACC)
+epicsEnvUnset(ECMC_HOME_DEC)
+epicsEnvUnset(ECMC_DRV_TYPE)
+epicsEnvUnset(ECMC_VELO)
+epicsEnvUnset(ECMC_SOFT_LOW_LIM)
+epicsEnvUnset(ECMC_SOFT_HIGH_LIM)
+epicsEnvUnset(ECMC_HOME_POS_MOVE_ENA)
+epicsEnvUnset(ECMC_HOME_POS_MOVE_TARG_POS)
+epicsEnvUnset(ECMC_TRAJ_TYPE)
+epicsEnvUnset(ECMC_JERK)
+# reset PREFIX
+epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
+iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/applyAxisSynchronization.cmd, CONFIG=./cfg/amplitude_x.sax)
+#==============================================================================
+# applyAxisSynchronization.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+iocshLoad ./cfg/amplitude_x.sax
+############# Encoder
+epicsEnvSet("ECMC_ENC_SOURCE",                 "1")      # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_ENC_VELO_FILT_ENABLE",       "0")      # Enable velocity filter
+epicsEnvSet("ECMC_ENC_VELO_FILT_SIZE",         "10")     # Encoder velocity Low pass filter size
+############# Trajectory
+epicsEnvSet("ECMC_TRAJ_SOURCE",                "0")      # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_TRAJ_VELO_FILT_ENABLE",      "0")      # Enable velocity filter
+epicsEnvSet("ECMC_TRAJ_VELO_FILT_SIZE",        "10")     # Trajectory velocity Low pass filter size
+############# Commands
+epicsEnvSet("ECMC_CMD_FRM_OTHER_PLC_ENABLE",   "1")      # Allow commands from PLC
+epicsEnvSet("ECMC_CMD_AXIS_PLC_ENABLE",        "1")      # Enable Axis PLC
+# Each line below is appended to one single expression/source. 
+# Executed in sync with axis (before)
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_1",           "ax3.enc.actpos:=ax3.traj.setpos|")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_2",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_3",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_4",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_5",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_6",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_7",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_8",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_9",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_10",          "")
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync.cmd
+#==============================================================================
+# ecmc_axis_sync.cmd
+ecmcConfigOrDie "Cfg.SetAxisAllowCommandsFromPLC(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEnable(3,1)"
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)=ax3.enc.actpos:=ax3.traj.setpos|"
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(3)="
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEncVelFilterSize(3,10)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEncVelFilterEnable(3,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncSourceType(3,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCTrajVelFilterSize(3,10)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCTrajVelFilterEnable(3,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisTrajSourceType(3,0)"
+OK
+ecmcFileExist(/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync_unset.cmd,1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync_unset.cmd
+#==============================================================================
+# ecmc_axis_sync_unset.cmd
+epicsEnvUnset(ECMC_CMD_FRM_OTHER_PLC_ENABLE)
+epicsEnvUnset(ECMC_CMD_AXIS_PLC_ENABLE)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_1)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_2)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_3)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_4)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_5)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_6)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_7)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_8)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_9)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_10)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_11)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_12)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_13)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_14)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_15)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_16)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_17)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_18)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_19)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_20)
+epicsEnvUnset(ECMC_ENC_VELO_FILT_SIZE)
+epicsEnvUnset(ECMC_ENC_VELO_FILT_ENABLE)
+epicsEnvUnset(ECMC_ENC_SOURCE)
+epicsEnvUnset(ECMC_TRAJ_VELO_FILT_SIZE)
+epicsEnvUnset(ECMC_TRAJ_VELO_FILT_ENABLE)
+epicsEnvUnset(ECMC_TRAJ_SOURCE)
+##############################################################################
+## Y amplitude
+#
+epicsEnvSet("DEV",      "IOC_TEST")
+iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/configureVirtualAxis.cmd, CONFIG=./cfg/amplitude_y.vax)
+#==============================================================================
+# configureVirtualAxis.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
+iocshLoad ./cfg/amplitude_y.vax
+#General
+epicsEnvSet("ECMC_MOTOR_NAME",            "amplitudeY")
+epicsEnvSet("ECMC_R",                     "amplitudeY-")
+epicsEnvSet("ECMC_AXIS_NO",               "4")
+epicsEnvSet("ECMC_DESC",                  "Amplitude Y")
+epicsEnvSet("ECMC_EGU",                   "mm")                       # Motor Record Unit
+epicsEnvSet("ECMC_PREC",                  "3")                        # Motor Record Precision
+epicsEnvSet("ECMC_AXISCONFIG",            "")                         # Extra parameters to driver
+epicsEnvSet("ECMC_EC_AXIS_HEALTH",        "")                         # Entry for axis health output (example: ec0.s1.binaryOutput01.0)
+epicsEnvSet("ECMC_MOD_RANGE" ,            "0")                        # Modulo range (traj setpoints and encoder values will be in range 0..ECMC_MOD_RANGE)
+epicsEnvSet("ECMC_MOD_TYPE",              "0")                        # For positioning and MOD_RANGE>0: 0 = Normal, 1 = Always Fwd, 2 = Always Bwd, 3 = Closest Distance
+# Encoder
+epicsEnvSet("ECMC_ENC_SCALE_NUM"          "1")
+epicsEnvSet("ECMC_ENC_SCALE_DENOM"        "1")
+epicsEnvSet("ECMC_ENC_TYPE"               "1")                        # Type: 0=Incremental, 1=Absolute
+epicsEnvSet("ECMC_ENC_BITS"               "16")                       # Total bit count of encoder raw data
+epicsEnvSet("ECMC_ENC_ABS_BITS",          "0")                        # Absolute bit count (for absolute encoders) always least significant part of ECMC_ENC_BITS
+epicsEnvSet("ECMC_ENC_ABS_OFFSET"         "0")                        # Encoder offset in eng units (for absolute encoders)
+epicsEnvSet("ECMC_EC_ENC_ACTPOS",         "ec0.s-1.ZERO")              # Ethercat entry for actual position input (encoder)
+epicsEnvSet("ECMC_EC_ENC_RESET",          "")                         # Reset   (if no encoder reset bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_0",        "")                         # Error 0 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_1",        "")                         # Error 1 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_2",        "")                         # Error 2 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_WARNING",        "")                         # Warning (if no encoder warning bit then leave empty)
+#Trajectory
+epicsEnvSet("ECMC_VELO",                  "5")
+epicsEnvSet("ECMC_JOG_VEL",               "5")
+epicsEnvSet("ECMC_JAR",                   "0.0")                      # JAR defaults to VELO/ACCL
+epicsEnvSet("ECMC_ACCS_EGU_PER_S2",       "0.3")
+epicsEnvSet("ECMC_EMERG_DECEL",           "100")             # Emergency deceleration
+#Homing
+epicsEnvSet("ECMC_HOME_PROC",             "3")
+epicsEnvSet("ECMC_HOME_POS",              "0.0")
+epicsEnvSet("ECMC_HOME_VEL_TO",           "5")
+epicsEnvSet("ECMC_HOME_VEL_FRM",          "4")
+epicsEnvSet("ECMC_HOME_ACC",              "21")
+epicsEnvSet("ECMC_HOME_DEC",              "100")
+epicsEnvSet("ECMC_HOME_POS_MOVE_ENA",     "0")                        # Enable move to position after successfull homing 
+epicsEnvSet("ECMC_HOME_POS_MOVE_TARG_POS","0")                        # Target position to go to after successfull homing
+#Monitoring
+# Switches
+epicsEnvSet("ECMC_EC_MON_LOWLIM",         "ec0.s-1.ONE.0")           #  Ethercat entry for low limit switch input
+epicsEnvSet("ECMC_EC_MON_HIGHLIM",        "ec0.s-1.ONE.0")           #  Ethercat entry for high limit switch inpuit
+epicsEnvSet("ECMC_EC_MON_HOME_SWITCH",    "ec0.s-1.ONE.0")           #  Ethercat entry for home switch input
+epicsEnvSet("ECMC_EC_MON_EXT_INTERLOCK",  "ec0.s-1.ONE.0")           #  Ethercat entry for external interlock input
+# Softlimits (disable with 0,0)
+epicsEnvSet("ECMC_SOFT_LOW_LIM",          "-70")
+epicsEnvSet("ECMC_SOFT_HIGH_LIM",         "70")
+epicsEnvSet("ECMC_DXLM_ENABLE",           "1")
+# Position lag
+epicsEnvSet("ECMC_MON_LAG_MON_TOL",       "0.5")
+epicsEnvSet("ECMC_MON_LAG_MON_TIME",      "100")
+epicsEnvSet("ECMC_MON_LAG_MON_ENA",       "0")
+# At target
+epicsEnvSet("ECMC_MON_AT_TARGET_TOL",     "0.1")
+epicsEnvSet("ECMC_MON_AT_TARGET_TIME",     "100")
+epicsEnvSet("ECMC_MON_AT_TARGET_ENA",     "1")
+# Velocity
+epicsEnvSet("ECMC_MON_VELO_MAX",          "100.0")
+epicsEnvSet("ECMC_MON_VELO_MAX_TRAJ_TIME","100")
+epicsEnvSet("ECMC_MON_VELO_MAX_DRV_TIME", "200")
+epicsEnvSet("ECMC_MON_VELO_MAX_ENA",      "1")
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/addVirtualAxis.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/addVirtualAxis.cmd
+#==============================================================================
+# addVirtualAxis.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis-records.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis-records.cmd
+#==============================================================================
+# ecmc_virt_axis-records.cmd
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis.cmd",1)
+iocshLoad( /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis.cmd )
+#==============================================================================
+# ecmc_virt_axis.cmd
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd "EXPR_STR='abs(1)<>0',SUCCESS_STR='ECMC_ENC_SCALE_NUM value OK == 1...',ERROR_STR='ECMC_ENC_SCALE_NUM == 0...'"
+#==============================================================================
+# verifyOrDie.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"abs(1)<>0","# ECMC_ENC_SCALE_NUM value OK == 1...", "ecmcExit Error: ECMC_ENC_SCALE_NUM == 0...")
+# ECMC_ENC_SCALE_NUM value OK == 1...
+epicsEnvUnset(ECMC_EXE_CMD)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd "EXPR_STR='abs(1)<>0',SUCCESS_STR='ECMC_ENC_SCALE_DENOM value OK == 1...',ERROR_STR='ECMC_ENC_SCALE_DENOM == 0...'"
+#==============================================================================
+# verifyOrDie.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"abs(1)<>0","# ECMC_ENC_SCALE_DENOM value OK == 1...", "ecmcExit Error: ECMC_ENC_SCALE_DENOM == 0...")
+# ECMC_ENC_SCALE_DENOM value OK == 1...
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd "EXPR_STR='-1>0',WARNING_STR='WARNING: ECMC_MRES setting is deprecated and will not be used. (MRES will be calulated instead: ECMC_ENC_SCALE_NUM/ECMC_ENC_SCALE_DENOM).. '"
+#==============================================================================
+# issueWarning.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"-1>0","", "#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcConfigOrDie "Cfg.CreateAxis(4,2,0,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisTrajStartPos(4,0)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax4.health")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisModRange(4, 0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisModType(4, 0)"
+OK
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd",1)
+iocshLoad /home/anderssands2023/03/02 16:10:41.447 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000012
+2023/03/02 16:10:41.447 ecmcMotorRecord:: poll(1) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 16:10:41.447 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:41.447 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000003
+2023/03/02 16:10:41.447 ecmcMotorRecord:: poll(2) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 16:10:41.447 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:41.447 ecmcMotorRecord:: poll(3) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000004
+2023/03/02 16:10:41.447 ecmcMotorRecord:: poll(3) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 16:10:41.447 ecmcMotorRecord:: poll(3) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:41.448 ecmcMotorRecord:: setIntegerParam(4 motorPowerAutoOnOff_)=2
+2023/03/02 16:10:41.448 ecmcMotorRecord:: setDoubleParam(4 motorPowerOnDelay_)=6
+2023/03/02 16:10:41.448 ecmcMotorRecord:: setDoubleParam(4 motorPowerOffDelay_=-1
+2023/03/02 16:10:41.448 ecmcMotorRecord:: udateMotorLimitsRO(4) enabledHighAndLow=1 valid=1 fValueHigh=70 fValueLow=-70
+2023/03/02 16:10:41.448 ecmcMotorRecord:: connected(4)
+2023/03/02 16:10:41.448 ecmcMotorRecord:: initialPoll(4) status=0
+trom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd "EXPR_STR='-1>0',WARNING_STR='WARNING: ECMC_ACCL setting is deprecated. Please use ECMC_ACCS_EGU_PER_S2 instead..'"
+#==============================================================================
+# issueWarning.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"-1>0","", "#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcEpicsEnvSetCalcTernary(ECMC_BLOCK_ACCL,"'EMPTY'!='EMPTY'","", "#-")
+ecmcEpicsEnvSetCalcTernary(ECMC_BLOCK_ACCS,"'EMPTY'=='EMPTY'","", "#-")
+ ecmcConfigOrDie "Cfg.SetAxisAcc(4,0.3)"
+OK
+ ecmcConfigOrDie "Cfg.SetAxisDec(4,0.3)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisJerk(4,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisVel(4,5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEmergDeceleration(4,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeVelTowardsCam(4,5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeVelOffCam(4,4)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ZERO,"ax4.enc.actpos")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncScaleDenom(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncScaleNum(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncType(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncBits(4,16)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncAbsBits(4,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncOffset(4,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncVelFilterSize(4,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncPosFilterSize(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncPosFilterEnable(4,0)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax4.enc.reset")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax4.enc.alarm0")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax4.enc.alarm1")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax4.enc.alarm2")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax4.enc.warning")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax4.enc.latchpos")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax4.enc.latchcontrol")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax4.enc.latchstatus")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax4.mon.lowlim")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax4.mon.highlim")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax4.mon.homesensor")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax4.mon.extinterlock")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonAtTargetTol(4,0.1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonAtTargetTime(4,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableAtTargetMon(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonPosLagTol(4,0.5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonPosLagTime(4,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableLagMon(4,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVel(4,100.0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableMaxVel(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVelDriveILDelay(4,200)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVelTrajILDelay(4,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosBwd(4,-70)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitBwd(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosFwd(4,70)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitFwd(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonHomeSwitchPolarity(4,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeLatchCountOffset(4,0.0)"
+WARNING: The command Cfg.SetAxisHomeLatchCountOffset() will be obsolete in newer versions.Please use Cfg.SetAxisEncHomeLatchCountOffset() instead.
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePosition(4,0.0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveEnable(4, 0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveTargetPosition(4, 0)"
+OK
+ ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_mr.cmd",1)
+ iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_mr.cmd
+#==============================================================================
+# ecmc_axis_mr.cmd
+ecmcMotorRecordCreateAxis(MCU1, "4", "6", )
+ecmcEpicsEnvSetCalc("ECMC_TEMP_SREV","if(abs(1)>0){RESULT:=abs(1);} else {RESULT:=1.0};","%d")
+ecmcEpicsEnvSetCalc("ECMC_TEMP_UREV","if(abs(1)>0){RESULT:=abs(1);} else {RESULT:=1.0};","%lf")
+ecmcFileExist(ecmcMotorRecord.template,1,1)
+ dbLoadRecords(ecmcMotorRecord.template, "PREFIX=IOC_TEST:, MOTOR_NAME=amplitudeY, MOTOR_PORT=MCU1, AXIS_NO=4, DESC=Amplitude Y, EGU=mm, PREC=3, VELO=5, JVEL=5, JAR=0.0, ACCS=0.3, RDBD=0.1, DLLM=-70, DHLM=70, HOMEPROC=3,SREV=1,UREV=1.000000, ")
+epicsEnvSet("ECMC_AXISFIELDINIT",  "")
+ecmcFileExist(ecmcMotorRecordhome.template,1,1)
+dbLoadRecords(ecmcMotorRecordhome.template, "PREFIX=IOC_TEST:, MOTOR_NAME=amplitudeY, MOTOR_PORT=MCU1, AXIS_NO=4,HOMEPROC=3, HOMEPOS=0.0, HVELTO=5, HVELFRM=4, HOMEACC=21, HOMEDEC=100")
+epicsEnvUnset(ECMC_TEMP_SREV)
+epicsEnvUnset(ECMC_TEMP_UREV)
+# Add ECMC_AXIS_NO to ECMC_AXES_CFG
+epicsEnvSet(ECMC_AXES_CFG,"1, 2, 3, 4, ")
+epicsEnvUnset(ECMC_BLOCK_ACCL)
+epicsEnvUnset(ECMC_BLOCK_ACCS)
+ecmcFileExist("ecmcAxis.db",1,1)
+dbLoadRecords("ecmcAxis.db","P=IOC_TEST:,AXIS_NAME=amplitudeY,AXIS_NO=4,PORT=MC_CPU1,ADDR=0,TIMEOUT=1,T_SMP_MS=10,TSE=0")
+ecmcFileExist("ecmcAxisType.db",1,1)
+dbLoadRecords("ecmcAxisType.db","P=IOC_TEST:,AXIS_NAME=amplitudeY,AXIS_TYPE=2,DRV_TYPE=2,TRAJ_TYPE=0")
+ecmcFileExist(/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis_unset.cmd,1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis_unset.cmd
+#==============================================================================
+# ecmc_virt_axis_unset.cmd
+epicsEnvUnset(ECMC_AXISCONFIG)
+epicsEnvUnset(ECMC_AXISFIELDINIT)
+epicsEnvUnset(ECMC_PREC)
+epicsEnvUnset(ECMC_EGU)
+epicsEnvUnset(ECMC_DESC)
+epicsEnvUnset(ECMC_R)
+epicsEnvUnset(ECMC_MOTOR_NAME)
+epicsEnvUnset(ECMC_EC_AXIS_HEALTH)
+epicsEnvUnset(ECMC_MOD_RANGE)
+epicsEnvUnset(ECMC_MOD_TYPE)
+epicsEnvUnset(ECMC_EMERG_DECEL)
+epicsEnvUnset(ECMC_ACCL)
+epicsEnvUnset(ECMC_ACCS_EGU_PER_S2)
+epicsEnvUnset(ECMC_HOME_VEL_TO)
+epicsEnvUnset(ECMC_HOME_VEL_FRM)
+epicsEnvUnset(ECMC_EC_ENC_ACTPOS)
+epicsEnvUnset(ECMC_ENC_SCALE_DENOM)
+epicsEnvUnset(ECMC_ENC_SCALE_NUM)
+epicsEnvUnset(ECMC_ENC_TYPE)
+epicsEnvUnset(ECMC_ENC_BITS)
+epicsEnvUnset(ECMC_ENC_ABS_BITS)
+epicsEnvUnset(ECMC_ENC_ABS_OFFSET)
+epicsEnvUnset(ECMC_ENC_VEL_FILTER_SIZE)
+epicsEnvUnset(ECMC_ENC_POS_FILTER_SIZE)
+epicsEnvUnset(ECMC_ENC_POS_FILTER_ENABLE)
+epicsEnvUnset(ECMC_EC_ENC_RESET)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_0)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_1)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_2)
+epicsEnvUnset(ECMC_EC_ENC_WARNING)
+epicsEnvUnset(ECMC_EC_MON_LOWLIM)
+epicsEnvUnset(ECMC_EC_MON_HIGHLIM)
+epicsEnvUnset(ECMC_EC_MON_HOME_SWITCH)
+epicsEnvUnset(ECMC_EC_MON_EXT_INTERLOCK)
+epicsEnvUnset(ECMC_MON_AT_TARGET_TOL)
+epicsEnvUnset(ECMC_MON_AT_TARGET_TIME)
+epicsEnvUnset(ECMC_MON_AT_TARGET_ENA)
+epicsEnvUnset(ECMC_MON_LAG_MON_TOL)
+epicsEnvUnset(ECMC_MON_LAG_MON_TIME)
+epicsEnvUnset(ECMC_MON_LAG_MON_ENA)
+epicsEnvUnset(ECMC_MON_VELO_MAX)
+epicsEnvUnset(ECMC_MON_VELO_MAX_ENA)
+epicsEnvUnset(ECMC_MON_VELO_MAX_DRV_TIME)
+epicsEnvUnset(ECMC_MON_VELO_MAX_TRAJ_TIME)
+epicsEnvUnset(ECMC_MRES)
+epicsEnvUnset(ECMC_JOG_VEL)
+epicsEnvUnset(ECMC_JAR)
+epicsEnvUnset(ECMC_HOME_PROC)
+epicsEnvUnset(ECMC_HOME_POS)
+epicsEnvUnset(ECMC_HOME_ACC)
+epicsEnvUnset(ECMC_HOME_DEC)
+epicsEnvUnset(ECMC_DRV_TYPE)
+epicsEnvUnset(ECMC_VELO)
+epicsEnvUnset(ECMC_SOFT_LOW_LIM)
+epicsEnvUnset(ECMC_SOFT_HIGH_LIM)
+epicsEnvUnset(ECMC_HOME_POS_MOVE_ENA)
+epicsEnvUnset(ECMC_HOME_POS_MOVE_TARG_POS)
+epicsEnvUnset(ECMC_TRAJ_TYPE)
+epicsEnvUnset(ECMC_JERK)
+# reset PREFIX
+epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
+iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/applyAxisSynchronization.cmd, CONFIG=./cfg/amplitude_y.sax)
+#==============================================================================
+# applyAxisSynchronization.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+iocshLoad ./cfg/amplitude_y.sax
+############# Encoder
+epicsEnvSet("ECMC_ENC_SOURCE",                 "1")      # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_ENC_VELO_FILT_ENABLE",       "0")      # Enable velocity filter
+epicsEnvSet("ECMC_ENC_VELO_FILT_SIZE",         "10")     # Encoder velocity Low pass filter size
+############# Trajectory
+epicsEnvSet("ECMC_TRAJ_SOURCE",                "0")      # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_TRAJ_VELO_FILT_ENABLE",      "0")      # Enable velocity filter
+epicsEnvSet("ECMC_TRAJ_VELO_FILT_SIZE",        "10")     # Trajectory velocity Low pass filter size
+############# Commands
+epicsEnvSet("ECMC_CMD_FRM_OTHER_PLC_ENABLE",   "1")      # Allow commands from PLC
+epicsEnvSet("ECMC_CMD_AXIS_PLC_ENABLE",        "1")      # Enable Axis PLC
+# Each line below is appended to one single expression/source. 
+# Executed in sync with axis (before)
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_1",           "ax4.enc.actpos:=ax4.traj.setpos|")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_2",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_3",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_4",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_5",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_6",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_7",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_8",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_9",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_10",          "")
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync.cmd
+#==============================================================================
+# ecmc_axis_sync.cmd
+ecmcConfigOrDie "Cfg.SetAxisAllowCommandsFromPLC(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEnable(4,1)"
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)=ax4.enc.actpos:=ax4.traj.setpos|"
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(4)="
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEncVelFilterSize(4,10)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEncVelFilterEnable(4,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncSourceType(4,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCTrajVelFilterSize(4,10)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCTrajVelFilterEnable(4,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisTrajSourceType(4,0)"
+OK
+ecmcFileExist(/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync_unset.cmd,1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync_unset.cmd
+#==============================================================================
+# ecmc_axis_sync_unset.cmd
+epicsEnvUnset(ECMC_CMD_FRM_OTHER_PLC_ENABLE)
+epicsEnvUnset(ECMC_CMD_AXIS_PLC_ENABLE)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_1)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_2)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_3)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_4)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_5)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_6)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_7)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_8)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_9)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_10)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_11)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_12)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_13)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_14)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_15)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_16)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_17)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_18)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_19)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_20)
+epicsEnvUnset(ECMC_ENC_VELO_FILT_SIZE)
+epicsEnvUnset(ECMC_ENC_VELO_FILT_ENABLE)
+epicsEnvUnset(ECMC_ENC_SOURCE)
+epicsEnvUnset(ECMC_TRAJ_VELO_FILT_SIZE)
+epicsEnvUnset(ECMC_TRAJ_VELO_FILT_ENABLE)
+epicsEnvUnset(ECMC_TRAJ_SOURCE)
+##############################################################################
+## X offset
+#
+epicsEnvSet("DEV",      "IOC_TEST")
+iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/configureVirtualAxis.cmd, CONFIG=./cfg/offset_x.vax)
+#==============================================================================
+# configureVirtualAxis.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
+iocshLoad ./cfg/offset_x.vax
+#General
+epicsEnvSet("ECMC_MOTOR_NAME",            "offsetX")
+epicsEnvSet("ECMC_R",                     "offsetX-")
+epicsEnvSet("ECMC_AXIS_NO",               "5")
+epicsEnvSet("ECMC_DESC",                  "Offset X")
+epicsEnvSet("ECMC_EGU",                   "mm")                       # Motor Record Unit
+epicsEnvSet("ECMC_PREC",                  "3")                        # Motor Record Precision
+epicsEnvSet("ECMC_AXISCONFIG",            "")                         # Extra parameters to driver
+epicsEnvSet("ECMC_EC_AXIS_HEALTH",        "")                         # Entry for axis health output (example: ec0.s1.binaryOutput01.0)
+epicsEnvSet("ECMC_MOD_RANGE" ,            "0")                        # Modulo range (traj setpoints and encoder values will be in range 0..ECMC_MOD_RANGE)
+epicsEnvSet("ECMC_MOD_TYPE",              "0")                        # For positioning and MOD_RANGE>0: 0 = Normal, 1 = Always Fwd, 2 = Always Bwd, 3 = Closest Distance
+# Encoder
+epicsEnvSet("ECMC_ENC_SCALE_NUM"          "1")
+epicsEnvSet("ECMC_ENC_SCALE_DENOM"        "1")
+epicsEnvSet("ECMC_ENC_TYPE"               "1")                        # Type: 0=Incremental, 1=Absolute
+epicsEnvSet("ECMC_ENC_BITS"               "16")                       # Total bit count of encoder raw data
+epicsEnvSet("ECMC_ENC_ABS_BITS",          "0")                        # Absolute bit count (for absolute encoders) always least significant part of ECMC_ENC_BITS
+epicsEnvSet("ECMC_ENC_ABS_OFFSET"         "0")                        # Encoder offset in eng units (for absolute encoders)
+epicsEnvSet("ECMC_EC_ENC_ACTPOS",         "ec0.s-1.ZERO")              # Ethercat entry for actual position input (encoder)
+epicsEnvSet("ECMC_EC_ENC_RESET",          "")                         # Reset   (if no encoder reset bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_0",        "")                         # Error 0 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_1",        "")                         # Error 1 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_2",        "")                         # Error 2 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_WARNING",        "")                         # Warning (if no encoder warning bit then leave empty)
+#Trajectory
+epicsEnvSet("ECMC_VELO",                  "5")
+epicsEnvSet("ECMC_JOG_VEL",               "5")
+epicsEnvSet("ECMC_JAR",                   "0.0")                      # JAR defaults to VELO/ACCL
+epicsEnvSet("ECMC_ACCS_EGU_PER_S2",       "0.3")
+epicsEnvSet("ECMC_EMERG_DECEL",           "100")             # Emergency deceleration
+#Homing
+epicsEnvSet("ECMC_HOME_PROC",             "3")
+epicsEnvSet("ECMC_HOME_POS",              "0.0")
+epicsEnvSet("ECMC_HOME_VEL_TO",           "5")
+epicsEnvSet("ECMC_HOME_VEL_FRM",          "4")
+epicsEnvSet("ECMC_HOME_ACC",              "21")
+epicsEnvSet("ECMC_HOME_DEC",              "100")
+epicsEnvSet("ECMC_HOME_POS_MOVE_ENA",     "0")                        # Enable move to position after successfull homing 
+epicsEnvSet("ECMC_HOME_POS_MOVE_TARG_POS","0")                        # Target position to go to after successfull homing
+#Monitoring
+# Switches
+epicsEnvSet("ECMC_EC_MON_LOWLIM",         "ec0.s-1.ONE.0")           #  Ethercat entry for low limit switch input
+epicsEnvSet("ECMC_EC_MON_HIGHLIM",        "ec0.s-1.ONE.0")           #  Ethercat entry for high limit switch inpuit
+epicsEnvSet("ECMC_EC_MON_HOME_SWITCH",    "ec0.s-1.ONE.0")           #  Ethercat entry for home switch input
+epicsEnvSet("ECMC_EC_MON_EXT_INTERLOCK",  "ec0.s-1.ONE.0")           #  Ethercat entry for external interlock input
+# Softlimits (disable with 0,0)
+epicsEnvSet("ECMC_SOFT_LOW_LIM",          "-70")
+epicsEnvSet("ECMC_SOFT_HIGH_LIM",         "70")
+epicsEnvSet("ECMC_DXLM_ENABLE",           "1")
+# Position lag
+epicsEnvSet("ECMC_MON_LAG_MON_TOL",       "0.5")
+epicsEnvSet("ECMC_MON_LAG_MON_TIME",      "100")
+epicsEnvSet("ECMC_MON_LAG_MON_ENA",       "0")
+# At target
+epicsEnvSet("ECMC_MON_AT_TARGET_TOL",     "0.1")
+epicsEnvSet("ECMC_MON_AT_TARGET_TIME",     "100")
+epicsEnvSet("ECMC_MON_AT_TARGET_ENA",     "1")
+# Velocity
+epicsEnvSet("ECMC_MON_VELO_MAX",          "100.0")
+epicsEnvSet("ECMC_MON_VELO_MAX_TRAJ_TIME","100")
+epicsEnvSet("ECMC_MON_VELO_MAX_DRV_TIME", "200")
+epicsEnvSet("ECMC_MON_VELO_MAX_ENA",      "1")
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/addVirtualAxis.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/addVirtualAxis.cmd
+#==============================================================================
+# addVirtualAxis.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis-records.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis-records.cmd
+#==============================================================================
+# ecmc_virt_axis-records.cmd
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis.cmd",1)
+iocshLoad( /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis.cmd )
+#==============================================================================
+# ecmc_virt_axis.cmd
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd "EXPR_STR='abs(1)<>0',SUCCESS_STR='ECMC_ENC_SCALE_NUM value OK == 1...',ERROR_STR='ECMC_ENC_SCALE_NUM == 0...'"
+#==============================================================================
+# verifyOrDie.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"abs(1)<>0","# ECMC_ENC_SCALE_NUM value OK == 1...", "ecmcExit Error: ECMC_ENC_SCALE_NUM == 0...")
+# ECMC_ENC_SCALE_NUM value OK == 1...
+epicsEnvUnset(ECMC_EXE_CMD)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd "EXPR_STR='abs(1)<>0',SUCCESS_STR='ECMC_ENC_SCALE_DENOM value OK == 1...',ERROR_STR='ECMC_ENC_SCALE_DENOM == 0...'"
+#==============================================================================
+# verifyOrDie.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"abs(1)<>0","# ECMC_ENC_SCALE_DENOM value OK == 1...", "ecmcExit Error: ECMC_ENC_SCALE_DENOM == 0...")
+# ECMC_ENC_SCALE_DENOM value OK == 1...
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd "EXPR_STR='-1>0',WARNING_STR='WARNING: ECMC_MRES setting is deprecated and will not be used. (MRES will be calulated instead: ECMC_ENC_SCALE_NUM/ECMC_ENC_SCALE_DENOM).. '"
+#==============================================================================
+# issueWarning.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"-1>0","", "#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcConfigOrDie "Cfg.CreateAxis(5,2,0,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisTrajStartPos(5,0)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax5.health")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisModRange(5, 0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisModType(5, 0)"
+OK
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/requ2023/03/02 16:10:41.456 ecmcMotorRecord:: setIntegerParam(5 motorPowerAutoOnOff_)=2
+2023/03/02 16:10:41.456 ecmcMotorRecord:: setDoubleParam(5 motorPowerOnDelay_)=6
+2023/03/02 16:10:41.456 ecmcMotorRecord:: setDoubleParam(5 motorPowerOffDelay_=-1
+2023/03/02 16:10:41.456 ecmcMotorRecord:: udateMotorLimitsRO(5) enabledHighAndLow=1 valid=1 fValueHigh=70 fValueLow=-70
+2023/03/02 16:10:41.456 ecmcMotorRecord:: connected(5)
+2023/03/02 16:10:41.456 ecmcMotorRecord:: initialPoll(5) status=0
+ire-4.0.0/ecmccfg/master/issueWarning.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd "EXPR_STR='-1>0',WARNING_STR='WARNING: ECMC_ACCL setting is deprecated. Please use ECMC_ACCS_EGU_PER_S2 instead..'"
+#==============================================================================
+# issueWarning.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"-1>0","", "#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcEpicsEnvSetCalcTernary(ECMC_BLOCK_ACCL,"'EMPTY'!='EMPTY'","", "#-")
+ecmcEpicsEnvSetCalcTernary(ECMC_BLOCK_ACCS,"'EMPTY'=='EMPTY'","", "#-")
+ ecmcConfigOrDie "Cfg.SetAxisAcc(5,0.3)"
+OK
+ ecmcConfigOrDie "Cfg.SetAxisDec(5,0.3)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisJerk(5,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisVel(5,5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEmergDeceleration(5,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeVelTowardsCam(5,5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeVelOffCam(5,4)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ZERO,"ax5.enc.actpos")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncScaleDenom(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncScaleNum(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncType(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncBits(5,16)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncAbsBits(5,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncOffset(5,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncVelFilterSize(5,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncPosFilterSize(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncPosFilterEnable(5,0)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax5.enc.reset")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax5.enc.alarm0")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax5.enc.alarm1")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax5.enc.alarm2")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax5.enc.warning")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax5.enc.latchpos")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax5.enc.latchcontrol")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax5.enc.latchstatus")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax5.mon.lowlim")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax5.mon.highlim")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax5.mon.homesensor")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax5.mon.extinterlock")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonAtTargetTol(5,0.1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonAtTargetTime(5,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableAtTargetMon(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonPosLagTol(5,0.5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonPosLagTime(5,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableLagMon(5,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVel(5,100.0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableMaxVel(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVelDriveILDelay(5,200)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVelTrajILDelay(5,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosBwd(5,-70)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitBwd(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosFwd(5,70)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitFwd(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonHomeSwitchPolarity(5,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeLatchCountOffset(5,0.0)"
+WARNING: The command Cfg.SetAxisHomeLatchCountOffset() will be obsolete in newer versions.Please use Cfg.SetAxisEncHomeLatchCountOffset() instead.
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePosition(5,0.0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveEnable(5, 0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveTargetPosition(5, 0)"
+OK
+ ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_mr.cmd",1)
+ iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_mr.cmd
+#==============================================================================
+# ecmc_axis_mr.cmd
+ecmcMotorRecordCreateAxis(MCU1, "5", "6", )
+ecmcEpicsEnvSetCalc("ECMC_TEMP_SREV","if(abs(1)>0){RESULT:=abs(1);} else {RESULT:=1.0};","%d")
+ecmcEpicsEnvSetCalc("ECMC_TEMP_UREV","if(abs(1)>0){RESULT:=abs(1);} else {RESULT:=1.0};","%lf")
+ecmcFileExist(ecmcMotorRecord.template,1,1)
+ dbLoadRecords(ecmcMotorRecord.template, "PREFIX=IOC_TEST:, MOTOR_NAME=offsetX, MOTOR_PORT=MCU1, AXIS_NO=5, DESC=Offset X, EGU=mm, PREC=3, VELO=5, JVEL=5, JAR=0.0, ACCS=0.3, RDBD=0.1, DLLM=-70, DHLM=70, HOMEPROC=3,SREV=1,UREV=1.000000, ")
+epicsEnvSet("ECMC_AXISFIELDINIT",  "")
+ecmcFileExist(ecmcMotorRecordhome.template,1,1)
+dbLoadRecords(ecmcMotorRecordhome.template, "PREFIX=IOC_TEST:, MOTOR_NAME=offsetX, MOTOR_PORT=MCU1, AXIS_NO=5,HOMEPROC=3, HOMEPOS=0.0, HVELTO=5, HVELFRM=4, HOMEACC=21, HOMEDEC=100")
+epicsEnvUnset(ECMC_TEMP_SREV)
+epicsEnvUnset(ECMC_TEMP_UREV)
+# Add ECMC_AXIS_NO to ECMC_AXES_CFG
+epicsEnvSet(ECMC_AXES_CFG,"1, 2, 3, 4, 5, ")
+epicsEnvUnset(ECMC_BLOCK_ACCL)
+epicsEnvUnset(ECMC_BLOCK_ACCS)
+ecmcFileExist("ecmcAxis.db",1,1)
+dbLoadRecords("ecmcAxis.db","P=IOC_TEST:,AXIS_NAME=offsetX,AXIS_NO=5,PORT=MC_CPU1,ADDR=0,TIMEOUT=1,T_SMP_MS=10,TSE=0")
+ecmcFileExist("ecmcAxisType.db",1,1)
+dbLoadRecords("ecmcAxisType.db","P=IOC_TEST:,AXIS_NAME=offsetX,AXIS_TYPE=2,DRV_TYPE=2,TRAJ_TYPE=0")
+ecmcFileExist(/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis_unset.cmd,1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis_unset.cmd
+#==============================================================================
+# ecmc_virt_axis_unset.cmd
+epicsEnvUnset(ECMC_AXISCONFIG)
+epicsEnvUnset(ECMC_AXISFIELDINIT)
+epicsEnvUnset(ECMC_PREC)
+epicsEnvUnset(ECMC_EGU)
+epicsEnvUnset(ECMC_DESC)
+epicsEnvUnset(ECMC_R)
+epicsEnvUnset(ECMC_MOTOR_NAME)
+epicsEnvUnset(ECMC_EC_AXIS_HEALTH)
+epicsEnvUnset(ECMC_MOD_RANGE)
+epicsEnvUnset(ECMC_MOD_TYPE)
+epicsEnvUnset(ECMC_EMERG_DECEL)
+epicsEnvUnset(ECMC_ACCL)
+epicsEnvUnset(ECMC_ACCS_EGU_PER_S2)
+epicsEnvUnset(ECMC_HOME_VEL_TO)
+epicsEnvUnset(ECMC_HOME_VEL_FRM)
+epicsEnvUnset(ECMC_EC_ENC_ACTPOS)
+epicsEnvUnset(ECMC_ENC_SCALE_DENOM)
+epicsEnvUnset(ECMC_ENC_SCALE_NUM)
+epicsEnvUnset(ECMC_ENC_TYPE)
+epicsEnvUnset(ECMC_ENC_BITS)
+epicsEnvUnset(ECMC_ENC_ABS_BITS)
+epicsEnvUnset(ECMC_ENC_ABS_OFFSET)
+epicsEnvUnset(ECMC_ENC_VEL_FILTER_SIZE)
+epicsEnvUnset(ECMC_ENC_POS_FILTER_SIZE)
+epicsEnvUnset(ECMC_ENC_POS_FILTER_ENABLE)
+epicsEnvUnset(ECMC_EC_ENC_RESET)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_0)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_1)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_2)
+epicsEnvUnset(ECMC_EC_ENC_WARNING)
+epicsEnvUnset(ECMC_EC_MON_LOWLIM)
+epicsEnvUnset(ECMC_EC_MON_HIGHLIM)
+epicsEnvUnset(ECMC_EC_MON_HOME_SWITCH)
+epicsEnvUnset(ECMC_EC_MON_EXT_INTERLOCK)
+epicsEnvUnset(ECMC_MON_AT_TARGET_TOL)
+epicsEnvUnset(ECMC_MON_AT_TARGET_TIME)
+epicsEnvUnset(ECMC_MON_AT_TARGET_ENA)
+epicsEnvUnset(ECMC_MON_LAG_MON_TOL)
+epicsEnvUnset(ECMC_MON_LAG_MON_TIME)
+epicsEnvUnset(ECMC_MON_LAG_MON_ENA)
+epicsEnvUnset(ECMC_MON_VELO_MAX)
+epicsEnvUnset(ECMC_MON_VELO_MAX_ENA)
+epicsEnvUnset(ECMC_MON_VELO_MAX_DRV_TIME)
+epicsEnvUnset(ECMC_MON_VELO_MAX_TRAJ_TIME)
+epicsEnvUnset(ECMC_MRES)
+epicsEnvUnset(ECMC_JOG_VEL)
+epicsEnvUnset(ECMC_JAR)
+epicsEnvUnset(ECMC_HOME_PROC)
+epicsEnvUnset(ECMC_HOME_POS)
+epicsEnvUnset(ECMC_HOME_ACC)
+epicsEnvUnset(ECMC_HOME_DEC)
+epicsEnvUnset(ECMC_DRV_TYPE)
+epicsEnvUnset(ECMC_VELO)
+epicsEnvUnset(ECMC_SOFT_LOW_LIM)
+epicsEnvUnset(ECMC_SOFT_HIGH_LIM)
+epicsEnvUnset(ECMC_HOME_POS_MOVE_ENA)
+epicsEnvUnset(ECMC_HOME_POS_MOVE_TARG_POS)
+epicsEnvUnset(ECMC_TRAJ_TYPE)
+epicsEnvUnset(ECMC_JERK)
+# reset PREFIX
+epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
+iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/applyAxisSynchronization.cmd, CONFIG=./cfg/offset_x.sax)
+#==============================================================================
+# applyAxisSynchronization.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+iocshLoad ./cfg/offset_x.sax
+############# Encoder
+epicsEnvSet("ECMC_ENC_SOURCE",                 "1")      # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_ENC_VELO_FILT_ENABLE",       "0")      # Enable velocity filter
+epicsEnvSet("ECMC_ENC_VELO_FILT_SIZE",         "10")     # Encoder velocity Low pass filter size
+############# Trajectory
+epicsEnvSet("ECMC_TRAJ_SOURCE",                "0")      # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_TRAJ_VELO_FILT_ENABLE",      "0")      # Enable velocity filter
+epicsEnvSet("ECMC_TRAJ_VELO_FILT_SIZE",        "10")     # Trajectory velocity Low pass filter size
+############# Commands
+epicsEnvSet("ECMC_CMD_FRM_OTHER_PLC_ENABLE",   "1")      # Allow commands from PLC
+epicsEnvSet("ECMC_CMD_AXIS_PLC_ENABLE",        "1")      # Enable Axis PLC
+# Each line below is appended to one single expression/source. 
+# Executed in sync with axis (before)
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_1",           "ax5.enc.actpos:=ax5.traj.setpos|")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_2",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_3",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_4",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_5",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_6",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_7",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_8",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_9",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_10",          "")
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync.cmd
+#==============================================================================
+# ecmc_axis_sync.cmd
+ecmcConfigOrDie "Cfg.SetAxisAllowCommandsFromPLC(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEnable(5,1)"
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)=ax5.enc.actpos:=ax5.traj.setpos|"
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(5)="
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEncVelFilterSize(5,10)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEncVelFilterEnable(5,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncSourceType(5,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCTrajVelFilterSize(5,10)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCTrajVelFilterEnable(5,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisTrajSourceType(5,0)"
+OK
+ecmcFileExist(/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync_unset.cmd,1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync_unset.cmd
+#==============================================================================
+# ecmc_axis_sync_unset.cmd
+epicsEnvUnset(ECMC_CMD_FRM_OTHER_PLC_ENABLE)
+epicsEnvUnset(ECMC_CMD_AXIS_PLC_ENABLE)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_1)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_2)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_3)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_4)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_5)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_6)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_7)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_8)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_9)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_10)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_11)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_12)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_13)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_14)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_15)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_16)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_17)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_18)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_19)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_20)
+epicsEnvUnset(ECMC_ENC_VELO_FILT_SIZE)
+epicsEnvUnset(ECMC_ENC_VELO_FILT_ENABLE)
+epicsEnvUnset(ECMC_ENC_SOURCE)
+epicsEnvUnset(ECMC_TRAJ_VELO_FILT_SIZE)
+epicsEnvUnset(ECMC_TRAJ_VELO_FILT_ENABLE)
+epicsEnvUnset(ECMC_TRAJ_SOURCE)
+##############################################################################
+## Y amplitude
+#
+epicsEnvSet("DEV",      "IOC_TEST")
+iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/configureVirtualAxis.cmd, CONFIG=./cfg/offset_y.vax)
+#==============================================================================
+# configureVirtualAxis.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
+iocshLoad ./cfg/offset_y.vax
+#General
+epicsEnvSet("ECMC_MOTOR_NAME",            "offsetY")
+epicsEnvSet("ECMC_R",                     "offsetY-")
+epicsEnvSet("ECMC_AXIS_NO",               "6")
+epicsEnvSet("ECMC_DESC",                  "Offset Y")
+epicsEnvSet("ECMC_EGU",                   "mm")                       # Motor Record Unit
+epicsEnvSet("ECMC_PREC",                  "3")                        # Motor Record Precision
+epicsEnvSet("ECMC_AXISCONFIG",            "")                         # Extra parameters to driver
+epicsEnvSet("ECMC_EC_AXIS_HEALTH",        "")                         # Entry for axis health output (example: ec0.s1.binaryOutput01.0)
+epicsEnvSet("ECMC_MOD_RANGE" ,            "0")                        # Modulo range (traj setpoints and encoder values will be in range 0..ECMC_MOD_RANGE)
+epicsEnvSet("ECMC_MOD_TYPE",              "0")                        # For positioning and MOD_RANGE>0: 0 = Normal, 1 = Always Fwd, 2 = Always Bwd, 3 = Closest Distance
+# Encoder
+epicsEnvSet("ECMC_ENC_SCALE_NUM"          "1")
+epicsEnvSet("ECMC_ENC_SCALE_DENOM"        "1")
+epicsEnvSet("ECMC_ENC_TYPE"               "1")                        # Type: 0=Incremental, 1=Absolute
+epicsEnvSet("ECMC_ENC_BITS"               "16")                       # Total bit count of encoder raw data
+epicsEnvSet("ECMC_ENC_ABS_BITS",          "0")                        # Absolute bit count (for absolute encoders) always least significant part of ECMC_ENC_BITS
+epicsEnvSet("ECMC_ENC_ABS_OFFSET"         "0")                        # Encoder offset in eng units (for absolute encoders)
+epicsEnvSet("ECMC_EC_ENC_ACTPOS",         "ec0.s-1.ZERO")              # Ethercat entry for actual position input (encoder)
+epicsEnvSet("ECMC_EC_ENC_RESET",          "")                         # Reset   (if no encoder reset bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_0",        "")                         # Error 0 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_1",        "")                         # Error 1 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_ALARM_2",        "")                         # Error 2 (if no encoder error bit then leave empty)
+epicsEnvSet("ECMC_EC_ENC_WARNING",        "")                         # Warning (if no encoder warning bit then leave empty)
+#Trajectory
+epicsEnvSet("ECMC_VELO",                  "5")
+epicsEnvSet("ECMC_JOG_VEL",               "5")
+epicsEnvSet("ECMC_JAR",                   "0.0")                      # JAR defaults to VELO/ACCL
+epicsEnvSet("ECMC_ACCS_EGU_PER_S2",       "0.3")
+epicsEnvSet("ECMC_EMERG_DECEL",           "100")             # Emergency deceleration
+#Homing
+epicsEnvSet("ECMC_HOME_PROC",             "3")
+epicsEnvSet("ECMC_HOME_POS",              "0.0")
+epicsEnvSet("ECMC_HOME_VEL_TO",           "5")
+epicsEnvSet("ECMC_HOME_VEL_FRM",          "4")
+epicsEnvSet("ECMC_HOME_ACC",              "21")
+epicsEnvSet("ECMC_HOME_DEC",              "100")
+epicsEnvSet("ECMC_HOME_POS_MOVE_ENA",     "0")                        # Enable move to position after successfull homing 
+epicsEnvSet("ECMC_HOME_POS_MOVE_TARG_POS","0")                        # Target position to go to after successfull homing
+#Monitoring
+# Switches
+epicsEnvSet("ECMC_EC_MON_LOWLIM",         "ec0.s-1.ONE.0")           #  Ethercat entry for low limit switch input
+epicsEnvSet("ECMC_EC_MON_HIGHLIM",        "ec0.s-1.ONE.0")           #  Ethercat entry for high limit switch inpuit
+epicsEnvSet("ECMC_EC_MON_HOME_SWITCH",    "ec0.s-1.ONE.0")           #  Ethercat entry for home switch input
+epicsEnvSet("ECMC_EC_MON_EXT_INTERLOCK",  "ec0.s-1.ONE.0")           #  Ethercat entry for external interlock input
+# Softlimits (disable with 0,0)
+epicsEnvSet("ECMC_SOFT_LOW_LIM",          "-70")
+epicsEnvSet("ECMC_SOFT_HIGH_LIM",         "70")
+epicsEnvSet("ECMC_DXLM_ENABLE",           "1")
+# Position lag
+epicsEnvSet("ECMC_MON_LAG_MON_TOL",       "0.5")
+epicsEnvSet("ECMC_MON_LAG_MON_TIME",      "100")
+epicsEnvSet("ECMC_MON_LAG_MON_ENA",       "0")
+# At target
+epicsEnvSet("ECMC_MON_AT_TARGET_TOL",     "0.1")
+epicsEnvSet("ECMC_MON_AT_TARGET_TIME",     "100")
+epicsEnvSet("ECMC_MON_AT_TARGET_ENA",     "1")
+# Velocity
+epicsEnvSet("ECMC_MON_VELO_MAX",          "100.0")
+epicsEnvSet("ECMC_MON_VELO_MAX_TRAJ_TIME","100")
+epicsEnvSet("ECMC_MON_VELO_MAX_DRV_TIME", "200")
+epicsEnvSet("ECMC_MON_VELO_MAX_ENA",      "1")
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/addVirtualAxis.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/addVirtualAxis.cmd
+#==============================================================================
+# addVirtualAxis.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis-records.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis-records.cmd
+#==============================================================================
+# ecmc_virt_axis-records.cmd
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis.cmd",1)
+iocshLoad( /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis.cmd )
+#==============================================================================
+# ecmc_virt_axis.cmd
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd "EXPR_STR='abs(1)<>0',SUCCESS_STR='ECMC_ENC_SCALE_NUM value OK == 1...',ERROR_STR='ECMC_ENC_SCALE_NUM == 0...'"
+#==============================================================================
+# verifyOrDie.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"abs(1)<>0","# ECMC_ENC_SCALE_NUM value OK == 1...", "ecmcExit Error: ECMC_ENC_SCALE_NUM == 0...")
+# ECMC_ENC_SCALE_NUM value OK == 1...
+epicsEnvUnset(ECMC_EXE_CMD)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/verifyOrDie.cmd "EXPR_STR='abs(1)<>0',SUCCESS_STR='ECMC_ENC_SCALE_DENOM value OK == 1...',ERROR_STR='ECMC_ENC_SCALE_DENOM == 0...'"
+#==============================================================================
+# verifyOrDie.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"abs(1)<>0","# ECMC_ENC_SCALE_DENOM value OK == 1...", "ecmcExit Error: ECMC_ENC_SCALE_DENOM == 0...")
+# ECMC_ENC_SCALE_DENOM value OK == 1...
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd "EXPR_STR='-1>0',WARNING_STR='WARNING: ECMC_MRES setting is deprecated and will not be used. (MRES will be calulated instead: ECMC_ENC_SCALE_NUM/ECMC_ENC_SCALE_DENOM).. '"
+#==============================================================================
+# issueWarning.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"-1>0","", "#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcConfigOrDie "Cfg.CreateAxis(6,2,0,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisTrajStartPos(6,0)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax6.health")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisModRange(6, 0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisModType(6, 0)"
+OK
+ecmcF2023/03/02 16:10:41.465 ecmcMotorRecord:: setIntegerParam(6 motorPowerAutoOnOff_)=2
+2023/03/02 16:10:41.466 ecmcMotorRecord:: setDoubleParam(6 motorPowerOnDelay_)=6
+2023/03/02 16:10:41.466 ecmcMotorRecord:: setDoubleParam(6 motorPowerOffDelay_=-1
+2023/03/02 16:10:41.466 ecmcMotorRecord:: udateMotorLimitsRO(6) enabledHighAndLow=1 valid=1 fValueHigh=70 fValueLow=-70
+2023/03/02 16:10:41.466 ecmcMotorRecord:: connected(6)
+2023/03/02 16:10:41.466 ecmcMotorRecord:: initialPoll(6) status=0
+ileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/issueWarning.cmd "EXPR_STR='-1>0',WARNING_STR='WARNING: ECMC_ACCL setting is deprecated. Please use ECMC_ACCS_EGU_PER_S2 instead..'"
+#==============================================================================
+# issueWarning.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD,"-1>0","", "#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+ecmcEpicsEnvSetCalcTernary(ECMC_BLOCK_ACCL,"'EMPTY'!='EMPTY'","", "#-")
+ecmcEpicsEnvSetCalcTernary(ECMC_BLOCK_ACCS,"'EMPTY'=='EMPTY'","", "#-")
+ ecmcConfigOrDie "Cfg.SetAxisAcc(6,0.3)"
+OK
+ ecmcConfigOrDie "Cfg.SetAxisDec(6,0.3)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisJerk(6,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisVel(6,5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEmergDeceleration(6,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeVelTowardsCam(6,5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeVelOffCam(6,4)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ZERO,"ax6.enc.actpos")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncScaleDenom(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncScaleNum(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncType(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncBits(6,16)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncAbsBits(6,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncOffset(6,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncVelFilterSize(6,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncPosFilterSize(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncPosFilterEnable(6,0)"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax6.enc.reset")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax6.enc.alarm0")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax6.enc.alarm1")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax6.enc.alarm2")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax6.enc.warning")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax6.enc.latchpos")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax6.enc.latchcontrol")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(,"ax6.enc.latchstatus")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax6.mon.lowlim")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax6.mon.highlim")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax6.mon.homesensor")"
+OK
+ecmcConfigOrDie "Cfg.LinkEcEntryToObject(ec0.s-1.ONE.0,"ax6.mon.extinterlock")"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonAtTargetTol(6,0.1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonAtTargetTime(6,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableAtTargetMon(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonPosLagTol(6,0.5)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonPosLagTime(6,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableLagMon(6,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVel(6,100.0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonEnableMaxVel(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVelDriveILDelay(6,200)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonMaxVelTrajILDelay(6,100)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosBwd(6,-70)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitBwd(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisSoftLimitPosFwd(6,70)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEnableSoftLimitFwd(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisMonHomeSwitchPolarity(6,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomeLatchCountOffset(6,0.0)"
+WARNING: The command Cfg.SetAxisHomeLatchCountOffset() will be obsolete in newer versions.Please use Cfg.SetAxisEncHomeLatchCountOffset() instead.
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePosition(6,0.0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveEnable(6, 0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisHomePostMoveTargetPosition(6, 0)"
+OK
+ ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_mr.cmd",1)
+ iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_mr.cmd
+#==============================================================================
+# ecmc_axis_mr.cmd
+ecmcMotorRecordCreateAxis(MCU1, "6", "6", )
+ecmcEpicsEnvSetCalc("ECMC_TEMP_SREV","if(abs(1)>0){RESULT:=abs(1);} else {RESULT:=1.0};","%d")
+ecmcEpicsEnvSetCalc("ECMC_TEMP_UREV","if(abs(1)>0){RESULT:=abs(1);} else {RESULT:=1.0};","%lf")
+ecmcFileExist(ecmcMotorRecord.template,1,1)
+ dbLoadRecords(ecmcMotorRecord.template, "PREFIX=IOC_TEST:, MOTOR_NAME=offsetY, MOTOR_PORT=MCU1, AXIS_NO=6, DESC=Offset Y, EGU=mm, PREC=3, VELO=5, JVEL=5, JAR=0.0, ACCS=0.3, RDBD=0.1, DLLM=-70, DHLM=70, HOMEPROC=3,SREV=1,UREV=1.000000, ")
+epicsEnvSet("ECMC_AXISFIELDINIT",  "")
+ecmcFileExist(ecmcMotorRecordhome.template,1,1)
+dbLoadRecords(ecmcMotorRecordhome.template, "PREFIX=IOC_TEST:, MOTOR_NAME=offsetY, MOTOR_PORT=MCU1, AXIS_NO=6,HOMEPROC=3, HOMEPOS=0.0, HVELTO=5, HVELFRM=4, HOMEACC=21, HOMEDEC=100")
+epicsEnvUnset(ECMC_TEMP_SREV)
+epicsEnvUnset(ECMC_TEMP_UREV)
+# Add ECMC_AXIS_NO to ECMC_AXES_CFG
+epicsEnvSet(ECMC_AXES_CFG,"1, 2, 3, 4, 5, 6, ")
+epicsEnvUnset(ECMC_BLOCK_ACCL)
+epicsEnvUnset(ECMC_BLOCK_ACCS)
+ecmcFileExist("ecmcAxis.db",1,1)
+dbLoadRecords("ecmcAxis.db","P=IOC_TEST:,AXIS_NAME=offsetY,AXIS_NO=6,PORT=MC_CPU1,ADDR=0,TIMEOUT=1,T_SMP_MS=10,TSE=0")
+ecmcFileExist("ecmcAxisType.db",1,1)
+dbLoadRecords("ecmcAxisType.db","P=IOC_TEST:,AXIS_NAME=offsetY,AXIS_TYPE=2,DRV_TYPE=2,TRAJ_TYPE=0")
+ecmcFileExist(/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis_unset.cmd,1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_virt_axis_unset.cmd
+#==============================================================================
+# ecmc_virt_axis_unset.cmd
+epicsEnvUnset(ECMC_AXISCONFIG)
+epicsEnvUnset(ECMC_AXISFIELDINIT)
+epicsEnvUnset(ECMC_PREC)
+epicsEnvUnset(ECMC_EGU)
+epicsEnvUnset(ECMC_DESC)
+epicsEnvUnset(ECMC_R)
+epicsEnvUnset(ECMC_MOTOR_NAME)
+epicsEnvUnset(ECMC_EC_AXIS_HEALTH)
+epicsEnvUnset(ECMC_MOD_RANGE)
+epicsEnvUnset(ECMC_MOD_TYPE)
+epicsEnvUnset(ECMC_EMERG_DECEL)
+epicsEnvUnset(ECMC_ACCL)
+epicsEnvUnset(ECMC_ACCS_EGU_PER_S2)
+epicsEnvUnset(ECMC_HOME_VEL_TO)
+epicsEnvUnset(ECMC_HOME_VEL_FRM)
+epicsEnvUnset(ECMC_EC_ENC_ACTPOS)
+epicsEnvUnset(ECMC_ENC_SCALE_DENOM)
+epicsEnvUnset(ECMC_ENC_SCALE_NUM)
+epicsEnvUnset(ECMC_ENC_TYPE)
+epicsEnvUnset(ECMC_ENC_BITS)
+epicsEnvUnset(ECMC_ENC_ABS_BITS)
+epicsEnvUnset(ECMC_ENC_ABS_OFFSET)
+epicsEnvUnset(ECMC_ENC_VEL_FILTER_SIZE)
+epicsEnvUnset(ECMC_ENC_POS_FILTER_SIZE)
+epicsEnvUnset(ECMC_ENC_POS_FILTER_ENABLE)
+epicsEnvUnset(ECMC_EC_ENC_RESET)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_0)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_1)
+epicsEnvUnset(ECMC_EC_ENC_ALARM_2)
+epicsEnvUnset(ECMC_EC_ENC_WARNING)
+epicsEnvUnset(ECMC_EC_MON_LOWLIM)
+epicsEnvUnset(ECMC_EC_MON_HIGHLIM)
+epicsEnvUnset(ECMC_EC_MON_HOME_SWITCH)
+epicsEnvUnset(ECMC_EC_MON_EXT_INTERLOCK)
+epicsEnvUnset(ECMC_MON_AT_TARGET_TOL)
+epicsEnvUnset(ECMC_MON_AT_TARGET_TIME)
+epicsEnvUnset(ECMC_MON_AT_TARGET_ENA)
+epicsEnvUnset(ECMC_MON_LAG_MON_TOL)
+epicsEnvUnset(ECMC_MON_LAG_MON_TIME)
+epicsEnvUnset(ECMC_MON_LAG_MON_ENA)
+epicsEnvUnset(ECMC_MON_VELO_MAX)
+epicsEnvUnset(ECMC_MON_VELO_MAX_ENA)
+epicsEnvUnset(ECMC_MON_VELO_MAX_DRV_TIME)
+epicsEnvUnset(ECMC_MON_VELO_MAX_TRAJ_TIME)
+epicsEnvUnset(ECMC_MRES)
+epicsEnvUnset(ECMC_JOG_VEL)
+epicsEnvUnset(ECMC_JAR)
+epicsEnvUnset(ECMC_HOME_PROC)
+epicsEnvUnset(ECMC_HOME_POS)
+epicsEnvUnset(ECMC_HOME_ACC)
+epicsEnvUnset(ECMC_HOME_DEC)
+epicsEnvUnset(ECMC_DRV_TYPE)
+epicsEnvUnset(ECMC_VELO)
+epicsEnvUnset(ECMC_SOFT_LOW_LIM)
+epicsEnvUnset(ECMC_SOFT_HIGH_LIM)
+epicsEnvUnset(ECMC_HOME_POS_MOVE_ENA)
+epicsEnvUnset(ECMC_HOME_POS_MOVE_TARG_POS)
+epicsEnvUnset(ECMC_TRAJ_TYPE)
+epicsEnvUnset(ECMC_JERK)
+# reset PREFIX
+epicsEnvSet("ECMC_PREFIX"      "IOC_TEST:")
+iocshLoad (/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/applyAxisSynchronization.cmd, CONFIG=./cfg/offset_y.sax)
+#==============================================================================
+# applyAxisSynchronization.cmd
+ecmcEpicsEnvSetCalcTernary(ECMC_EXE_CMD, "'FULL'='DAQ'","ecmcExit Error: ECMC started in DAQ mode. Motion not supported..","#-")
+epicsEnvUnset(ECMC_EXE_CMD)
+iocshLoad ./cfg/offset_y.sax
+############# Encoder
+epicsEnvSet("ECMC_ENC_SOURCE",                 "1")      # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_ENC_VELO_FILT_ENABLE",       "0")      # Enable velocity filter
+epicsEnvSet("ECMC_ENC_VELO_FILT_SIZE",         "10")     # Encoder velocity Low pass filter size
+############# Trajectory
+epicsEnvSet("ECMC_TRAJ_SOURCE",                "0")      # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_TRAJ_VELO_FILT_ENABLE",      "0")      # Enable velocity filter
+epicsEnvSet("ECMC_TRAJ_VELO_FILT_SIZE",        "10")     # Trajectory velocity Low pass filter size
+############# Commands
+epicsEnvSet("ECMC_CMD_FRM_OTHER_PLC_ENABLE",   "1")      # Allow commands from PLC
+epicsEnvSet("ECMC_CMD_AXIS_PLC_ENABLE",        "1")      # Enable Axis PLC
+# Each line below is appended to one single expression/source. 
+# Executed in sync with axis (before)
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_1",           "ax6.enc.actpos:=ax6.traj.setpos|")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_2",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_3",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_4",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_5",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_6",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_7",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_8",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_9",           "")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_10",          "")
+ecmcFileExist("/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync.cmd",1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync.cmd
+#==============================================================================
+# ecmc_axis_sync.cmd
+ecmcConfigOrDie "Cfg.SetAxisAllowCommandsFromPLC(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEnable(6,1)"
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)=ax6.enc.actpos:=ax6.traj.setpos|"
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.AppendAxisPLCExpr(6)="
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEncVelFilterSize(6,10)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCEncVelFilterEnable(6,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisEncSourceType(6,1)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCTrajVelFilterSize(6,10)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisPLCTrajVelFilterEnable(6,0)"
+OK
+ecmcConfigOrDie "Cfg.SetAxisTrajSourceType(6,0)"
+OK
+ecmcFileExist(/home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync_unset.cmd,1)
+iocshLoad /home/anderssandstrom/cellMods/base-7.0.6.1/require-4.0.0/ecmccfg/master/ecmc_axis_sync_unset.cmd
+#==============================================================================
+# ecmc_axis_sync_unset.cmd
+epicsEnvUnset(ECMC_CMD_FRM_OTHER_PLC_ENABLE)
+epicsEnvUnset(ECMC_CMD_AXIS_PLC_ENABLE)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_1)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_2)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_3)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_4)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_5)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_6)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_7)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_8)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_9)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_10)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_11)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_12)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_13)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_14)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_15)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_16)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_17)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_18)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_19)
+epicsEnvUnset(ECMC_AXIS_EXPR_LINE_20)
+epicsEnvUnset(ECMC_ENC_VELO_FIL2023/03/02 16:10:41.647 ecmcMotorRecord:: poll(4) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000006
+2023/03/02 16:10:41.647 ecmcMotorRecord:: poll(4) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 16:10:41.647 ecmcMotorRecord:: poll(4) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:41.647 ecmcMotorRecord:: poll(5) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000002
+2023/03/02 16:10:41.647 ecmcMotorRecord:: poll(5) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 16:10:41.647 ecmcMotorRecord:: poll(5) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:41.647 ecmcMotorRecord:: poll(6) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=0 atTarget=0 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000003
+2023/03/02 16:10:41.647 ecmcMotorRecord:: poll(6) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 16:10:41.647 ecmcMotorRecord:: poll(6) callParamCallbacksUpdateError Error=4 old=-1 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:42.471 EtherCAT bus ready (not scaning).
+2023/03/02 16:10:42.471 INFO: Locking memory
+2023/03/02 16:10:42.483 Starting up EtherCAT bus: 0 second(s). Max wait time 30 second(s).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 16).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcMonitor.cpp/checkLimits:494: ERROR_MON_BOTH_LIMIT_INTERLOCK (0x14c10).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 7).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisReal.cpp/execute:182: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 16).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcMonitor.cpp/checkLimits:494: ERROR_MON_BOTH_LIMIT_INTERLOCK (0x14c10).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 7).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisReal.cpp/execute:182: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 3): Motion interlocked (type 16).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 4): Motion interlocked (type 16).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 5): Motion interlocked (type 16).
+2023/03/02 16:10:42.572 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 6): Motion interlocked (type 16).
+2023/03/02 16:10:42.572 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 7: Not operational (0x24011).
+2023/03/02 16:10:42.572 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
+2023/03/02 16:10:42.572 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 8: Not operational (0x24011).
+2023/03/02 16:10:42.572 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
+2023/03/02 16:10:42.572 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:374: ERROR: Slave 9: Not operational (0x24011).
+2023/03/02 16:10:42.572 ../devEcmcSup/ethercat/ecmcEcSlave.cpp/checkConfigState:379: ERROR_EC_SLAVE_NOT_OPERATIONAL (0x24011).
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(1) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000005
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(1) bError=1 drvlocal.statusBinData.onChangeData.error=0x14315
+2023/03/02 16:10:42.647 ecmcMotorRecord:: sErrorMessage(1)="ERROR_AXIS_HARDWARE_STATUS_NOT_OK"
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=1 old=4 ErrID=0x14315 old=0x0 Warn=0 nCmd=0 old=0 txt=E: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315)
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(2) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000003
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(2) bError=1 drvlocal.statusBinData.onChangeData.error=0x14315
+2023/03/02 16:10:42.647 ecmcMotorRecord:: sErrorMessage(2)="ERROR_AXIS_HARDWARE_STATUS_NOT_OK"
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=1 old=4 ErrID=0x14315 old=0x0 Warn=0 nCmd=0 old=0 txt=E: ERROR_AXIS_HARDWARE_STATUS_NOT_OK (0x14315)
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(3) homed=1
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(3) LLS=0
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(3) HLS=0
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(3) callParamCallbacksUpdateError Error=0 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(4) homed=1
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(4) LLS=0
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(4) HLS=0
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(4) callParamCallbacksUpdateError Error=0 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(5) homed=1
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(5) LLS=0
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(5) HLS=0
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(5) callParamCallbacksUpdateError Error=0 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(6) homed=1
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(6) LLS=0
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(6) HLS=0
+2023/03/02 16:10:42.647 ecmcMotorRecord:: poll(6) callParamCallbacksUpdateError Error=0 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:43.196 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 16).
+2023/03/02 16:10:43.196 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 16).
+2023/03/02 16:10:43.248 ecmcMotorRecord:: poll(1) LLS=0
+2023/03/02 16:10:43.248 ecmcMotorRecord:: poll(1) HLS=0
+2023/03/02 16:10:43.248 ecmcMotorRecord:: poll(2) LLS=0
+2023/03/02 16:10:43.248 ecmcMotorRecord:: poll(2) HLS=0
+2023/03/02 16:10:43.483 Starting up EtherCAT bus: 1 second(s). Max wait time 30 second(s).
+2023/03/02 16:10:43.575 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 16:10:43.575 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 1): Motion interlock cleared.
+2023/03/02 16:10:43.575 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 16:10:43.575 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 16:10:43.575 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 2): Motion interlock cleared.
+2023/03/02 16:10:43.575 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 16:10:43.575 ../devEcmcSup/main/ecmcError.cpp/errorReset:119: NO_ERROR (0x0).
+2023/03/02 16:10:43.575 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 3): Motion interlock cleared.
+2023/03/02 16:10:43.575 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 4): Motion interlock cleared.
+2023/03/02 16:10:43.575 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 5): Motion interlock cleared.
+2023/03/02 16:10:43.575 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 6): Motion interlock cleared.
+2023/03/02 16:10:43.648 ecmcMotorRecord:: poll(1) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 16:10:43.648 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=4 old=1 ErrID=0x0 old=0x14315 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:43.648 ecmcMotorRecord:: poll(2) bError=0 drvlocal.statusBinData.onChangeData.error=0x0
+2023/03/02 16:10:43.648 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=4 old=1 ErrID=0x0 old=0x14315 Warn=0 nCmd=0 old=0 txt=NULL
+2023/03/02 16:10:43.648 ecmcMotorRecord:: poll(3) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000001
+2023/03/02 16:10:43.648 ecmcMotorRecord:: poll(4) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000001
+2023/03/02 16:10:43.648 ecmcMotorRecord:: poll(5) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000001
+2023/03/02 16:10:43.648 ecmcMotorRecord:: poll(6) mvnNRdy=0 bBusy=0 bExecute=0 bEnabled=0 atTarget=1 wf=0 ENC=0 fPos=0 fActPosition=0 time=0.000001
+2023/03/02 16:10:45.483 EtherCAT bus started!
+2023/03/02 16:10:45.483 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtIocBuild (0). Allow callbacks: true.
 Starting iocInit
-2023/03/02 15:52:07.014 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtBeginning (1). Allow callbacks: true.
-2023/03/02 15:52:07.015 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCallbackInit (2). Allow callbacks: true.
-2023/03/02 15:52:07.017 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCaLinkInit (3). Allow callbacks: true.
-2023/03/02 15:52:07.017 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDrvSup (4). Allow callbacks: true.
-2023/03/02 15:52:07.017 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitRecSup (5). Allow callbacks: true.
-2023/03/02 15:52:07.020 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDevSup (6). Allow callbacks: true.
-2023/03/02 15:52:07.023 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.reset linked to record (asyn reason 1).
-2023/03/02 15:52:07.024 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.command linked to record (asyn reason 2).
-2023/03/02 15:52:07.024 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.command linked to record (asyn reason 3).
-2023/03/02 15:52:07.024 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.driveControl01 linked to record (asyn reason 4).
-2023/03/02 15:52:07.024 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.velocitySetpoint01 linked to record (asyn reason 5).
-2023/03/02 15:52:07.025 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderControl01 linked to record (asyn reason 6).
-2023/03/02 15:52:07.025 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderValue01 linked to record (asyn reason 7).
-2023/03/02 15:52:07.025 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.driveControl01 linked to record (asyn reason 8).
-2023/03/02 15:52:07.025 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.velocitySetpoint01 linked to record (asyn reason 9).
-2023/03/02 15:52:07.026 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderControl01 linked to record (asyn reason 10).
-2023/03/02 15:52:07.027 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderValue01 linked to record (asyn reason 11).
-2023/03/02 15:52:07.028 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.targpos linked to record (asyn reason 12).
-2023/03/02 15:52:07.028 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.targvelo linked to record (asyn reason 13).
-2023/03/02 15:52:07.029 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.targpos linked to record (asyn reason 14).
-2023/03/02 15:52:07.029 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.targvelo linked to record (asyn reason 15).
-2023/03/02 15:52:07.030 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.driveStatus01 linked to record (asyn reason 16).
-2023/03/02 15:52:07.030 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderStatus01 linked to record (asyn reason 17).
-2023/03/02 15:52:07.030 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.driveStatus01 linked to record (asyn reason 18).
-2023/03/02 15:52:07.030 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderStatus01 linked to record (asyn reason 19).
-2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.diagnostic linked to record (asyn reason 20).
-2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.plc.expression linked to record (asyn reason 21).
-2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.diagnostic linked to record (asyn reason 22).
-2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.plc.expression linked to record (asyn reason 23).
-2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.msg linked to record (asyn reason 24).
-2023/03/02 15:52:07.031 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.updated linked to record (asyn reason 25).
-2023/03/02 15:52:07.032 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.slavestatus linked to record (asyn reason 26).
-2023/03/02 15:52:07.032 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.slavestatus linked to record (asyn reason 27).
-2023/03/02 15:52:07.032 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.slavestatus linked to record (asyn reason 28).
-2023/03/02 15:52:07.033 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.status linked to record (asyn reason 29).
-2023/03/02 15:52:07.033 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.errorid linked to record (asyn reason 30).
-2023/03/02 15:52:07.034 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.warningid linked to record (asyn reason 31).
-2023/03/02 15:52:07.036 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.status linked to record (asyn reason 32).
-2023/03/02 15:52:07.036 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.errorid linked to record (asyn reason 33).
-2023/03/02 15:52:07.036 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.warningid linked to record (asyn reason 34).
-2023/03/02 15:52:07.036 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.masterstatus linked to record (asyn reason 35).
-2023/03/02 15:52:07.037 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.slavecounter linked to record (asyn reason 36).
-2023/03/02 15:52:07.037 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.memmapcounter linked to record (asyn reason 37).
-2023/03/02 15:52:07.037 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.domainfailcountertotal linked to record (asyn reason 38).
-2023/03/02 15:52:07.038 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.entrycounter linked to record (asyn reason 39).
-2023/03/02 15:52:07.038 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.domainstatus linked to record (asyn reason 40).
-2023/03/02 15:52:07.039 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput01 linked to record (asyn reason 41).
-2023/03/02 15:52:07.039 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput02 linked to record (asyn reason 42).
-2023/03/02 15:52:07.058 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput03 linked to record (asyn reason 43).
-2023/03/02 15:52:07.059 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput04 linked to record (asyn reason 44).
-2023/03/02 15:52:07.059 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.enable linked to record (asyn reason 45).
-2023/03/02 15:52:07.061 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.firstscan linked to record (asyn reason 46).
-2023/03/02 15:52:07.063 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.enable linked to record (asyn reason 47).
-2023/03/02 15:52:07.065 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.firstscan linked to record (asyn reason 48).
-2023/03/02 15:52:07.065 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.ok linked to record (asyn reason 49).
-2023/03/02 15:52:07.067 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.control linked to record (asyn reason 50).
-2023/03/02 15:52:07.067 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.control linked to record (asyn reason 51).
-2023/03/02 15:52:07.069 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.ONE linked to record (asyn reason 52).
-2023/03/02 15:52:07.070 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.ZERO linked to record (asyn reason 53).
-2023/03/02 15:52:07.071 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.ONE linked to record (asyn reason 54).
-2023/03/02 15:52:07.073 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.ZERO linked to record (asyn reason 55).
-2023/03/02 15:52:07.075 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.ONE linked to record (asyn reason 56).
-2023/03/02 15:52:07.076 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.ZERO linked to record (asyn reason 57).
-2023/03/02 15:52:07.079 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.cmddata linked to record (asyn reason 58).
-2023/03/02 15:52:07.081 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.cmddata linked to record (asyn reason 59).
-2023/03/02 15:52:07.085 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.positionActual01 linked to record (asyn reason 60).
-2023/03/02 15:52:07.087 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderLatchPostion01 linked to record (asyn reason 61).
-2023/03/02 15:52:07.094 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.positionActual01 linked to record (asyn reason 62).
-2023/03/02 15:52:07.096 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderLatchPostion01 linked to record (asyn reason 63).
-2023/03/02 15:52:07.100 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.actpos linked to record (asyn reason 64).
-2023/03/02 15:52:07.102 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.actvel linked to record (asyn reason 65).
-2023/03/02 15:52:07.103 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.setpos linked to record (asyn reason 66).
-2023/03/02 15:52:07.105 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.poserr linked to record (asyn reason 67).
-2023/03/02 15:52:07.107 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.error linked to record (asyn reason 68).
-2023/03/02 15:52:07.109 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.actpos linked to record (asyn reason 69).
-2023/03/02 15:52:07.110 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.actvel linked to record (asyn reason 70).
-2023/03/02 15:52:07.112 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.setpos linked to record (asyn reason 71).
-2023/03/02 15:52:07.114 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.poserr linked to record (asyn reason 72).
-2023/03/02 15:52:07.115 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.error linked to record (asyn reason 73).
-2023/03/02 15:52:07.117 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.appmode linked to record (asyn reason 74).
-2023/03/02 15:52:07.119 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.id linked to record (asyn reason 75).
-2023/03/02 15:52:07.120 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.latency.min linked to record (asyn reason 76).
-2023/03/02 15:52:07.122 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.latency.max linked to record (asyn reason 77).
-2023/03/02 15:52:07.123 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.period.min linked to record (asyn reason 78).
-2023/03/02 15:52:07.125 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.period.max linked to record (asyn reason 79).
-2023/03/02 15:52:07.127 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.execute.min linked to record (asyn reason 80).
-2023/03/02 15:52:07.128 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.execute.max linked to record (asyn reason 81).
-2023/03/02 15:52:07.129 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.send.min linked to record (asyn reason 82).
-2023/03/02 15:52:07.130 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.send.max linked to record (asyn reason 83).
-2023/03/02 15:52:07.131 ecmcMotorRecord:: setIntegerParam(1 motorUpdateStatus_)=0
-# Configure diagnostics:
+2023/03/02 16:10:45.483 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtBeginning (1). Allow callbacks: true.
+2023/03/02 16:10:45.485 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCallbackInit (2). Allow callbacks: true.
+2023/03/02 16:10:45.488 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCaLinkInit (3). Allow callbacks: true.
+2023/03/02 16:10:45.488 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDrvSup (4). Allow callbacks: true.
+2023/03/02 16:10:45.488 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitRecSup (5). Allow callbacks: true.
+2023/03/02 16:10:45.489 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDevSup (6). Allow callbacks: true.
+2023/03/02 16:10:45.491 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.reset linked to record (asyn reason 1).
+2023/03/02 16:10:45.493 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.command linked to record (asyn reason 2).
+2023/03/02 16:10:45.493 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.command linked to record (asyn reason 3).
+2023/03/02 16:10:45.494 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.command linked to record (asyn reason 4).
+2023/03/02 16:10:45.495 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.command linked to record (asyn reason 5).
+2023/03/02 16:10:45.496 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.command linked to record (asyn reason 6).
+2023/03/02 16:10:45.496 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.command linked to record (asyn reason 7).
+2023/03/02 16:10:45.497 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.driveControl01 linked to record (asyn reason 8).
+2023/03/02 16:10:45.497 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.velocitySetpoint01 linked to record (asyn reason 9).
+2023/03/02 16:10:45.498 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderControl01 linked to record (asyn reason 10).
+2023/03/02 16:10:45.498 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderValue01 linked to record (asyn reason 11).
+2023/03/02 16:10:45.499 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.driveControl01 linked to record (asyn reason 12).
+2023/03/02 16:10:45.499 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.velocitySetpoint01 linked to record (asyn reason 13).
+2023/03/02 16:10:45.499 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderControl01 linked to record (asyn reason 14).
+2023/03/02 16:10:45.500 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderValue01 linked to record (asyn reason 15).
+2023/03/02 16:10:45.501 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.targpos linked to record (asyn reason 16).
+2023/03/02 16:10:45.501 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.targvelo linked to record (asyn reason 17).
+2023/03/02 16:10:45.502 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.targpos linked to record (asyn reason 18).
+2023/03/02 16:10:45.502 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.targvelo linked to record (asyn reason 19).
+2023/03/02 16:10:45.503 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.targpos linked to record (asyn reason 20).
+2023/03/02 16:10:45.504 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.targvelo linked to record (asyn reason 21).
+2023/03/02 16:10:45.505 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.targpos linked to record (asyn reason 22).
+2023/03/02 16:10:45.505 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.targvelo linked to record (asyn reason 23).
+2023/03/02 16:10:45.519 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.targpos linked to record (asyn reason 24).
+2023/03/02 16:10:45.520 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.targvelo linked to record (asyn reason 25).
+2023/03/02 16:10:45.521 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.targpos linked to record (asyn reason 26).
+2023/03/02 16:10:45.522 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.targvelo linked to record (asyn reason 27).
+2023/03/02 16:10:45.522 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.driveStatus01 linked to record (asyn reason 28).
+2023/03/02 16:10:45.523 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderStatus01 linked to record (asyn reason 29).
+2023/03/02 16:10:45.523 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.driveStatus01 linked to record (asyn reason 30).
+2023/03/02 16:10:45.524 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderStatus01 linked to record (asyn reason 31).
+2023/03/02 16:10:45.524 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.diagnostic linked to record (asyn reason 32).
+2023/03/02 16:10:45.524 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.plc.expression linked to record (asyn reason 33).
+2023/03/02 16:10:45.525 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.diagnostic linked to record (asyn reason 34).
+2023/03/02 16:10:45.525 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.plc.expression linked to record (asyn reason 35).
+2023/03/02 16:10:45.526 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.diagnostic linked to record (asyn reason 36).
+2023/03/02 16:10:45.526 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.plc.expression linked to record (asyn reason 37).
+2023/03/02 16:10:45.526 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.diagnostic linked to record (asyn reason 38).
+2023/03/02 16:10:45.527 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.plc.expression linked to record (asyn reason 39).
+2023/03/02 16:10:45.527 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.diagnostic linked to record (asyn reason 40).
+2023/03/02 16:10:45.527 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.plc.expression linked to record (asyn reason 41).
+2023/03/02 16:10:45.528 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.diagnostic linked to record (asyn reason 42).
+2023/03/02 16:10:45.528 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.plc.expression linked to record (asyn reason 43).
+2023/03/02 16:10:45.528 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.msg linked to record (asyn reason 44).
+2023/03/02 16:10:45.529 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.updated linked to record (asyn reason 45).
+2023/03/02 16:10:45.529 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.slavestatus linked to record (asyn reason 46).
+2023/03/02 16:10:45.530 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.slavestatus linked to record (asyn reason 47).
+2023/03/02 16:10:45.530 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.slavestatus linked to record (asyn reason 48).
+2023/03/02 16:10:45.531 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.status linked to record (asyn reason 49).
+2023/03/02 16:10:45.531 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.errorid linked to record (asyn reason 50).
+2023/03/02 16:10:45.532 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.warningid linked to record (asyn reason 51).
+2023/03/02 16:10:45.532 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.status linked to record (asyn reason 52).
+2023/03/02 16:10:45.533 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.errorid linked to record (asyn reason 53).
+2023/03/02 16:10:45.534 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.warningid linked to record (asyn reason 54).
+2023/03/02 16:10:45.534 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.status linked to record (asyn reason 55).
+2023/03/02 16:10:45.535 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.errorid linked to record (asyn reason 56).
+2023/03/02 16:10:45.535 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.warningid linked to record (asyn reason 57).
+2023/03/02 16:10:45.536 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.status linked to record (asyn reason 58).
+2023/03/02 16:10:45.536 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.errorid linked to record (asyn reason 59).
+2023/03/02 16:10:45.537 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.warningid linked to record (asyn reason 60).
+2023/03/02 16:10:45.538 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.status linked to record (asyn reason 61).
+2023/03/02 16:10:45.538 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.errorid linked to record (asyn reason 62).
+2023/03/02 16:10:45.539 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.warningid linked to record (asyn reason 63).
+2023/03/02 16:10:45.539 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.status linked to record (asyn reason 64).
+2023/03/02 16:10:45.540 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.errorid linked to record (asyn reason 65).
+2023/03/02 16:10:45.540 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.warningid linked to record (asyn reason 66).
+2023/03/02 16:10:45.541 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.masterstatus linked to record (asyn reason 67).
+2023/03/02 16:10:45.541 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.slavecounter linked to record (asyn reason 68).
+2023/03/02 16:10:45.542 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.memmapcounter linked to record (asyn reason 69).
+2023/03/02 16:10:45.542 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.domainfailcountertotal linked to record (asyn reason 70).
+2023/03/02 16:10:45.543 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.entrycounter linked to record (asyn reason 71).
+2023/03/02 16:10:45.544 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.domainstatus linked to record (asyn reason 72).
+2023/03/02 16:10:45.545 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput01 linked to record (asyn reason 73).
+2023/03/02 16:10:45.546 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput02 linked to record (asyn reason 74).
+2023/03/02 16:10:45.547 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput03 linked to record (asyn reason 75).
+2023/03/02 16:10:45.548 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.binaryInput04 linked to record (asyn reason 76).
+2023/03/02 16:10:45.550 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.enable linked to record (asyn reason 77).
+2023/03/02 16:10:45.552 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.firstscan linked to record (asyn reason 78).
+2023/03/02 16:10:45.553 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.enable linked to record (asyn reason 79).
+2023/03/02 16:10:45.554 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.firstscan linked to record (asyn reason 80).
+2023/03/02 16:10:45.555 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax3.plc.enable linked to record (asyn reason 81).
+2023/03/02 16:10:45.556 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax3.plc.firstscan linked to record (asyn reason 82).
+2023/03/02 16:10:45.557 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax4.plc.enable linked to record (asyn reason 83).
+2023/03/02 16:10:45.559 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax4.plc.firstscan linked to record (asyn reason 84).
+2023/03/02 16:10:45.561 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax5.plc.enable linked to record (asyn reason 85).
+2023/03/02 16:10:45.562 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax5.plc.firstscan linked to record (asyn reason 86).
+2023/03/02 16:10:45.563 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax6.plc.enable linked to record (asyn reason 87).
+2023/03/02 16:10:45.565 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax6.plc.firstscan linked to record (asyn reason 88).
+2023/03/02 16:10:45.567 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.ok linked to record (asyn reason 89).
+2023/03/02 16:10:45.569 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.control linked to record (asyn reason 90).
+2023/03/02 16:10:45.570 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.control linked to record (asyn reason 91).
+2023/03/02 16:10:45.571 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.control linked to record (asyn reason 92).
+2023/03/02 16:10:45.572 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.control linked to record (asyn reason 93).
+2023/03/02 16:10:45.573 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.control linked to record (asyn reason 94).
+2023/03/02 16:10:45.575 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.control linked to record (asyn reason 95).
+2023/03/02 16:10:45.576 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.ONE linked to record (asyn reason 96).
+2023/03/02 16:10:45.580 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.ZERO linked to record (asyn reason 97).
+2023/03/02 16:10:45.582 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.ONE linked to record (asyn reason 98).
+2023/03/02 16:10:45.583 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.ZERO linked to record (asyn reason 99).
+2023/03/02 16:10:45.585 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.ONE linked to record (asyn reason 100).
+2023/03/02 16:10:45.586 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s9.ZERO linked to record (asyn reason 101).
+2023/03/02 16:10:45.589 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.cmddata linked to record (asyn reason 102).
+2023/03/02 16:10:45.591 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.cmddata linked to record (asyn reason 103).
+2023/03/02 16:10:45.592 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.cmddata linked to record (asyn reason 104).
+2023/03/02 16:10:45.594 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.cmddata linked to record (asyn reason 105).
+2023/03/02 16:10:45.596 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.cmddata linked to record (asyn reason 106).
+2023/03/02 16:10:45.598 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.cmddata linked to record (asyn reason 107).
+2023/03/02 16:10:45.601 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.positionActual01 linked to record (asyn reason 108).
+2023/03/02 16:10:45.602 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s7.encoderLatchPostion01 linked to record (asyn reason 109).
+2023/03/02 16:10:45.608 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.positionActual01 linked to record (asyn reason 110).
+2023/03/02 16:10:45.610 ecmcAsynPortDriver:drvUserCreate: Parameter ec0.s8.encoderLatchPostion01 linked to record (asyn reason 111).
+2023/03/02 16:10:45.613 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.actpos linked to record (asyn reason 112).
+2023/03/02 16:10:45.614 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.actvel linked to record (asyn reason 113).
+2023/03/02 16:10:45.615 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.setpos linked to record (asyn reason 114).
+2023/03/02 16:10:45.617 ecmcAsynPortDriver:drvUserCreate: Parameter ax1.poserr linked to record (asyn reason 115).
+2023/03/02 16:10:45.618 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax1.plc.error linked to record (asyn reason 116).
+2023/03/02 16:10:45.619 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.actpos linked to record (asyn reason 117).
+2023/03/02 16:10:45.620 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.actvel linked to record (asyn reason 118).
+2023/03/02 16:10:45.621 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.setpos linked to record (asyn reason 119).
+2023/03/02 16:10:45.623 ecmcAsynPortDriver:drvUserCreate: Parameter ax2.poserr linked to record (asyn reason 120).
+2023/03/02 16:10:45.624 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax2.plc.error linked to record (asyn reason 121).
+2023/03/02 16:10:45.625 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.actpos linked to record (asyn reason 122).
+2023/03/02 16:10:45.627 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.actvel linked to record (asyn reason 123).
+2023/03/02 16:10:45.628 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.setpos linked to record (asyn reason 124).
+2023/03/02 16:10:45.629 ecmcAsynPortDriver:drvUserCreate: Parameter ax3.poserr linked to record (asyn reason 125).
+2023/03/02 16:10:45.630 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax3.plc.error linked to record (asyn reason 126).
+2023/03/02 16:10:45.632 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.actpos linked to record (asyn reason 127).
+2023/03/02 16:10:45.633 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.actvel linked to record (asyn reason 128).
+2023/03/02 16:10:45.635 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.setpos linked to record (asyn reason 129).
+2023/03/02 16:10:45.636 ecmcAsynPortDriver:drvUserCreate: Parameter ax4.poserr linked to record (asyn reason 130).
+2023/03/02 16:10:45.637 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax4.plc.error linked to record (asyn reason 131).
+2023/03/02 16:10:45.639 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.actpos linked to record (asyn reason 132).
+2023/03/02 16:10:45.640 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.actvel linked to record (asyn reason 133).
+2023/03/02 16:10:45.642 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.setpos linked to record (asyn reason 134).
+2023/03/02 16:10:45.643 ecmcAsynPortDriver:drvUserCreate: Parameter ax5.poserr linked to record (asyn reason 135).
+2023/03/02 16:10:45.644 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax5.plc.error linked to record (asyn reason 136).
+2023/03/02 16:10:45.646 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.actpos linked to record (asyn reason 137).
+2023/03/02 16:10:45.647 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.actvel linked to record (asyn reason 138).
+2023/03/02 16:10:45.649 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.setpos linked to record (asyn reason 139).
+2023/03/02 16:10:45.650 ecmcAsynPortDriver:drvUserCreate: Parameter ax6.poserr linked to record (asyn reason 140).
+2023/03/02 16:10:45.652 ecmcAsynPortDriver:drvUserCreate: Parameter plcs.ax6.plc.error linked to record (asyn reason 141).
+2023/03/02 16:10:45.655 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.appmode linked to record (asyn reason 142).
+2023/03/02 16:10:45.657 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.error.id linked to record (asyn reason 143).
+2023/03/02 16:10:45.660 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.latency.min linked to record (asyn reason 144).
+2023/03/02 16:10:45.662 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.latency.max linked to record (asyn reason 145).
+2023/03/02 16:10:45.664 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.period.min linked to record (asyn reason 146).
+2023/03/02 16:10:45.666 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.period.max linked to record (asyn reason 147).
+2023/03/02 16:10:45.668 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.execute.min linked to record (asyn reason 148).
+2023/03/02 16:10:45.671 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.execute.max linked to record (asyn reason 149).
+2023/03/02 16:10:45.673 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.send.min linked to record (asyn reason 150).
+2023/03/02 16:10:45.675 ecmcAsynPortDriver:drvUserCreate: Parameter ecmc.thread.send.max linked to record (asyn reason 151).
+2023/03/02 16:10:45.677 ecmcMotorRecord:: setIntegerParam(1 motorUpdateStatus_)=0
+T_SIZE)
+epicsEnvUnset(ECMC_ENC_VELO_FILT_ENABLE)
+epicsEnvUnset(ECMC_ENC_SOURCE)
+epicsEnvUnset(ECMC_TRAJ_VELO_FILT_SIZE)
+epicsEnvUnset(ECMC_TRAJ_VELO_FILT_ENABLE)
+epicsEnvUnset(ECMC_TRAJ_SOURCE)
+##############################################################################
+############# Configure diagnostics:
 ecmcConfigOrDie "Cfg.EcSetDiagnostics(1)"
 OK
 ecmcConfigOrDie "Cfg.EcEnablePrintouts(0)"
@@ -1630,13 +3478,13 @@ dbLoadRecords("ecmcGeneral.db","P=IOC_TEST:,PORT=MC_CPU1,ADDR=0,TIMEOUT=1,T_SMP_
 ecmcEpicsEnvSetCalcTernary(ECMC_MASTER_CMD, "0>=0", "","#- ")
  ecmcFileExist("ecmcEc.db",1,1)
  dbLoadRecords("ecmcEc.db","P=IOC_TEST:,ECMC_EC_MP=m,PORT=MC_CPU1,ADDR=0,TIMEOUT=1,MASTER_ID=0,T_SMP_MS=10,TSE=0")
-epicsEnvSet(ECMC_AXES_CFG,"[1, 2, -1]")
+epicsEnvSet(ECMC_AXES_CFG,"[1, 2, 3, 4, 5, 6, -1]")
 epicsEnvSet(ECMC_DS_CFG,"[-1]")
 epicsEnvSet(ECMC_PLG_CFG,"[-1]")
 epicsEnvSet(ECMC_PLCS_CFG,"[-1]")
 epicsEnvSet(ECMC_EC_CFG,"[7, 8, 9, -1]")
 ecmcFileExist("ecmcMcuConfigs.db",1,1)
-dbLoadRecords("ecmcMcuConfigs.db","P=IOC_TEST:,AXES_IDS='[1, 2, -1]',PLC_IDS='[-1]',DS_IDS='[-1]', PLG_IDS='[-1]',M_ID=0 , EC_IDS='[7, 8, 9, -1]'")
+dbLoadRecords("ecmcMcuConfigs.db","P=IOC_TEST:,AXES_IDS='[1, 2, 3, 4, 5, 6, -1]',PLC_IDS='[-1]',DS_IDS='[-1]', PLG_IDS='[-1]',M_ID=0 , EC_IDS='[7, 8, 9, -1]'")
 epicsEnvUnset(ECMC_AXES_CFG)
 epicsEnvUnset(ECMC_DS_CFG)
 epicsEnvUnset(ECMC_PLG_CFG)
@@ -1645,7 +3493,7 @@ ecmcConfigOrDie "Cfg.SetAppMode(1)"
 OK
 epicsEnvSet EPICS_DRIVER_PATH /home/anderssandstrom/cellMods//base-7.0.6.1/require-4.0.0:/home/anderssandstrom/sources/base-7.0.6.1/require/4.0.0/siteMods
 # Set the IOC Prompt String One 
-epicsEnvSet IOCSH_PS1 "localhost-13015 > "
+epicsEnvSet IOCSH_PS1 "localhost-21089 > "
 #
 # 
 iocInit
@@ -1653,46 +3501,97 @@ iocInit
 ## EPICS R7.0.6.1-E3-7.0.6.1-patch
 ## Rev. 2022-03-09T15:26+0100
 ############################################################################
-2023/03/02 15:52:07.131 [devMotorAsyn.c:439  IOC_TEST:X] init_record IOC_TEST:X position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x0b0a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
-2023/03/02 15:52:07.131 [devMotorAsyn.c:185  IOC_TEST:X] init_controller IOC_TEST:X set encoder ratio=1.000000 status=0
-2023/03/02 15:52:07.131 [devMotorAsyn.c:266  IOC_TEST:X] update_soft_limits IOC_TEST:X RawHLM_RO=60.000000 RawLLM_RO=-60.000000 valid=1 DHLM_RO=60.000000 DLLM_RO=-60.000000
-2023/03/02 15:52:07.131 [motorDevSup.c:327  IOC_TEST:X] PositionRestoreNeeded IOC_TEST:X rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=0.100000 pmr->mres=0.004687 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
-2023/03/02 15:52:07.131 [motorRecord.cc:782  IOC_TEST:X] init_re_init start neverPolled=0 stat=17 nsta=0
-2023/03/02 15:52:07.131 [motorRecord.cc:720  IOC_TEST:X] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=0.004687
-2023/03/02 15:52:07.131 [motorRecord.cc:4484 IOC_TEST:X] pmr->dhlm=60 softLimitRO=60
-2023/03/02 15:52:07.131 [motorRecord.cc:4545 IOC_TEST:X] pmr->dllm=-60 softLimitRO=-60
-2023/03/02 15:52:07.131 [motorRecord.cc:833  IOC_TEST:X] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
-2023/03/02 15:52:07.131 [motorRecord.cc:968  IOC_TEST:X] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0xb0a neverPolled=0
-2023/03/02 15:52:07.131 [devMotorAsyn.c:439  IOC_TEST:Y] init_record IOC_TEST:Y position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x0b0a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
-2023/03/02 15:52:07.131 [devMotorAsyn.c:185  IOC_TEST:Y] init_controller IOC_TEST:Y set encoder ratio=1.00002023/03/02 15:52:07.131 ecmcMotorRecord:: setIntegerParam(2 motorUpdateStatus_)=0
-2023/03/02 15:52:07.147 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDatabase (7). Allow callbacks: true.
-2023/03/02 15:52:07.147 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterFinishDevSup (8). Allow callbacks: true.
-2023/03/02 15:52:07.656 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterScanInit (9). Allow callbacks: true.
-2023/03/02 15:52:07.656 ecmcMotorRecord:: setDoubleParam(1 HomPos_)=-90.000000
-2023/03/02 15:52:07.656 ecmcMotorRecord:: setDoubleParam(2 HomPos_)=-90.000000
-2023/03/02 15:52:07.657 ecmcMotorRecord:: setIntegerParam(1 HomProc_)=1 motorNotHomedProblem=0
-2023/03/02 15:52:07.657 ecmcMotorRecord:: setIntegerParam(2 HomProc_)=1 motorNotHomedProblem=0
-2023/03/02 15:52:07.657 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitialProcess (10). Allow callbacks: true.
-2023/03/02 15:52:07.659 ecmcAsynPortDriver:getEpicsState: EPICS state: Unknown state (11). Allow callbacks: true.
-2023/03/02 15:52:07.659 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterIocBuilt (12). Allow callbacks: true.
-2023/03/02 15:52:07.663 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtIocRun (13). Allow callbacks: true.
-2023/03/02 15:52:07.664 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterDatabaseRunning (14). Allow callbacks: true.
-2023/03/02 15:52:07.664 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInterruptAccept (28). Allow callbacks: true.
-2023/03/02 15:52:07.664 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCaServerRunning (15). Allow callbacks: true.
-2023/03/02 15:52:07.664 ecmcAsynPortDriver:getEpicsState: EPICS state: Unknown state (29). Allow callbacks: true.
+2023/03/02 16:10:45.677 [devMotorAsyn.c:439  IOC_TEST:X] init_record IOC_TEST:X position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x0b0a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
+2023/03/02 16:10:45.677 [devMotorAsyn.c:185  IOC_TEST:X] init_controller IOC_TEST:X set encoder ratio=1.000000 status=0
+2023/03/02 16:10:45.677 [devMotorAsyn.c:266  IOC_TEST:X] update_soft_limits IOC_TEST:X RawHLM_RO=60.000000 RawLLM_RO=-60.000000 valid=1 DHLM_RO=60.000000 DLLM_RO=-60.000000
+2023/03/02 16:10:45.677 [motorDevSup.c:327  IOC_TEST:X] PositionRestoreNeeded IOC_TEST:X rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=0.100000 pmr->mres=0.004687 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
+2023/03/02 16:10:45.677 [motorRecord.cc:782  IOC_TEST:X] init_re_init start neverPolled=0 stat=17 nsta=0
+2023/03/02 16:10:45.677 [motorRecord.cc:720  IOC_TEST:X] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=0.004687
+2023/03/02 16:10:45.677 [motorRecord.cc:4484 IOC_TEST:X] pmr->dhlm=60 softLimitRO=60
+2023/03/02 16:10:45.677 [motorRecord.cc:4545 IOC_TEST:X] pmr->dllm=-60 softLimitRO=-60
+2023/03/02 16:10:45.677 [motorRecord.cc:833  IOC_TEST:X] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
+2023/03/02 16:10:45.677 [motorRecord.cc:968  IOC_TEST:X] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0xb0a neverPolled=0
+22023/03/02 16:10:45.677 ecmcMotorRecord:: setIntegerParam(2 motorUpdateStatus_)=0
+2023/03/02 16:10:45.677 ecmcMotorRecord:: setIntegerParam(3 motorUpdateStatus_)=0
+023/03/02 16:10:45.677 [devMotorAsyn.c:439  IOC_TEST:Y] init_record IOC_TEST:Y position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x0b0a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
+2023/03/02 16:10:45.677 [devMotorAsyn.c:185  IOC_TEST:Y] init_controller IOC_TEST:Y set encoder ratio=1.000000 status=0
+2023/03/02 16:10:45.677 [devMotorAsyn.c:266  IOC_TEST:Y] update_soft_limits IOC_TEST:Y RawHLM_RO=130.000000 RawLLM_RO=-20.000000 valid=1 DHLM_RO=130.000000 DLLM_RO=-20.000000
+2023/03/02 16:10:45.677 [motorDevSup.c:327  IOC_TEST:Y] PositionRestoreNeeded IOC_TEST:Y rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=0.100000 pmr->mres=0.004687 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
+2023/03/02 16:10:45.677 [motorRecord.cc:782  IOC_TEST:Y] init_re_init start neverPolled=0 stat=17 nsta=0
+2023/03/02 16:10:45.677 [motorRecord.cc:720  IOC_TEST:Y] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=0.004687
+2023/03/02 16:10:45.677 [motorRecord.cc:4484 IOC_TEST:Y] pmr->dhlm=130 softLimitRO=130
+2023/03/02 16:10:45.677 [motorRecord.cc:4545 IOC_TEST:Y] pmr->dllm=-20 softLimitRO=-20
+2023/03/02 16:10:45.677 [motorRecord.cc:833  IOC_TEST:Y] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
+2023/03/02 16:10:45.677 [motorRecord.cc:968  IOC_TEST:Y] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0xb0a neverPolled=0
+2023/03/02 16:10:45.677 [devMotorAsyn.c:439  IOC_TEST:amplitudeX] init_record IOC_TEST:amplitudeX position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x490a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
+2023/03/02 16:10:45.677 [devMotorAsyn.c:185  IOC_TEST:amplitudeX] init_controller IOC_TEST:amplitudeX set encoder ratio=1.000000 status=0
+2023/03/02 16:10:45.677 [devMotorAsyn.c:266  IOC_TEST:amplitudeX] update_soft_limits IOC_TEST:amplitudeX RawHLM_RO=70.000000 RawLLM_RO=-70.000000 valid=1 DHLM_RO=70.000000 DLLM_RO=-70.000000
+2023/03/02 16:10:45.677 [motorDevSup.c:327  IOC_TEST:amplitudeX] PositionRestoreNeeded IOC_TEST:amplitudeX rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=1.000000 pmr->mres=1.000000 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
+2023/03/02 16:10:45.677 [motorRecord.cc:782  IOC_TEST:amplitudeX] init_re_init start neverPolled=0 stat=17 nsta=0
+2023/03/02 16:10:45.677 [motorRecord.cc:720  IOC_TEST:amplitudeX] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=1.000000
+2023/03/02 16:10:45.677 [motorRecord.cc:4484 IOC_TEST:amplitudeX] pmr->dhlm=70 softLimitRO=70
+2023/03/02 16:10:45.677 [motorRecord.cc:4545 IOC_TEST:amplitudeX] pmr->dllm=-70 softLimitRO=-70
+2023/03/02 16:10:45.677 [motorRecord.cc:833  IOC_TEST:amplitudeX] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
+2023/03/02 16:10:45.677 [motorRecord.cc:968  IOC_TEST:amplitudeX] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0x490a neverPolled=0
+2023/03/02 16:10:45.677 [devMotorAsyn.c:439  IOC_TEST:amplitudeY] init_record IOC_TEST:amplitudeY position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x490a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
+2023/03/02 16:10:45.679 [devMotorAsyn.c:185  IOC_TEST:amplitudeY] init_controller IOC_TEST:amplitudeY set encoder ratio=1.000000 status=0
+2023/03/02 16:10:45.679 [devMotorAsyn.c:266  IOC_TEST:amplitudeY] update_soft_limits IOC_TEST:amplitudeY RawHLM_RO=70.000000 RawLLM_RO=-70.000000 valid=1 DHLM_RO=70.000000 DLLM_RO=-70.000000
+2023/03/02 16:10:45.679 [motorDevSup.c:327  IOC_TEST:amplitudeY] PositionRestoreNeeded IOC_TEST:amplitudeY rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=1.000000 pmr->mres=1.000000 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
+2023/03/02 16:10:45.679 [motorRecord.cc:782  IOC_TEST:amplitudeY] init_re_init start neverPolled=0 stat=17 nsta=0
+2023/03/02 16:10:45.679 [motorRecord.cc:720  IOC_TEST:amplitudeY] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=1.000000
+2023/03/02 16:10:42023/03/02 16:10:45.679 ecmcMotorRecord:: setIntegerParam(4 motorUpdateStatus_)=0
+2023/03/02 16:10:45.680 ecmcMotorRecord:: setIntegerParam(5 motorUpdateStatus_)=0
+2023/03/02 16:10:45.680 ecmcMotorRecord:: setIntegerParam(6 motorUpdateStatus_)=0
+2023/03/02 16:10:45.703 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitDatabase (7). Allow callbacks: true.
+2023/03/02 16:10:45.703 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterFinishDevSup (8). Allow callbacks: true.
+2023/03/02 16:10:46.219 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterScanInit (9). Allow callbacks: true.
+2023/03/02 16:10:46.219 ecmcMotorRecord:: setDoubleParam(1 HomPos_)=-90.000000
+2023/03/02 16:10:46.219 ecmcMotorRecord:: setDoubleParam(2 HomPos_)=-90.000000
+2023/03/02 16:10:46.219 ecmcMotorRecord:: setDoubleParam(3 HomPos_)=0.000000
+2023/03/02 16:10:46.219 ecmcMotorRecord:: setDoubleParam(4 HomPos_)=0.000000
+2023/03/02 16:10:46.219 ecmcMotorRecord:: setDoubleParam(5 HomPos_)=0.000000
+2023/03/02 16:10:46.219 ecmcMotorRecord:: setDoubleParam(6 HomPos_)=0.000000
+2023/03/02 16:10:46.220 ecmcMotorRecord:: setIntegerParam(1 HomProc_)=1 motorNotHomedProblem=0
+2023/03/02 16:10:46.220 ecmcMotorRecord:: setIntegerParam(2 HomProc_)=1 motorNotHomedProblem=0
+2023/03/02 16:10:46.220 ecmcMotorRecord:: setIntegerParam(3 HomProc_)=3 motorNotHomedProblem=0
+2023/03/02 16:10:46.220 ecmcMotorRecord:: setIntegerParam(4 HomProc_)=3 motorNotHomedProblem=0
+2023/03/02 16:10:46.220 ecmcMotorRecord:: setIntegerParam(5 HomProc_)=3 motorNotHomedProblem=0
+2023/03/02 16:10:46.220 ecmcMotorRecord:: setIntegerParam(6 HomProc_)=3 motorNotHomedProblem=0
+2023/03/02 16:10:46.220 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInitialProcess (10). Allow callbacks: true.
+2023/03/02 16:10:46.222 ecmcAsynPortDriver:getEpicsState: EPICS state: Unknown state (11). Allow callbacks: true.
+2023/03/02 16:10:46.222 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterIocBuilt (12). Allow callbacks: true.
+2023/03/02 16:10:46.235 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAtIocRun (13). Allow callbacks: true.
+2023/03/02 16:10:46.235 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterDatabaseRunning (14). Allow callbacks: true.
+2023/03/02 16:10:46.235 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterInterruptAccept (28). Allow callbacks: true.
+2023/03/02 16:10:46.236 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterCaServerRunning (15). Allow callbacks: true.
+2023/03/02 16:10:46.236 ecmcAsynPortDriver:getEpicsState: EPICS state: Unknown state (29). Allow callbacks: true.
 iocRun: All initialization complete
-2023/03/02 15:52:07.680 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterIocRunning (16). Allow callbacks: true.
-00 status=0
-2023/03/02 15:52:07.131 [devMotorAsyn.c:266  IOC_TEST:Y] update_soft_limits IOC_TEST:Y RawHLM_RO=130.000000 RawLLM_RO=-20.000000 valid=1 DHLM_RO=130.000000 DLLM_RO=-20.000000
-2023/03/02 15:52:07.131 [motorDevSup.c:327  IOC_TEST:Y] PositionRestoreNeeded IOC_TEST:Y rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=0.100000 pmr->mres=0.004687 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
-2023/03/02 15:52:07.131 [motorRecord.cc:782  IOC_TEST:Y] init_re_init start neverPolled=0 stat=17 nsta=0
-2023/03/02 15:52:07.131 [motorRecord.cc:720  IOC_TEST:Y] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=0.004687
-2023/03/02 15:52:07.131 [motorRecord.cc:4484 IOC_TEST:Y] pmr->dhlm=130 softLimitRO=130
-2023/03/02 15:52:07.131 [motorRecord.cc:4545 IOC_TEST:Y] pmr->dllm=-20 softLimitRO=-20
-2023/03/02 15:52:07.131 [motorRecord.cc:833  IOC_TEST:Y] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
-2023/03/02 15:52:07.131 [motorRecord.cc:968  IOC_TEST:Y] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0xb0a neverPolled=0
-[?1034hlocalhost-13015 > 
-localhost-13015 > dbl
+2023/03/02 16:10:46.271 ecmcAsynPortDriver:getEpicsState: EPICS state: initHookAfterIocRunning (16). Allow callbacks: true.
+5.679 [motorRecord.cc:4484 IOC_TEST:amplitudeY] pmr->dhlm=70 softLimitRO=70
+2023/03/02 16:10:45.679 [motorRecord.cc:4545 IOC_TEST:amplitudeY] pmr->dllm=-70 softLimitRO=-70
+2023/03/02 16:10:45.679 [motorRecord.cc:833  IOC_TEST:amplitudeY] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
+2023/03/02 16:10:45.679 [motorRecord.cc:968  IOC_TEST:amplitudeY] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0x490a neverPolled=0
+2023/03/02 16:10:45.679 [devMotorAsyn.c:439  IOC_TEST:offsetX] init_record IOC_TEST:offsetX position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x490a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
+2023/03/02 16:10:45.680 [devMotorAsyn.c:185  IOC_TEST:offsetX] init_controller IOC_TEST:offsetX set encoder ratio=1.000000 status=0
+2023/03/02 16:10:45.680 [devMotorAsyn.c:266  IOC_TEST:offsetX] update_soft_limits IOC_TEST:offsetX RawHLM_RO=70.000000 RawLLM_RO=-70.000000 valid=1 DHLM_RO=70.000000 DLLM_RO=-70.000000
+2023/03/02 16:10:45.680 [motorDevSup.c:327  IOC_TEST:offsetX] PositionRestoreNeeded IOC_TEST:offsetX rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=1.000000 pmr->mres=1.000000 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
+2023/03/02 16:10:45.680 [motorRecord.cc:782  IOC_TEST:offsetX] init_re_init start neverPolled=0 stat=17 nsta=0
+2023/03/02 16:10:45.680 [motorRecord.cc:720  IOC_TEST:offsetX] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=1.000000
+2023/03/02 16:10:45.680 [motorRecord.cc:4484 IOC_TEST:offsetX] pmr->dhlm=70 softLimitRO=70
+2023/03/02 16:10:45.680 [motorRecord.cc:4545 IOC_TEST:offsetX] pmr->dllm=-70 softLimitRO=-70
+2023/03/02 16:10:45.680 [motorRecord.cc:833  IOC_TEST:offsetX] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
+2023/03/02 16:10:45.680 [motorRecord.cc:968  IOC_TEST:offsetX] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0x490a neverPolled=0
+2023/03/02 16:10:45.680 [devMotorAsyn.c:439  IOC_TEST:offsetY] init_record IOC_TEST:offsetY position=0.000000 encoderPos=0.000000 velocity=0.000000 MSTAstatus=0x490a flagsValue=0x3f flagsWritten=0x3f pmr->mflg=0x0
+2023/03/02 16:10:45.680 [devMotorAsyn.c:185  IOC_TEST:offsetY] init_controller IOC_TEST:offsetY set encoder ratio=1.000000 status=0
+2023/03/02 16:10:45.680 [devMotorAsyn.c:266  IOC_TEST:offsetY] update_soft_limits IOC_TEST:offsetY RawHLM_RO=70.000000 RawLLM_RO=-70.000000 valid=1 DHLM_RO=70.000000 DLLM_RO=-70.000000
+2023/03/02 16:10:45.680 [motorDevSup.c:327  IOC_TEST:offsetY] PositionRestoreNeeded IOC_TEST:offsetY rstm=2 dval=0.000000 drbv=0.000000 pmr->rdbd=0.100000 rdbd=1.000000 pmr->mres=1.000000 pmr->mflg=0x3f dval_non_zero_pos_near_zero=0 ret=0
+2023/03/02 16:10:45.680 [motorRecord.cc:782  IOC_TEST:offsetY] init_re_init start neverPolled=0 stat=17 nsta=0
+2023/03/02 16:10:45.680 [motorRecord.cc:720  IOC_TEST:offsetY] enforceMinRetryDeadband spdb=0.100000 rdbd=0.100000 mres=1.000000
+2023/03/02 16:10:45.680 [motorRecord.cc:4484 IOC_TEST:offsetY] pmr->dhlm=70 softLimitRO=70
+2023/03/02 16:10:45.680 [motorRecord.cc:4545 IOC_TEST:offsetY] pmr->dllm=-70 softLimitRO=-70
+2023/03/02 16:10:45.680 [motorRecord.cc:833  IOC_TEST:offsetY] init_re_init  end dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000
+2023/03/02 16:10:45.680 [motorRecord.cc:968  IOC_TEST:offsetY] init_record process_reason="callbackdata + soft limits" dval=0.000000 drbv=0.000000 rdbd=0.100000 spdb=0.100000 stat=0 msta=0x490a neverPolled=0
+[?1034hlocalhost-21089 > dbl
 IOC_TEST:m0s007-Enc01-LtchAutRst
 IOC_TEST:m0s008-Enc01-LtchAutRst
 IOC_TEST:m0s007-Enc01-LtchRst
@@ -1705,6 +3604,14 @@ IOC_TEST:X-DbgStrToLOG
 IOC_TEST:MCU-Cfg-AX1-Name
 IOC_TEST:Y-DbgStrToLOG
 IOC_TEST:MCU-Cfg-AX2-Name
+IOC_TEST:amplitudeX-DbgStrToLOG
+IOC_TEST:MCU-Cfg-AX3-Name
+IOC_TEST:amplitudeY-DbgStrToLOG
+IOC_TEST:MCU-Cfg-AX4-Name
+IOC_TEST:offsetX-DbgStrToLOG
+IOC_TEST:MCU-Cfg-AX5-Name
+IOC_TEST:offsetY-DbgStrToLOG
+IOC_TEST:MCU-Cfg-AX6-Name
 IOC_TEST:m0s007-Enc01-LchAutRstSp
 IOC_TEST:m0s008-Enc01-LchAutRstSp
 IOC_TEST:X-EnaCmd
@@ -1727,6 +3634,46 @@ IOC_TEST:Y-PLC-EnaCmd
 IOC_TEST:Y-CmdFrmPLCCmd
 IOC_TEST:Y-SftLimBwdEna
 IOC_TEST:Y-SftLimFwdEna
+IOC_TEST:amplitudeX-EnaCmd
+IOC_TEST:amplitudeX-ExeCmd
+IOC_TEST:amplitudeX-StpCmd
+IOC_TEST:amplitudeX-RstCmd
+IOC_TEST:amplitudeX-EncSrcTyp-Cmd
+IOC_TEST:amplitudeX-TrjSrcTyp-Cmd
+IOC_TEST:amplitudeX-PLC-EnaCmd
+IOC_TEST:amplitudeX-CmdFrmPLCCmd
+IOC_TEST:amplitudeX-SftLimBwdEna
+IOC_TEST:amplitudeX-SftLimFwdEna
+IOC_TEST:amplitudeY-EnaCmd
+IOC_TEST:amplitudeY-ExeCmd
+IOC_TEST:amplitudeY-StpCmd
+IOC_TEST:amplitudeY-RstCmd
+IOC_TEST:amplitudeY-EncSrcTyp-Cmd
+IOC_TEST:amplitudeY-TrjSrcTyp-Cmd
+IOC_TEST:amplitudeY-PLC-EnaCmd
+IOC_TEST:amplitudeY-CmdFrmPLCCmd
+IOC_TEST:amplitudeY-SftLimBwdEna
+IOC_TEST:amplitudeY-SftLimFwdEna
+IOC_TEST:offsetX-EnaCmd
+IOC_TEST:offsetX-ExeCmd
+IOC_TEST:offsetX-StpCmd
+IOC_TEST:offsetX-RstCmd
+IOC_TEST:offsetX-EncSrcTyp-Cmd
+IOC_TEST:offsetX-TrjSrcTyp-Cmd
+IOC_TEST:offsetX-PLC-EnaCmd
+IOC_TEST:offsetX-CmdFrmPLCCmd
+IOC_TEST:offsetX-SftLimBwdEna
+IOC_TEST:offsetX-SftLimFwdEna
+IOC_TEST:offsetY-EnaCmd
+IOC_TEST:offsetY-ExeCmd
+IOC_TEST:offsetY-StpCmd
+IOC_TEST:offsetY-RstCmd
+IOC_TEST:offsetY-EncSrcTyp-Cmd
+IOC_TEST:offsetY-TrjSrcTyp-Cmd
+IOC_TEST:offsetY-PLC-EnaCmd
+IOC_TEST:offsetY-CmdFrmPLCCmd
+IOC_TEST:offsetY-SftLimBwdEna
+IOC_TEST:offsetY-SftLimFwdEna
 IOC_TEST:MCU-ErrRst
 IOC_TEST:X-HomProc-RB
 IOC_TEST:X-Type
@@ -1736,10 +3683,30 @@ IOC_TEST:Y-HomProc-RB
 IOC_TEST:Y-Type
 IOC_TEST:Y-DrvType
 IOC_TEST:Y-TrajType
+IOC_TEST:amplitudeX-HomProc-RB
+IOC_TEST:amplitudeX-Type
+IOC_TEST:amplitudeX-DrvType
+IOC_TEST:amplitudeX-TrajType
+IOC_TEST:amplitudeY-HomProc-RB
+IOC_TEST:amplitudeY-Type
+IOC_TEST:amplitudeY-DrvType
+IOC_TEST:amplitudeY-TrajType
+IOC_TEST:offsetX-HomProc-RB
+IOC_TEST:offsetX-Type
+IOC_TEST:offsetX-DrvType
+IOC_TEST:offsetX-TrajType
+IOC_TEST:offsetY-HomProc-RB
+IOC_TEST:offsetY-Type
+IOC_TEST:offsetY-DrvType
+IOC_TEST:offsetY-TrajType
 IOC_TEST:m0s007-Enc01-LtchCmd
 IOC_TEST:m0s008-Enc01-LtchCmd
 IOC_TEST:X-MtnCmd
 IOC_TEST:Y-MtnCmd
+IOC_TEST:amplitudeX-MtnCmd
+IOC_TEST:amplitudeY-MtnCmd
+IOC_TEST:offsetX-MtnCmd
+IOC_TEST:offsetY-MtnCmd
 IOC_TEST:MCU-Cfg-EC-Mst
 IOC_TEST:MCU-Cfg-Rate
 IOC_TEST:MCU-Cfg-Time
@@ -1768,6 +3735,38 @@ IOC_TEST:Y-VelFrmHom
 IOC_TEST:Y-AccHom
 IOC_TEST:Y-TgtPosCmd
 IOC_TEST:Y-TgtVelCmd
+IOC_TEST:amplitudeX-OFF_
+IOC_TEST:amplitudeX-MRES_
+IOC_TEST:amplitudeX-HomPos
+IOC_TEST:amplitudeX-VelToHom
+IOC_TEST:amplitudeX-VelFrmHom
+IOC_TEST:amplitudeX-AccHom
+IOC_TEST:amplitudeX-TgtPosCmd
+IOC_TEST:amplitudeX-TgtVelCmd
+IOC_TEST:amplitudeY-OFF_
+IOC_TEST:amplitudeY-MRES_
+IOC_TEST:amplitudeY-HomPos
+IOC_TEST:amplitudeY-VelToHom
+IOC_TEST:amplitudeY-VelFrmHom
+IOC_TEST:amplitudeY-AccHom
+IOC_TEST:amplitudeY-TgtPosCmd
+IOC_TEST:amplitudeY-TgtVelCmd
+IOC_TEST:offsetX-OFF_
+IOC_TEST:offsetX-MRES_
+IOC_TEST:offsetX-HomPos
+IOC_TEST:offsetX-VelToHom
+IOC_TEST:offsetX-VelFrmHom
+IOC_TEST:offsetX-AccHom
+IOC_TEST:offsetX-TgtPosCmd
+IOC_TEST:offsetX-TgtVelCmd
+IOC_TEST:offsetY-OFF_
+IOC_TEST:offsetY-MRES_
+IOC_TEST:offsetY-HomPos
+IOC_TEST:offsetY-VelToHom
+IOC_TEST:offsetY-VelFrmHom
+IOC_TEST:offsetY-AccHom
+IOC_TEST:offsetY-TgtPosCmd
+IOC_TEST:offsetY-TgtVelCmd
 IOC_TEST:m0s007-Drv01-Stat
 IOC_TEST:m0s007-Enc01-Stat
 IOC_TEST:m0s007-Stat_
@@ -1777,15 +3776,27 @@ IOC_TEST:m0s008-Stat_
 IOC_TEST:m0s009-Stat_
 IOC_TEST:X-Stat_
 IOC_TEST:Y-Stat_
+IOC_TEST:amplitudeX-Stat_
+IOC_TEST:amplitudeY-Stat_
+IOC_TEST:offsetX-Stat_
+IOC_TEST:offsetY-Stat_
 IOC_TEST:m0-Stat_
 IOC_TEST:m0-Dom-Stat_
-REQMOD:localhost-13015:MODULES
-REQMOD:localhost-13015:VERSIONS
-REQMOD:localhost-13015:MOD_VER
+REQMOD:localhost-21089:MODULES
+REQMOD:localhost-21089:VERSIONS
+REQMOD:localhost-21089:MOD_VER
 IOC_TEST:X-Arr-Stat
 IOC_TEST:X-PLC-Expr-RB
 IOC_TEST:Y-Arr-Stat
 IOC_TEST:Y-PLC-Expr-RB
+IOC_TEST:amplitudeX-Arr-Stat
+IOC_TEST:amplitudeX-PLC-Expr-RB
+IOC_TEST:amplitudeY-Arr-Stat
+IOC_TEST:amplitudeY-PLC-Expr-RB
+IOC_TEST:offsetX-Arr-Stat
+IOC_TEST:offsetX-PLC-Expr-RB
+IOC_TEST:offsetY-Arr-Stat
+IOC_TEST:offsetY-PLC-Expr-RB
 IOC_TEST:MCU-ErrMsg
 IOC_TEST:MCU-Updated
 IOC_TEST:MCU-Cfg-AX
@@ -1812,6 +3823,38 @@ IOC_TEST:Y-CfgDLLM-En-RB
 IOC_TEST:Y-Stat
 IOC_TEST:Y-ErrId
 IOC_TEST:Y-WrnId
+IOC_TEST:amplitudeX-MR-ErrId
+IOC_TEST:amplitudeX-CfgRDBD-En-RB
+IOC_TEST:amplitudeX-CfgPOSLAG-En-RB
+IOC_TEST:amplitudeX-CfgDHLM-En-RB
+IOC_TEST:amplitudeX-CfgDLLM-En-RB
+IOC_TEST:amplitudeX-Stat
+IOC_TEST:amplitudeX-ErrId
+IOC_TEST:amplitudeX-WrnId
+IOC_TEST:amplitudeY-MR-ErrId
+IOC_TEST:amplitudeY-CfgRDBD-En-RB
+IOC_TEST:amplitudeY-CfgPOSLAG-En-RB
+IOC_TEST:amplitudeY-CfgDHLM-En-RB
+IOC_TEST:amplitudeY-CfgDLLM-En-RB
+IOC_TEST:amplitudeY-Stat
+IOC_TEST:amplitudeY-ErrId
+IOC_TEST:amplitudeY-WrnId
+IOC_TEST:offsetX-MR-ErrId
+IOC_TEST:offsetX-CfgRDBD-En-RB
+IOC_TEST:offsetX-CfgPOSLAG-En-RB
+IOC_TEST:offsetX-CfgDHLM-En-RB
+IOC_TEST:offsetX-CfgDLLM-En-RB
+IOC_TEST:offsetX-Stat
+IOC_TEST:offsetX-ErrId
+IOC_TEST:offsetX-WrnId
+IOC_TEST:offsetY-MR-ErrId
+IOC_TEST:offsetY-CfgRDBD-En-RB
+IOC_TEST:offsetY-CfgPOSLAG-En-RB
+IOC_TEST:offsetY-CfgDHLM-En-RB
+IOC_TEST:offsetY-CfgDLLM-En-RB
+IOC_TEST:offsetY-Stat
+IOC_TEST:offsetY-ErrId
+IOC_TEST:offsetY-WrnId
 IOC_TEST:m0-Stat
 IOC_TEST:m0-SlvCntr
 IOC_TEST:m0-MemmapCntr
@@ -1896,6 +3939,86 @@ IOC_TEST:Y-PLC-EnaCmd-RB
 IOC_TEST:Y-PLC-FirstScan
 IOC_TEST:Y-Err
 IOC_TEST:Y-Wrn
+IOC_TEST:amplitudeX-EnaCmd-RB
+IOC_TEST:amplitudeX-EnaAct
+IOC_TEST:amplitudeX-ExeCmd-RB
+IOC_TEST:amplitudeX-Busy
+IOC_TEST:amplitudeX-AtTarget
+IOC_TEST:amplitudeX-Moving
+IOC_TEST:amplitudeX-LimFwd
+IOC_TEST:amplitudeX-LimBwd
+IOC_TEST:amplitudeX-HomeSwitch
+IOC_TEST:amplitudeX-Homed
+IOC_TEST:amplitudeX-InRT
+IOC_TEST:amplitudeX-TrjSrcTyp-RB
+IOC_TEST:amplitudeX-EncSrcTyp-RB
+IOC_TEST:amplitudeX-CmdFrmPLCCmd-RB
+IOC_TEST:amplitudeX-SftLimFwdEna-RB
+IOC_TEST:amplitudeX-SftLimBwdEna-RB
+IOC_TEST:amplitudeX-PLC-EnaCmd-RB
+IOC_TEST:amplitudeX-PLC-FirstScan
+IOC_TEST:amplitudeX-Err
+IOC_TEST:amplitudeX-Wrn
+IOC_TEST:amplitudeY-EnaCmd-RB
+IOC_TEST:amplitudeY-EnaAct
+IOC_TEST:amplitudeY-ExeCmd-RB
+IOC_TEST:amplitudeY-Busy
+IOC_TEST:amplitudeY-AtTarget
+IOC_TEST:amplitudeY-Moving
+IOC_TEST:amplitudeY-LimFwd
+IOC_TEST:amplitudeY-LimBwd
+IOC_TEST:amplitudeY-HomeSwitch
+IOC_TEST:amplitudeY-Homed
+IOC_TEST:amplitudeY-InRT
+IOC_TEST:amplitudeY-TrjSrcTyp-RB
+IOC_TEST:amplitudeY-EncSrcTyp-RB
+IOC_TEST:amplitudeY-CmdFrmPLCCmd-RB
+IOC_TEST:amplitudeY-SftLimFwdEna-RB
+IOC_TEST:amplitudeY-SftLimBwdEna-RB
+IOC_TEST:amplitudeY-PLC-EnaCmd-RB
+IOC_TEST:amplitudeY-PLC-FirstScan
+IOC_TEST:amplitudeY-Err
+IOC_TEST:amplitudeY-Wrn
+IOC_TEST:offsetX-EnaCmd-RB
+IOC_TEST:offsetX-EnaAct
+IOC_TEST:offsetX-ExeCmd-RB
+IOC_TEST:offsetX-Busy
+IOC_TEST:offsetX-AtTarget
+IOC_TEST:offsetX-Moving
+IOC_TEST:offsetX-LimFwd
+IOC_TEST:offsetX-LimBwd
+IOC_TEST:offsetX-HomeSwitch
+IOC_TEST:offsetX-Homed
+IOC_TEST:offsetX-InRT
+IOC_TEST:offsetX-TrjSrcTyp-RB
+IOC_TEST:offsetX-EncSrcTyp-RB
+IOC_TEST:offsetX-CmdFrmPLCCmd-RB
+IOC_TEST:offsetX-SftLimFwdEna-RB
+IOC_TEST:offsetX-SftLimBwdEna-RB
+IOC_TEST:offsetX-PLC-EnaCmd-RB
+IOC_TEST:offsetX-PLC-FirstScan
+IOC_TEST:offsetX-Err
+IOC_TEST:offsetX-Wrn
+IOC_TEST:offsetY-EnaCmd-RB
+IOC_TEST:offsetY-EnaAct
+IOC_TEST:offsetY-ExeCmd-RB
+IOC_TEST:offsetY-Busy
+IOC_TEST:offsetY-AtTarget
+IOC_TEST:offsetY-Moving
+IOC_TEST:offsetY-LimFwd
+IOC_TEST:offsetY-LimBwd
+IOC_TEST:offsetY-HomeSwitch
+IOC_TEST:offsetY-Homed
+IOC_TEST:offsetY-InRT
+IOC_TEST:offsetY-TrjSrcTyp-RB
+IOC_TEST:offsetY-EncSrcTyp-RB
+IOC_TEST:offsetY-CmdFrmPLCCmd-RB
+IOC_TEST:offsetY-SftLimFwdEna-RB
+IOC_TEST:offsetY-SftLimBwdEna-RB
+IOC_TEST:offsetY-PLC-EnaCmd-RB
+IOC_TEST:offsetY-PLC-FirstScan
+IOC_TEST:offsetY-Err
+IOC_TEST:offsetY-Wrn
 IOC_TEST:m0-LinkUp
 IOC_TEST:m0-AlStates-Init
 IOC_TEST:m0-AlStates-Preop
@@ -1913,10 +4036,22 @@ IOC_TEST:X-SeqState
 IOC_TEST:X-LastIlock
 IOC_TEST:Y-SeqState
 IOC_TEST:Y-LastIlock
+IOC_TEST:amplitudeX-SeqState
+IOC_TEST:amplitudeX-LastIlock
+IOC_TEST:amplitudeY-SeqState
+IOC_TEST:amplitudeY-LastIlock
+IOC_TEST:offsetX-SeqState
+IOC_TEST:offsetX-LastIlock
+IOC_TEST:offsetY-SeqState
+IOC_TEST:offsetY-LastIlock
 IOC_TEST:m0-SlvRsp
 IOC_TEST:m0-Dom-WC
 IOC_TEST:X-Cmd_
 IOC_TEST:Y-Cmd_
+IOC_TEST:amplitudeX-Cmd_
+IOC_TEST:amplitudeY-Cmd_
+IOC_TEST:offsetX-Cmd_
+IOC_TEST:offsetY-Cmd_
 IOC_TEST:m0s007-One
 IOC_TEST:m0s007-Zero
 IOC_TEST:m0s008-One
@@ -1931,20 +4066,40 @@ IOC_TEST:Y-DIR_
 IOC_TEST:Y-ErrRst
 IOC_TEST:Y-HomProc
 IOC_TEST:Y-MtnCmdData
-REQMOD:localhost-13015:exit
-REQMOD:localhost-13015:BaseVersion
-REQMOD:localhost-13015:require_VER
-REQMOD:localhost-13015:ecmccfg_VER
-REQMOD:localhost-13015:asyn_VER
-REQMOD:localhost-13015:exprtk_VER
-REQMOD:localhost-13015:motor_VER
-REQMOD:localhost-13015:ruckig_VER
-REQMOD:localhost-13015:ecmc_VER
+IOC_TEST:amplitudeX-DIR_
+IOC_TEST:amplitudeX-ErrRst
+IOC_TEST:amplitudeX-HomProc
+IOC_TEST:amplitudeX-MtnCmdData
+IOC_TEST:amplitudeY-DIR_
+IOC_TEST:amplitudeY-ErrRst
+IOC_TEST:amplitudeY-HomProc
+IOC_TEST:amplitudeY-MtnCmdData
+IOC_TEST:offsetX-DIR_
+IOC_TEST:offsetX-ErrRst
+IOC_TEST:offsetX-HomProc
+IOC_TEST:offsetX-MtnCmdData
+IOC_TEST:offsetY-DIR_
+IOC_TEST:offsetY-ErrRst
+IOC_TEST:offsetY-HomProc
+IOC_TEST:offsetY-MtnCmdData
+REQMOD:localhost-21089:exit
+REQMOD:localhost-21089:BaseVersion
+REQMOD:localhost-21089:require_VER
+REQMOD:localhost-21089:ecmccfg_VER
+REQMOD:localhost-21089:asyn_VER
+REQMOD:localhost-21089:exprtk_VER
+REQMOD:localhost-21089:motor_VER
+REQMOD:localhost-21089:ruckig_VER
+REQMOD:localhost-21089:ecmc_VER
 IOC_TEST:m0s007-HWType
 IOC_TEST:m0s008-HWType
 IOC_TEST:m0s009-HWType
 IOC_TEST:X-MsgTxt
 IOC_TEST:Y-MsgTxt
+IOC_TEST:amplitudeX-MsgTxt
+IOC_TEST:amplitudeY-MsgTxt
+IOC_TEST:offsetX-MsgTxt
+IOC_TEST:offsetY-MsgTxt
 IOC_TEST:m0s007-Drv01-Cmd-RB
 IOC_TEST:m0s007-Drv01-Spd-RB
 IOC_TEST:m0s007-Enc01-PosAct
@@ -2005,6 +4160,102 @@ IOC_TEST:Y-VelAct
 IOC_TEST:Y-PosSet
 IOC_TEST:Y-PosErr
 IOC_TEST:Y-PLC-Err
+IOC_TEST:amplitudeX-Vel-RB
+IOC_TEST:amplitudeX-Acc-RB
+IOC_TEST:amplitudeX-EncAct
+IOC_TEST:amplitudeX-CfgSREV-RB
+IOC_TEST:amplitudeX-CfgUREV-RB
+IOC_TEST:amplitudeX-CfgPMIN-RB
+IOC_TEST:amplitudeX-CfgPMAX-RB
+IOC_TEST:amplitudeX-CfgSPDB-RB
+IOC_TEST:amplitudeX-CfgRDBD-RB
+IOC_TEST:amplitudeX-CfgRDBD-Tim-RB
+IOC_TEST:amplitudeX-CfgPOSLAG-RB
+IOC_TEST:amplitudeX-CfgPOSLAG-Tim-RB
+IOC_TEST:amplitudeX-CfgDHLM-RB
+IOC_TEST:amplitudeX-CfgDLLM-RB
+IOC_TEST:amplitudeX-CfgVELO-RB
+IOC_TEST:amplitudeX-CfgVMAX-RB
+IOC_TEST:amplitudeX-CfgJVEL-RB
+IOC_TEST:amplitudeX-CfgACCS-RB
+IOC_TEST:amplitudeX-HomPos-RB
+IOC_TEST:amplitudeX-PosAct
+IOC_TEST:amplitudeX-VelAct
+IOC_TEST:amplitudeX-PosSet
+IOC_TEST:amplitudeX-PosErr
+IOC_TEST:amplitudeX-PLC-Err
+IOC_TEST:amplitudeY-Vel-RB
+IOC_TEST:amplitudeY-Acc-RB
+IOC_TEST:amplitudeY-EncAct
+IOC_TEST:amplitudeY-CfgSREV-RB
+IOC_TEST:amplitudeY-CfgUREV-RB
+IOC_TEST:amplitudeY-CfgPMIN-RB
+IOC_TEST:amplitudeY-CfgPMAX-RB
+IOC_TEST:amplitudeY-CfgSPDB-RB
+IOC_TEST:amplitudeY-CfgRDBD-RB
+IOC_TEST:amplitudeY-CfgRDBD-Tim-RB
+IOC_TEST:amplitudeY-CfgPOSLAG-RB
+IOC_TEST:amplitudeY-CfgPOSLAG-Tim-RB
+IOC_TEST:amplitudeY-CfgDHLM-RB
+IOC_TEST:amplitudeY-CfgDLLM-RB
+IOC_TEST:amplitudeY-CfgVELO-RB
+IOC_TEST:amplitudeY-CfgVMAX-RB
+IOC_TEST:amplitudeY-CfgJVEL-RB
+IOC_TEST:amplitudeY-CfgACCS-RB
+IOC_TEST:amplitudeY-HomPos-RB
+IOC_TEST:amplitudeY-PosAct
+IOC_TEST:amplitudeY-VelAct
+IOC_TEST:amplitudeY-PosSet
+IOC_TEST:amplitudeY-PosErr
+IOC_TEST:amplitudeY-PLC-Err
+IOC_TEST:offsetX-Vel-RB
+IOC_TEST:offsetX-Acc-RB
+IOC_TEST:offsetX-EncAct
+IOC_TEST:offsetX-CfgSREV-RB
+IOC_TEST:offsetX-CfgUREV-RB
+IOC_TEST:offsetX-CfgPMIN-RB
+IOC_TEST:offsetX-CfgPMAX-RB
+IOC_TEST:offsetX-CfgSPDB-RB
+IOC_TEST:offsetX-CfgRDBD-RB
+IOC_TEST:offsetX-CfgRDBD-Tim-RB
+IOC_TEST:offsetX-CfgPOSLAG-RB
+IOC_TEST:offsetX-CfgPOSLAG-Tim-RB
+IOC_TEST:offsetX-CfgDHLM-RB
+IOC_TEST:offsetX-CfgDLLM-RB
+IOC_TEST:offsetX-CfgVELO-RB
+IOC_TEST:offsetX-CfgVMAX-RB
+IOC_TEST:offsetX-CfgJVEL-RB
+IOC_TEST:offsetX-CfgACCS-RB
+IOC_TEST:offsetX-HomPos-RB
+IOC_TEST:offsetX-PosAct
+IOC_TEST:offsetX-VelAct
+IOC_TEST:offsetX-PosSet
+IOC_TEST:offsetX-PosErr
+IOC_TEST:offsetX-PLC-Err
+IOC_TEST:offsetY-Vel-RB
+IOC_TEST:offsetY-Acc-RB
+IOC_TEST:offsetY-EncAct
+IOC_TEST:offsetY-CfgSREV-RB
+IOC_TEST:offsetY-CfgUREV-RB
+IOC_TEST:offsetY-CfgPMIN-RB
+IOC_TEST:offsetY-CfgPMAX-RB
+IOC_TEST:offsetY-CfgSPDB-RB
+IOC_TEST:offsetY-CfgRDBD-RB
+IOC_TEST:offsetY-CfgRDBD-Tim-RB
+IOC_TEST:offsetY-CfgPOSLAG-RB
+IOC_TEST:offsetY-CfgPOSLAG-Tim-RB
+IOC_TEST:offsetY-CfgDHLM-RB
+IOC_TEST:offsetY-CfgDLLM-RB
+IOC_TEST:offsetY-CfgVELO-RB
+IOC_TEST:offsetY-CfgVMAX-RB
+IOC_TEST:offsetY-CfgJVEL-RB
+IOC_TEST:offsetY-CfgACCS-RB
+IOC_TEST:offsetY-HomPos-RB
+IOC_TEST:offsetY-PosAct
+IOC_TEST:offsetY-VelAct
+IOC_TEST:offsetY-PosSet
+IOC_TEST:offsetY-PosErr
+IOC_TEST:offsetY-PLC-Err
 IOC_TEST:MCU-AppMode
 IOC_TEST:MCU-ErrId
 IOC_TEST:MCU-ThdLatMin
@@ -2017,70 +4268,15 @@ IOC_TEST:MCU-ThdSndMin
 IOC_TEST:MCU-ThdSndMax
 IOC_TEST:X-MCU1-asyn
 IOC_TEST:Y-MCU1-asyn
+IOC_TEST:amplitudeX-MCU1-asyn
+IOC_TEST:amplitudeY-MCU1-asyn
+IOC_TEST:offsetX-MCU1-asyn
+IOC_TEST:offsetY-MCU1-asyn
 IOC_TEST:MCU-Cmd
 IOC_TEST:X
 IOC_TEST:Y
-localhost-13015 > dn[Kbpf IOC_TEST:X [K.HOMF 1
-2023/03/02 15:52:17.297 ecmcMotorRecord:: setDoubleParam(1 motorVelocity_=0
-2023/03/02 15:52:17.297 [motorRecord.cc:2789 IOC_TEST:X] mipSetVal old='' new=HOMF(Hf)
-2023/03/02 15:52:17.297 ecmcMotorRecord:: setDoubleParam(1 motorVelBase_)=0
-2023/03/02 15:52:17.297 ecmcMotorRecord:: setDoubleParam(1 motorHome__)=1
-DBF_SHORT:          1 = 0x1   
-localhost-13015 > dbpf IOC_TEST:X.HOMF 12023/03/02 15:52:17.998 [motorRecord.cc:1530 IOC_TEST:X] msta.Bits.RA_DONE=0
-2023/03/02 15:52:17.998 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=1 atTarget=1 wf=3 ENC=62979 fPos=0 fActPosition=0 time=0.000006
-2023/03/02 15:52:17.998 [motorRecord.cc:1510 IOC_TEST:X] msta.Bits.RA_MOVING=1
-2023/03/02 15:52:17.998 [motorRecord.cc:1522 IOC_TEST:X] msta.Bits.EA_POSITION power on=1
-2023/03/02 15:52:18.198 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=1 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=62890 fPos=-0.4179 fActPosition=-0.417187 time=0.000003
-2023/03/02 15:52:18.198 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=0 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=10 old=0 txt=NULL
-2023/03/02 15:52:18.198 [motorRecord.cc:1512 IOC_TEST:X] msta.Bits.RA_PROBLEM=0
-l[KiocInit[4Pdblpf IOC_TEST:X.HOMF 1[1P[1@Y
-2023/03/02 15:52:23.602 ecmcMotorRecord:: setDoubleParam(2 motorVelocity_=0
-2023/03/02 15:52:23.602 [motorRecord.cc:2789 IOC_TEST:Y] mipSetVal old='' new=HOMF(Hf)
-2023/03/02 15:52:23.602 ecmcMotorRecord:: setDoubleParam(2 motorVelBase_)=0
-2023/03/02 15:52:23.602 ecmcMotorRecord:: setDoubleParam(2 motorHome__)=1
-DBF_SHORT:          1 = 0x1   
-localhost-13015 > 2023/03/02 15:52:24.303 [motorRecord.cc:1530 IOC_TEST:Y] msta.Bits.RA_DONE=0
-2023/03/02 15:52:24.303 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=0 bExecute=0 bEnabled=1 atTarget=1 wf=3 ENC=115 fPos=0 fActPosition=0 time=0.000002
-2023/03/02 15:52:24.303 [motorRecord.cc:1510 IOC_TEST:Y] msta.Bits.RA_MOVING=1
-2023/03/02 15:52:24.303 [motorRecord.cc:1522 IOC_TEST:Y] msta.Bits.EA_POSITION power on=1
-2023/03/02 15:52:24.503 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=1 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=26 fPos=-0.4179 fActPosition=-0.417187 time=0.000002
-2023/03/02 15:52:24.503 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=0 old=4 ErrID=0x0 old=0x0 Warn=0 nCmd=10 old=0 txt=NULL
-2023/03/02 15:52:24.503 [motorRecord.cc:1512 IOC_TEST:Y] msta.Bits.RA_PROBLEM=0
-2023/03/02 15:52:34.285 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 3).
-2023/03/02 15:52:34.307 ecmcMotorRecord:: poll(1) LLS=1
-2023/03/02 15:52:34.307 [motorRecord.cc:1504 IOC_TEST:X] msta.Bits.RA_MINUS_LS=1
-2023/03/02 15:52:34.976 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 1): Motion interlock cleared.
-2023/03/02 15:52:34.978 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 1): Motion interlocked (type 5).
-2023/03/02 15:52:35.108 ecmcMotorRecord:: poll(1) LLS=0
-2023/03/02 15:52:35.108 [motorRecord.cc:1504 IOC_TEST:X] msta.Bits.RA_MINUS_LS=0
-2023/03/02 15:52:35.269 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 1): Motion interlock cleared.
-2023/03/02 15:52:35.308 ecmcMotorRecord:: poll(1) homed=1
-2023/03/02 15:52:35.308 [motorRecord.cc:1502 IOC_TEST:X] msta.Bits.RA_HOMED=1
-2023/03/02 15:52:40.633 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 3).
-2023/03/02 15:52:40.710 ecmcMotorRecord:: poll(2) LLS=1
-2023/03/02 15:52:40.710 [motorRecord.cc:1504 IOC_TEST:Y] msta.Bits.RA_MINUS_LS=1
-2023/03/02 15:52:41.379 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 2): Motion interlock cleared.
-2023/03/02 15:52:41.381 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:185: INFO (axis 2): Motion interlocked (type 5).
-2023/03/02 15:52:41.511 ecmcMotorRecord:: poll(2) LLS=0
-2023/03/02 15:52:41.511 [motorRecord.cc:1504 IOC_TEST:Y] msta.Bits.RA_MINUS_LS=0
-2023/03/02 15:52:41.673 ../devEcmcSup/motion/ecmcAxisData.cpp/refreshInterlocks:187: INFO (axis 2): Motion interlock cleared.
-2023/03/02 15:52:41.711 ecmcMotorRecord:: poll(2) homed=1
-2023/03/02 15:52:41.711 [motorRecord.cc:1502 IOC_TEST:Y] msta.Bits.RA_HOMED=1
-2023/03/02 15:52:53.516 ecmcMotorRecord:: poll(1) mvnNRdy=1 bBusy=0 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=65112 fPos=0 fActPosition=0 time=0.000002
-2023/03/02 15:52:53.716 ecmcMotorRecord:: poll(1) mvnNRdy=0 bBusy=0 bExecute=1 bEnabled=1 atTarget=1 wf=0 ENC=65112 fPos=0 fActPosition=0 time=0.000003
-2023/03/02 15:52:53.716 ecmcMotorRecord:: poll(1) callParamCallbacksUpdateError Error=0 old=0 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=10 txt=NULL
-2023/03/02 15:52:53.716 [motorRecord.cc:1510 IOC_TEST:X] msta.Bits.RA_MOVING=0
-2023/03/02 15:52:53.716 [motorRecord.cc:1530 IOC_TEST:X] msta.Bits.RA_DONE=1
-2023/03/02 15:52:53.716 [motorRecord.cc:1696 IOC_TEST:X] motor is stopped dval=0.000000 drbv=0.000000 pp=1 udf=0 stat=0 stop=0 pmr->spmg=GO mip=0x8(HOMF(Hf)) msta=0x492a
-2023/03/02 15:52:53.716 [motorRecord.cc:4733 IOC_TEST:X] clear_home_buttons homf=1 homr=0
-2023/03/02 15:52:53.716 [motorRecord.cc:1212 IOC_TEST:X] mipClrBit STOP(St) old=HOMF(Hf) new=HOMF(Hf)
-2023/03/02 15:52:53.716 [motorRecord.cc:1854 IOC_TEST:X] mipSetVal old=HOMF(Hf) new=''
-2023/03/02 15:52:59.919 ecmcMotorRecord:: poll(2) mvnNRdy=1 bBusy=0 bExecute=1 bEnabled=1 atTarget=0 wf=0 ENC=2249 fPos=0 fActPosition=0 time=0.000007
-2023/03/02 15:53:00.119 ecmcMotorRecord:: poll(2) mvnNRdy=0 bBusy=0 bExecute=1 bEnabled=1 atTarget=1 wf=0 ENC=2249 fPos=0 fActPosition=0 time=0.000002
-2023/03/02 15:53:00.119 ecmcMotorRecord:: poll(2) callParamCallbacksUpdateError Error=0 old=0 ErrID=0x0 old=0x0 Warn=0 nCmd=0 old=10 txt=NULL
-2023/03/02 15:53:00.119 [motorRecord.cc:1510 IOC_TEST:Y] msta.Bits.RA_MOVING=0
-2023/03/02 15:53:00.119 [motorRecord.cc:1530 IOC_TEST:Y] msta.Bits.RA_DONE=1
-2023/03/02 15:53:00.119 [motorRecord.cc:1696 IOC_TEST:Y] motor is stopped dval=0.000000 drbv=0.000000 pp=1 udf=0 stat=0 stop=0 pmr->spmg=GO mip=0x8(HOMF(Hf)) msta=0x492a
-2023/03/02 15:53:00.119 [motorRecord.cc:4733 IOC_TEST:Y] clear_home_buttons homf=1 homr=0
-2023/03/02 15:53:00.119 [motorRecord.cc:1212 IOC_TEST:Y] mipClrBit STOP(St) old=HOMF(Hf) new=HOMF(Hf)
-2023/03/02 15:53:00.119 [motorRecord.cc:1854 IOC_TEST:Y] mipSetVal old=HOMF(Hf) new=''
+IOC_TEST:amplitudeX
+IOC_TEST:amplitudeY
+IOC_TEST:offsetX
+IOC_TEST:offsetY
+localhost-21089 > 
