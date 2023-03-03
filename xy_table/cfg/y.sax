@@ -4,7 +4,7 @@ epicsEnvSet("ECMC_ENC_VELO_FILT_ENABLE",       "0")       # Enable velocity filt
 epicsEnvSet("ECMC_ENC_VELO_FILT_SIZE",         "10")     # Encoder velocity Low pass filter size
 
 ############# Trajectory
-epicsEnvSet("ECMC_TRAJ_SOURCE",                "1")       # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_TRAJ_SOURCE",                "0")       # 0 Internal (from hardware), 1 from PLC
 epicsEnvSet("ECMC_TRAJ_VELO_FILT_ENABLE",      "1")       # Enable velocity filter
 epicsEnvSet("ECMC_TRAJ_VELO_FILT_SIZE",        "20")      # Trajectory velocity Low pass filter size
 
@@ -20,7 +20,7 @@ epicsEnvSet("ECMC_CMD_AXIS_PLC_ENABLE",        "1")       # Enable Axis PLC
 # axis 5: x offset
 # axis 6: y offset
 # axis 7: freq
-epicsEnvSet("ECMC_AXIS_EXPR_LINE_1",           "ax2.traj.setpos:=ax6.traj.setpos+ax4.traj.setpos*sin(2*pi*ax7.traj.setpos*ec_get_time()/1e9)|")
+epicsEnvSet("ECMC_AXIS_EXPR_LINE_1",           "ax2.traj.setpos:=ax6.traj.setpos+ax4.traj.setpos*cos(2*pi*ax7.traj.setpos*ec_get_time()/1e9)|")
 epicsEnvSet("ECMC_AXIS_EXPR_LINE_2",           "if(ax2.traj.source){ax2.drv.enable:=ax4.drv.enable+ax4.drv.enable+ax7.drv.enable|}|")
 epicsEnvSet("ECMC_AXIS_EXPR_LINE_3",           "")
 epicsEnvSet("ECMC_AXIS_EXPR_LINE_4",           "")

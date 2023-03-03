@@ -9,14 +9,8 @@ epicsEnvSet("SCRIPTEXEC" ,"$(SCRIPTEXEC="iocshLoad")")
 
 require ecmccfg master
 
-# Epics Motor record driver that will be used:
-epicsEnvShow(ECMC_MR_MODULE)
-
 # run module startup.cmd (only needed at ESS  PSI auto call at require)
-$(ECMCCFG_INIT)$(SCRIPTEXEC) ${ecmccfg_DIR}startup.cmd, "IOC=$(IOC),ECMC_VER=master"
-
-##############################################################################
-## Configure hardware:
+$(ECMCCFG_INIT)$(SCRIPTEXEC) ${ecmccfg_DIR}startup.cmd, "IOC=$(IOC),ECMC_VER=master,EC_RATE=500"
 
 ##############################################################################
 ## Configure hardware:
@@ -42,6 +36,8 @@ ecmcConfigOrDie "Cfg.EcApplyConfig(1)"
 epicsEnvSet("DEV",      "$(IOC)")
 $(SCRIPTEXEC) ($(ecmccfg_DIR)configureAxis.cmd, CONFIG=./cfg/x.ax)
 $(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/x.sax)
+ecmcConfigOrDie "Cfg.SetAxisAllowSourceChangeWhenEnabled(1,1)"
+
 
 ##############################################################################
 ## Y
@@ -49,6 +45,7 @@ $(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/x.sax)
 epicsEnvSet("DEV",      "$(IOC)")
 $(SCRIPTEXEC) ($(ecmccfg_DIR)configureAxis.cmd, CONFIG=./cfg/y.ax)
 $(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/y.sax)
+ecmcConfigOrDie "Cfg.SetAxisAllowSourceChangeWhenEnabled(2,1)"
 
 ##############################################################################
 ## X amplitude
@@ -84,6 +81,10 @@ $(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/offset_y
 epicsEnvSet("DEV",      "$(IOC)")
 $(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/freq.vax)
 $(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/freq.sax)
+
+##############################################################################
+## PLC 0: Startup seq
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=100,FILE=./plc/startup.plc,PLC_MACROS='PLC_ID=0'"
 
 ##############################################################################
 ############# Configure diagnostics:

@@ -1,0 +1,37 @@
+
+if(plc${PLC_ID}.firstscan) {
+  println('State 0: Trying to enable physical axes');
+}
+
+#State 0: Power physical axis and home to 0
+if(static.state = 0) {  
+  mc_power(1,1);
+  mc_power(2,1);
+}
+
+if(ax1.drv.enabled and ax2.drv.enabled and (static.state = 0)) {
+  println('State 1: Home');
+  # Physical axes
+  mc_home_pos(1,1,1,5,5,-90);
+  mc_home_pos(2,1,1,5,5,-90);
+  # Make sure virt axes are 0
+  #mc_home_pos(3,1,15,5,5,0);
+  #mc_home_pos(4,1,15,5,5,0);
+  #mc_home_pos(5,1,15,5,5,0);
+  #mc_home_pos(6,1,15,5,5,0);
+  #mc_home_pos(7,1,15,5,5,0.5);  # start at 0.5Hz
+  static.state:=1;
+}
+
+if((static.state = 1) and ax1.enc.homed and ax2.enc.homed and not(mc_get_busy(1)) and not(mc_get_busy(2))) {
+  println('State 1: Homing done');
+  static.state := 2;
+}
+
+# State 2: Go to external source for physcal axes
+if(static.state = 2) {
+  ax1.traj.source:=1;
+  ax2.traj.source:=1;  
+  plc${PLC_ID}.enable:=false;
+  println('State 2: Startup done');
+}
