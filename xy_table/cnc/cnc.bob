@@ -13,183 +13,9 @@
   </actions>
   <grid_step_x>6</grid_step_x>
   <grid_step_y>6</grid_step_y>
-  <widget type="textentry" version="3.0.0">
-    <name>Text Input_3</name>
-    <pv_name>IOC_TEST:ns-PosSet</pv_name>
-    <x>589</x>
-    <y>216</y>
-    <width>125</width>
-    <height>100</height>
-    <font>
-      <font family="Source Sans Pro" style="REGULAR" size="60.0">
-      </font>
-    </font>
-    <foreground_color>
-      <color red="0" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <precision>2</precision>
-    <show_units>false</show_units>
-    <horizontal_alignment>2</horizontal_alignment>
-    <actions>
-    </actions>
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="textentry" version="3.0.0">
-    <name>Text Input</name>
-    <pv_name>IOC_TEST:s-PosSet</pv_name>
-    <x>433</x>
-    <y>216</y>
-    <width>150</width>
-    <height>100</height>
-    <font>
-      <font family="Source Sans Pro" style="REGULAR" size="60.0">
-      </font>
-    </font>
-    <foreground_color>
-      <color red="0" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <precision>2</precision>
-    <show_units>false</show_units>
-    <horizontal_alignment>2</horizontal_alignment>
-    <actions>
-    </actions>
-    <rules>
-      <rule name="New Rule" prop_id="precision" out_exp="true">
-        <exp bool_exp="pv0==1">
-          <expression>0</expression>
-        </exp>
-        <pv_name>IOC_TEST:Set-Mode-RB</pv_name>
-      </rule>
-    </rules>
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="textentry" version="3.0.0">
-    <name>Text Input_1</name>
-    <pv_name>IOC_TEST:h-PosSet</pv_name>
-    <x>182</x>
-    <y>216</y>
-    <height>100</height>
-    <font>
-      <font family="Source Sans Pro" style="REGULAR" size="60.0">
-      </font>
-    </font>
-    <foreground_color>
-      <color red="0" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <precision>0</precision>
-    <show_units>false</show_units>
-    <horizontal_alignment>2</horizontal_alignment>
-    <actions>
-    </actions>
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="textentry" version="3.0.0">
-    <name>Text Input_2</name>
-    <pv_name>IOC_TEST:m-PosSet</pv_name>
-    <x>296</x>
-    <y>216</y>
-    <width>125</width>
-    <height>100</height>
-    <font>
-      <font family="Source Sans Pro" style="REGULAR" size="60.0">
-      </font>
-    </font>
-    <foreground_color>
-      <color red="0" green="0" blue="0">
-      </color>
-    </foreground_color>
-    <background_color>
-      <color red="255" green="255" blue="255">
-      </color>
-    </background_color>
-    <precision>0</precision>
-    <show_units>false</show_units>
-    <horizontal_alignment>2</horizontal_alignment>
-    <actions>
-    </actions>
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-    <border_color>
-      <color red="0" green="128" blue="255">
-      </color>
-    </border_color>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label</name>
-    <text>:</text>
-    <x>284</x>
-    <y>230</y>
-    <width>42</width>
-    <height>96</height>
-    <font>
-      <font family="Source Sans Pro" style="REGULAR" size="48.0">
-      </font>
-    </font>
-  </widget>
-  <widget type="label" version="2.0.0">
-    <name>Label_1</name>
-    <text>:</text>
-    <x>422</x>
-    <y>230</y>
-    <width>42</width>
-    <height>96</height>
-    <font>
-      <font family="Source Sans Pro" style="REGULAR" size="48.0">
-      </font>
-    </font>
-  </widget>
-  <widget type="slide_button" version="2.0.0">
-    <name>Slide Button</name>
-    <pv_name>IOC_TEST:Set-Mode-RB</pv_name>
-    <label>Classic Mode</label>
-    <x>186</x>
-    <y>138</y>
-    <width>372</width>
-    <font>
-      <font family="Source Sans Pro" style="REGULAR" size="36.0">
-      </font>
-    </font>
-    <rules>
-      <rule name="New Rule" prop_id="label" out_exp="false">
-        <exp bool_exp="pv0==1">
-          <value>Classic Mode</value>
-        </exp>
-        <exp bool_exp="pv0==0">
-          <value>Smooth Mode</value>
-        </exp>
-        <pv_name>IOC_TEST:Set-Mode-RB</pv_name>
-      </rule>
-    </rules>
-  </widget>
   <widget type="label" version="2.0.0">
     <name>Label_3</name>
-    <text>ecmc clock demo</text>
+    <text>ecmc cnc demo</text>
     <x>185</x>
     <y>36</y>
     <width>726</width>
@@ -198,5 +24,67 @@
       <font family="Source Sans Pro" style="BOLD_ITALIC" size="60.0">
       </font>
     </font>
+  </widget>
+  <widget type="xyplot" version="2.0.0">
+    <name>X/Y Plot</name>
+    <y>204</y>
+    <width>1074</width>
+    <height>636</height>
+    <show_toolbar>true</show_toolbar>
+    <x_axis>
+      <title>X</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>150.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Source Sans Pro" style="REGULAR" size="16.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Y</title>
+        <autoscale>false</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Source Sans Pro" style="BOLD" size="16.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Source Sans Pro" style="REGULAR" size="16.0">
+          </font>
+        </scale_font>
+        <visible>true</visible>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv>IOC_TEST:X-PosAct</x_pv>
+        <y_pv>IOC_TEST:Y-PosAct</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>4</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
   </widget>
 </display>
