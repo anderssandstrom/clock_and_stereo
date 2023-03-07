@@ -34,7 +34,9 @@ if(static.state = 2) {
 if(static.state = 3) {
   if(not(grbl_get_parser_busy())) {    
     static.counter+=1;
-    println('Retrigger g-code. Counter: ', static.counter);    
+    println('Retrigger g-code. Counter: ', static.counter);
+    grbl_reset_error();
+    grbl_set_execute(0);
     grbl_set_execute(1);
     #plc${PLC_ID}.enable:=false;
   };
