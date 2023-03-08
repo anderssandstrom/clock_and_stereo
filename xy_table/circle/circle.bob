@@ -247,8 +247,8 @@
   </widget>
   <widget type="group" version="2.0.0">
     <name>Group_1</name>
-    <x>1848</x>
-    <y>528</y>
+    <x>1677</x>
+    <y>540</y>
     <width>204</width>
     <height>84</height>
     <style>3</style>
@@ -463,5 +463,113 @@
       <color red="0" green="128" blue="255">
       </color>
     </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Amplitude [mm]</text>
+    <x>1539</x>
+    <y>540</y>
+    <width>198</width>
+    <height>44</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Offset [mm]</text>
+    <x>1539</x>
+    <y>568</y>
+    <width>198</width>
+    <height>44</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Act. Pos [mm]</text>
+    <x>1539</x>
+    <y>595</y>
+    <width>198</width>
+    <height>44</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Freq [Hz]</text>
+    <x>1539</x>
+    <y>72</y>
+    <width>198</width>
+    <height>44</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Amplitude [mm]</text>
+    <x>765</x>
+    <y>1140</y>
+    <width>198</width>
+    <height>44</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Offset [mm]</text>
+    <x>765</x>
+    <y>1168</y>
+    <width>198</width>
+    <height>44</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Act. Pos [mm]</text>
+    <x>765</x>
+    <y>1195</y>
+    <width>198</width>
+    <height>44</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="20.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>Y-Axis:</text>
+    <x>1635</x>
+    <y>480</y>
+    <width>198</width>
+    <height>44</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="28.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>X-Axis:</text>
+    <x>634</x>
+    <y>1158</y>
+    <width>198</width>
+    <height>44</height>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="28.0">
+      </font>
+    </font>
   </widget>
 </display>
