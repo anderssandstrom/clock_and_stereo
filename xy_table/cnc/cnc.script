@@ -45,6 +45,16 @@ $(SCRIPTEXEC) ($(ecmccfg_DIR)configureAxis.cmd, CONFIG=./cfg/y.ax)
 ecmcConfigOrDie "Cfg.SetAxisAllowSourceChangeWhenEnabled(2,1)"
 #$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/y.sax)
 
+##############################################################################
+## Data Storage: Buffer for the X axis actpos for show in CSS x/yplot
+epicsEnvSet("ECMC_ID_DS_RES",0)
+epicsEnvSet("ECMC_BUFFER_SIZE",2000)
+$(SCRIPTEXEC) $(ecmccfg_DIR)addDataStorage.cmd "DS_ID=${ECMC_ID_DS_RES}, DS_SIZE=${ECMC_BUFFER_SIZE=1000}, SAMPLE_RATE_MS=-1, DS_TYPE=2")
+
+##############################################################################
+## Data Storage: Buffer for the X axis actpos for show in CSS x/yplot
+epicsEnvSet("ECMC_ID_DS_RES",1)
+$(SCRIPTEXEC) $(ecmccfg_DIR)addDataStorage.cmd "DS_ID=${ECMC_ID_DS_RES}, DS_SIZE=${ECMC_BUFFER_SIZE=1000}, SAMPLE_RATE_MS=-1, DS_TYPE=2")
 
 ##############################################################################
 ## Load plugin:
@@ -59,13 +69,13 @@ epicsEnvUnset(ECMC_PLUGIN_CONFIG)
 
 ##############################################################################
 ## PLC 0: Startup seq
-$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=100,FILE=./plc/startup.plc,PLC_MACROS='PLC_ID=0'"
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=250,FILE=./plc/startup.plc,PLC_MACROS='PLC_ID=0'"
 
 # Load grbl configs (use "ecmcGrblAddConfig()" or "ecmcGrblAddConfig()"):
 ecmcGrblLoadConfigFile("./cfg/grbl.cfg")
 
 # Load g-code (use "ecmcGrblLoadGCodeFile()" or "ecmcGrblAddCommand()")
-ecmcGrblLoadGCodeFile("./gcode/tp.nc",0)
+ecmcGrblLoadGCodeFile("./gcode/thanks.nc",0)
 
 ##############################################################################
 ## Configure diagnostics:

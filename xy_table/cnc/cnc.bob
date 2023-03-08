@@ -28,8 +28,8 @@
   <widget type="xyplot" version="2.0.0">
     <name>X/Y Plot</name>
     <y>204</y>
-    <width>1074</width>
-    <height>636</height>
+    <width>1600</width>
+    <height>1000</height>
     <show_toolbar>true</show_toolbar>
     <x_axis>
       <title>X</title>
@@ -70,8 +70,8 @@
     <traces>
       <trace>
         <name>$(traces[0].y_pv)</name>
-        <x_pv>IOC_TEST:X-PosAct</x_pv>
-        <y_pv>IOC_TEST:Y-PosAct</y_pv>
+        <x_pv>IOC_TEST:DS00-DataAct</x_pv>
+        <y_pv>IOC_TEST:DS01-DataAct</y_pv>
         <err_pv></err_pv>
         <axis>0</axis>
         <trace_type>1</trace_type>

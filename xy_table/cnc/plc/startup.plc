@@ -40,4 +40,9 @@ if(static.state = 3) {
     grbl_set_execute(1);
     #plc${PLC_ID}.enable:=false;
   };
+  # X axis act pos 
+  ds_append_data(0,ax1.enc.actpos);
+  ds_append_data(1,ax2.enc.actpos);
+  ds_push_asyn(0);
+  ds_push_asyn(1);
 };

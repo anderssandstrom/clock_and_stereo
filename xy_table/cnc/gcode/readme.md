@@ -1,5 +1,9 @@
-cat thankspetro.nc | awk {'printf("%s %s %5.2f %s %5.2f %s\n",$1, $2,$3+0,$4,$5+0,$6); }'^C
+Exports from https://cnc-apps.com/en/app/texttogcode_line works. But all M1002 commands needs to be removed 
 
-cat thankspetro.nc | awk {'printf("%s %s %5.2f %s %5.2f %s\n",$1, $2,$3+0,$4,$5+0,$6); }' | tr -d " " |tee tp.nc
+ cat thanks.nc | grep -v "M1002" | tee thanks_edit.nc 
 
+and the a feed rate must be apllied to teh first G commands:
 
+G00 X25.30859 Y76.38299 F1000
+
+G01 X24.77777 Y58.77819 F1000
