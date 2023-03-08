@@ -32,6 +32,10 @@ if((static.state = 1) and ax1.enc.homed and ax2.enc.homed and not(mc_get_busy(1)
 if(static.state = 2) {
   ax1.traj.source:=1;
   ax2.traj.source:=1;  
-  plc${PLC_ID}.enable:=false;
-  println('State 2: Startup done');
+  #plc${PLC_ID}.enable:=false;
+  #println('State 2: Startup done');
+  ds_append_data(0,ax1.enc.actpos);
+  ds_append_data(1,ax2.enc.actpos);
+  ds_push_asyn(0);
+  ds_push_asyn(1);
 }

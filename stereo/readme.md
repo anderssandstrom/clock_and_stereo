@@ -39,5 +39,5 @@ Shift of data is approx 300 values (3 cycles)
 # Start on dev-asm-02
 ```
 source ~/sources/base-7.0.6.1/require/4.0.0/bin/setE3Env.bash 
-iocsh stereo.script -l ~/cellMods/ -l ~/sources/e3-ecmccfg/cellMods/
+iocsh stereo.script -l ~/cellMods/
 ```

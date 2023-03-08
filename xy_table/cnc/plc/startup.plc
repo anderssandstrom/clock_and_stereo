@@ -27,12 +27,13 @@ if(static.state = 2) {
   ax1.traj.source:=1;
   ax2.traj.source:=1;  
   println('State 2: Startup done');
-  static.state := 3;  
+  static.state := 3;
+  grbl_set_execute(0);
 }
 
 # Trigg motion
 if(static.state = 3) {
-  if(not(grbl_get_parser_busy())) {    
+  if(not(grbl_get_parser_busy())) {
     static.counter+=1;
     println('Retrigger g-code. Counter: ', static.counter);
     grbl_reset_error();
