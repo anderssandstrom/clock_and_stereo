@@ -1,12 +1,12 @@
 ############# Encoder
 epicsEnvSet("ECMC_ENC_SOURCE",                 "0")      # 0 Internal (from hardware), 1 from PLC
 epicsEnvSet("ECMC_ENC_VELO_FILT_ENABLE",       "1")      # Enable velocity filter
-epicsEnvSet("ECMC_ENC_VELO_FILT_SIZE",         "20")     # Encoder velocity Low pass filter size
+epicsEnvSet("ECMC_ENC_VELO_FILT_SIZE",         "50")     # Encoder velocity Low pass filter size
 
 ############# Trajectory
-epicsEnvSet("ECMC_TRAJ_SOURCE",                "1")      # 0 Internal (from hardware), 1 from PLC
+epicsEnvSet("ECMC_TRAJ_SOURCE",                "0")      # 0 Internal (from hardware), 1 from PLC
 epicsEnvSet("ECMC_TRAJ_VELO_FILT_ENABLE",      "1")      # Enable velocity filter
-epicsEnvSet("ECMC_TRAJ_VELO_FILT_SIZE",        "20")     # Trajectory velocity Low pass filter size
+epicsEnvSet("ECMC_TRAJ_VELO_FILT_SIZE",        "50")     # Trajectory velocity Low pass filter size
 
 ############# Commands 
 epicsEnvSet("ECMC_CMD_FRM_OTHER_PLC_ENABLE",   "1")      # Allow commands from PLC
