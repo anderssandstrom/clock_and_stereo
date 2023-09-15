@@ -53,7 +53,7 @@ $(SCRIPTEXEC) $(ecmccfg_DIR)addDataStorage.cmd "DS_ID=${ECMC_ID_DS_RES}, DS_SIZE
 
 ##############################################################################
 ## PLC 0: Startup seq
-$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=50,FILE=./plc/startup.plc,PLC_MACROS='PLC_ID=0'"
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=100,FILE=./plc/startup.plc,PLC_MACROS='PLC_ID=0'"
 
 # Load grbl configs (use "ecmcGrblAddConfig()" or "ecmcGrblAddConfig()"):
 ecmcGrblLoadConfigFile("./cfg/grbl.cfg")
