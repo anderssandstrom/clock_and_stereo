@@ -64,7 +64,7 @@ $(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/freq.sax
 ##############################################################################
 ## Data Storage: Buffer for the X axis actpos for show in CSS x/yplot
 epicsEnvSet("ECMC_ID_DS_RES",0)
-epicsEnvSet("ECMC_BUFFER_SIZE",2000)
+epicsEnvSet("ECMC_BUFFER_SIZE",500)
 $(SCRIPTEXEC) $(ecmccfg_DIR)addDataStorage.cmd "DS_ID=${ECMC_ID_DS_RES}, DS_SIZE=${ECMC_BUFFER_SIZE=1000}, SAMPLE_RATE_MS=-1, DS_TYPE=2")
 
 ##############################################################################
@@ -74,7 +74,7 @@ $(SCRIPTEXEC) $(ecmccfg_DIR)addDataStorage.cmd "DS_ID=${ECMC_ID_DS_RES}, DS_SIZE
 
 ##############################################################################
 ## PLC 0: Startup seq
-$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=100,FILE=./plc/startup.plc,PLC_MACROS='PLC_ID=0'"
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=50,FILE=./plc/startup.plc,PLC_MACROS='PLC_ID=0'"
 
 ##############################################################################
 ## Configure diagnostics:
