@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>830</y>
+      <y>860</y>
       <width>221</width>
       <height>85</height>
      </rect>
@@ -63,7 +63,7 @@
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>830</y>
+      <y>860</y>
       <width>221</width>
       <height>85</height>
      </rect>
@@ -95,7 +95,7 @@
     <property name="geometry">
      <rect>
       <x>950</x>
-      <y>830</y>
+      <y>860</y>
       <width>221</width>
       <height>85</height>
      </rect>
@@ -113,7 +113,7 @@
       <x>10</x>
       <y>10</y>
       <width>911</width>
-      <height>791</height>
+      <height>841</height>
      </rect>
     </property>
     <property name="channels_1" stdset="0">
@@ -149,7 +149,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>830</y>
+      <y>860</y>
       <width>221</width>
       <height>85</height>
      </rect>
