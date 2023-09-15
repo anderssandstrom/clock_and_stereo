@@ -75,7 +75,7 @@
      <string>$(SYS)DS01-DataAct</string>
     </property>
     <property name="triggerChannel" stdset="0">
-     <string notr="true">$(SYS)DS01-DataAc</string>
+     <string notr="true">$(SYS)DS01-DataAct</string>
     </property>
    </widget>
   </widget>
