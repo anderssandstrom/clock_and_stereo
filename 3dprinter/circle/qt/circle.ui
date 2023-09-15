@@ -27,89 +27,6 @@
      <string notr="true">$(SYS):LeftOffset</string>
     </property>
    </widget>
-   <widget class="caLineEdit" name="calineedit_3">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>310</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="channel" stdset="0">
-     <string notr="true">$(SYS):RightGain</string>
-    </property>
-    <property name="precision">
-     <number>3</number>
-    </property>
-   </widget>
-   <widget class="caLineEdit" name="calineedit_5">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>510</y>
-      <width>41</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="channel" stdset="0">
-     <string notr="true">$(SYS):Volume</string>
-    </property>
-    <property name="precision">
-     <number>3</number>
-    </property>
-   </widget>
-   <widget class="caCartesianPlot" name="cacartesianplot">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>961</width>
-      <height>601</height>
-     </rect>
-    </property>
-    <property name="channels_1" stdset="0">
-     <string>$(SYS)DS00-DataAct</string>
-    </property>
-    <property name="channels_2" stdset="0">
-     <string>$(SYS)DS01-DataAct</string>
-    </property>
-    <property name="triggerChannel" stdset="0">
-     <string notr="true">$(SYS)DS01-DataAct</string>
-    </property>
-   </widget>
-   <widget class="caInclude" name="cainclude">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>690</y>
-      <width>221</width>
-      <height>85</height>
-     </rect>
-    </property>
-    <property name="macro">
-     <string>Axis=X</string>
-    </property>
-    <property name="filename" stdset="0">
-     <string notr="true">ecmcMotorRecord_mini.ui</string>
-    </property>
-   </widget>
-   <widget class="caInclude" name="cainclude_2">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>790</y>
-      <width>221</width>
-      <height>85</height>
-     </rect>
-    </property>
-    <property name="macro">
-     <string>Axis=Y</string>
-    </property>
-    <property name="filename" stdset="0">
-     <string notr="true">ecmcMotorRecord_mini.ui</string>
-    </property>
-   </widget>
    <widget class="caInclude" name="cainclude_3">
     <property name="geometry">
      <rect>
@@ -120,7 +37,7 @@
      </rect>
     </property>
     <property name="macro">
-     <string>Axis=offsetX</string>
+     <string>SYS=$(SYS),Axis=offsetX</string>
     </property>
     <property name="filename" stdset="0">
      <string notr="true">ecmcMotorRecord_mini.ui</string>
@@ -136,7 +53,7 @@
      </rect>
     </property>
     <property name="macro">
-     <string>Axis=offsetY</string>
+     <string>SYS=$(SYS),Axis=offsetY</string>
     </property>
     <property name="filename" stdset="0">
      <string notr="true">ecmcMotorRecord_mini.ui</string>
@@ -152,7 +69,7 @@
      </rect>
     </property>
     <property name="macro">
-     <string>Axis=amplitudeX</string>
+     <string>SYS=$(SYS),Axis=amplitudeX</string>
     </property>
     <property name="filename" stdset="0">
      <string notr="true">ecmcMotorRecord_mini.ui</string>
@@ -168,7 +85,7 @@
      </rect>
     </property>
     <property name="macro">
-     <string>Axis=amplitudeY</string>
+     <string>SYS=$(SYS),Axis=amplitudeY</string>
     </property>
     <property name="filename" stdset="0">
      <string notr="true">ecmcMotorRecord_mini.ui</string>
@@ -184,7 +101,65 @@
      </rect>
     </property>
     <property name="macro">
-     <string>Axis=freq</string>
+     <string>SYS=$(SYS),Axis=freq</string>
+    </property>
+    <property name="filename" stdset="0">
+     <string notr="true">ecmcMotorRecord_mini.ui</string>
+    </property>
+   </widget>
+   <widget class="caCartesianPlot" name="cacartesianplot">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>1221</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <property name="channels_1" stdset="0">
+     <string>$(SYS):DS00-DataAct;$(SYS):DS01-DataAct</string>
+    </property>
+    <property name="color_1">
+     <color>
+      <red>0</red>
+      <green>0</green>
+      <blue>255</blue>
+     </color>
+    </property>
+    <property name="channels_2" stdset="0">
+     <string>$(SYS):DS01-DataAct</string>
+    </property>
+    <property name="triggerChannel" stdset="0">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="caInclude" name="cainclude_8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>690</y>
+      <width>221</width>
+      <height>85</height>
+     </rect>
+    </property>
+    <property name="macro">
+     <string>SYS=$(SYS),Axis=X</string>
+    </property>
+    <property name="filename" stdset="0">
+     <string notr="true">ecmcMotorRecord_mini.ui</string>
+    </property>
+   </widget>
+   <widget class="caInclude" name="cainclude_9">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>790</y>
+      <width>221</width>
+      <height>85</height>
+     </rect>
+    </property>
+    <property name="macro">
+     <string>SYS=$(SYS),Axis=Y</string>
     </property>
     <property name="filename" stdset="0">
      <string notr="true">ecmcMotorRecord_mini.ui</string>
@@ -197,7 +172,7 @@
      <x>0</x>
      <y>0</y>
      <width>1423</width>
-     <height>22</height>
+     <height>28</height>
     </rect>
    </property>
   </widget>
@@ -218,11 +193,6 @@
    <class>caInclude</class>
    <extends>QWidget</extends>
    <header>caInclude</header>
-  </customwidget>
-  <customwidget>
-   <class>caLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>caLineEdit</header>
   </customwidget>
   <customwidget>
    <class>caCartesianPlot</class>

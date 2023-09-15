@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1510</width>
-    <height>692</height>
+    <width>1423</width>
+    <height>935</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,18 +64,25 @@
      <rect>
       <x>30</x>
       <y>30</y>
-      <width>961</width>
-      <height>601</height>
+      <width>1351</width>
+      <height>851</height>
      </rect>
     </property>
     <property name="channels_1" stdset="0">
-     <string>$(SYS)DS00-DataAct</string>
+     <string>$(SYS):DS00-DataAct;$(SYS):DS01-DataAct</string>
+    </property>
+    <property name="color_1">
+     <color>
+      <red>0</red>
+      <green>0</green>
+      <blue>255</blue>
+     </color>
     </property>
     <property name="channels_2" stdset="0">
-     <string>$(SYS)DS01-DataAct</string>
+     <string>$(SYS):DS01-DataAct</string>
     </property>
     <property name="triggerChannel" stdset="0">
-     <string notr="true">$(SYS)DS01-DataAct</string>
+     <string notr="true"/>
     </property>
    </widget>
   </widget>
@@ -84,8 +91,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1510</width>
-     <height>22</height>
+     <width>1423</width>
+     <height>28</height>
     </rect>
    </property>
   </widget>
