@@ -1,48 +1,62 @@
 
 if(plc${PLC_ID}.firstscan) {
-  println('State 0: Trying to enable physical axes');
+  println('State 0: Starup seq init');
 }
 
-if(static.counter<15) {
-  static.counter:=static.counter+1;
-};
-
-
-if(static.state = 0 and static.counter>10) {
-  println('State 1: Home');
-  # Physical axes
-  mc_home_pos(1,0,15,5,5,-10);
-  mc_home_pos(1,1,15,5,5,-10);
-  mc_home_pos(2,0,15,5,5,-10);
-  mc_home_pos(2,1,15,5,5,-10);
+if(static.state = 0) {
+  println('State 1: Powering up');
   mc_power(1,1);
   mc_power(2,1);
-  static.state := 0.5;
-};
-
-
-#State 0: Power physical axis and home to 0
-if(ax1.drv.enabled and ax2.drv.enabled and (static.state = 0.5)) {
+  mc_power(3,1);
   static.state:=1;
 };
 
-if((static.state = 1) and ax1.enc.homed and ax2.enc.homed and not(mc_get_busy(1)) and not(mc_get_busy(2))) {
-  println('State 1: Homing done');
-  static.state := 2;
+
+static.allenabled:=ax1.drv.enabled and ax2.drv.enabled and ax3.drv.enabled;
+if(static.state = 1 and  static.allenabled) {
+  println('State 2: All enabled');
+  static.state:= 2;
 };
 
-# State 2: Go to external source for physcal axes (must be external source for grbl)
 if(static.state = 2) {
+  println('State 2: Homing');
+  # Physical axes
+  mc_home_pos(1,0,1,5,5,-5);
+  mc_home_pos(1,1,1,5,5,-5);
+
+  mc_home_pos(2,0,1,5,5,-5);
+  mc_home_pos(2,1,1,5,5,-5);
+
+  mc_home_pos(3,0,1,5,5,-5);
+  mc_home_pos(3,1,1,5,5,-5);
+  
+  static.state := 3;
+};
+
+static.allhomed:=ax1.enc.homed and ax2.enc.homed ax3.enc.homed;
+
+if(static.state = 3 and static.allhomed) {
+  println('State 4: All homed');
+  static.state:=4;
+};
+ 
+static.allbusy:= mc_get_busy(1) or mc_get_busy(2) or mc_get_busy(3);
+if(static.state = 4 and not(static.allbusy)) {
+  println('State 5: Not busy');
+  static.state:=5;
+};
+
+
+if(static.state = 5) {
   ax1.traj.source:=1;
   ax2.traj.source:=1;  
-  println('State 2: Startup 
-  ');
-  static.state := 3;
+  println('State 6: Starting gcode');
+  static.state := 6;
   grbl_set_execute(0);
 };
 
 # Trigg motion
-if(static.state = 3) {
+if(static.state = 6) {
   if(not(grbl_get_parser_busy())) {
     static.counter+=1;
     println('Retrigger g-code. Counter: ', static.counter);
@@ -57,3 +71,4 @@ if(static.state = 3) {
   ds_push_asyn(0);
   ds_push_asyn(1);
 };
+
