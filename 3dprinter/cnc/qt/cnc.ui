@@ -69,7 +69,7 @@
      </rect>
     </property>
     <property name="channels_1" stdset="0">
-     <string>$(SYS)DS00-DataAct;$(SYS)DS01-DataAct</string>
+     <string>$(SYS):DS00-DataAct;$(SYS):DS01-DataAct</string>
     </property>
     <property name="color_1">
      <color>
@@ -79,7 +79,7 @@
      </color>
     </property>
     <property name="channels_2" stdset="0">
-     <string>$(SYS)DS01-DataAct</string>
+     <string>$(SYS):DS01-DataAct</string>
     </property>
     <property name="triggerChannel" stdset="0">
      <string notr="true"/>
