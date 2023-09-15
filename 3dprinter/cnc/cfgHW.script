@@ -1,0 +1,30 @@
+##############################################################################
+## Demo xy table cnc With 4 axescrate
+# Macros:
+#   X_DRV_SID: Drive id X axis default 7
+#   Y_DRV_SID: Drive id Y axis default 8
+#   Z_DRV_SID: Drive id Z axis default 9
+
+##############################################################################
+## Configure hardware:
+
+# 0  0:0   PREOP  +  EK1100 EtherCAT-Koppler (2A E-Bus)
+# 1  0:1   PREOP  +  EL9227-5500 \ufffdberstromschutz 24V DC, 2K., max. 10A (Summe), eins
+# 2  0:2   PREOP  +  EL5042 2Ch. BiSS-C Encoder
+# 3  0:3   PREOP  +  EL5042 2Ch. BiSS-C Encoder
+# 4  0:4   PREOP  +  EL3204 4K. Ana. Eingang PT100 (RTD)
+# 5  0:5   PREOP  +  EL2008 8K. Dig. Ausgang 24V, 0.5A
+# 6  0:6   PREOP  +  EL1008 8K. Dig. Eingang 24V, 3ms
+# 7  0:7   PREOP  +  EL7041 1Ch. Stepper motor output stage (50V, 5A)
+# 8  0:8   PREOP  +  EL7041 1Ch. Stepper motor output stage (50V, 5A)
+# 9  0:9   PREOP  +  EL7041 1Ch. Stepper motor output stage (50V, 5A)
+#10  0:10  PREOP  +  EL7041 1Ch. Stepper motor output stage (50V, 5A)
+
+${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=${X_DRV_SID=7}, HW_DESC=EL7041-0052, CONFIG=-Motor-Nanotec-ST2818M1006-bipolar"
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,600,2)"
+${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=${Y_DRV_SID=8}, HW_DESC=EL7041-0052, CONFIG=-Motor-Nanotec-ST2818M1006-bipolar"
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,600,2)"
+${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=${Z_DRV_SID=9}, HW_DESC=EL7041-0052, CONFIG=-Motor-Nanotec-ST2818M1006-bipolar"
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,600,2)"
+
+ecmcConfigOrDie "Cfg.EcApplyConfig(1)"

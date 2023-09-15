@@ -1,0 +1,54 @@
+
+if(plc${PLC_ID}.firstscan) {
+  println('State 0: Starup seq init');
+}
+
+if(static.state = 0) {
+  println('State 1: Powering up');
+  mc_power(1,1);
+  mc_power(2,1);
+  mc_power(3,1);
+  static.state:=1;
+};
+
+
+static.allenabled:=ax1.drv.enabled and ax2.drv.enabled and ax3.drv.enabled;
+if(static.state = 1 and  static.allenabled) {
+  println('State 2: All enabled');
+  static.state:= 2;
+};
+
+if(static.state = 2) {
+  println('State 2: Homing');
+  # Physical axes
+  mc_home_pos(1,0,1,5,5,-100);
+  mc_home_pos(1,1,1,5,5,-100);
+
+  mc_home_pos(2,0,1,5,5,-100);
+  mc_home_pos(2,1,1,5,5,-100);
+ 
+  static.state := 3;
+};
+
+static.allhomed:=ax1.enc.homed and ax2.enc.homed ax3.enc.homed;
+
+if(static.state = 3 and static.allhomed) {
+  println('State 4: All homed');
+  static.state:=4;
+};
+ 
+static.allbusy:= mc_get_busy(1) or mc_get_busy(2) or mc_get_busy(3);
+if(static.state = 4 and not(static.allbusy)) {
+  println('State 5: Startup seq ready');
+  static.state:=5;
+};
+
+if(static.state = 5) {
+  ax1.traj.source:=1;
+  ax2.traj.source:=1; 
+  ds_append_data(0,ax1.enc.actpos);
+  ds_append_data(1,ax2.enc.actpos);
+  ds_push_asyn(0);
+  ds_push_asyn(1);
+};
+

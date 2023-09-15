@@ -1,0 +1,93 @@
+##############################################################################
+## Demo xy table cnc
+
+require ecmccfg v9.0.1_RC2 "ECMC_VER=v9.0.1_RC1,EC_RATE=500"
+require ecmc_plugin_grbl sandst_a
+
+##############################################################################
+## Configure hardware:
+${SCRIPTEXEC} cfgHW.script
+
+##############################################################################
+## AXIS 1: X
+# Configure Motion
+epicsEnvSet("DRV_X_SID",  "7")
+epicsEnvSet("DEV",      "$(IOC)")
+${SCRIPTEXEC} ${ecmccfg_DIR}configureAxis.cmd, "CONFIG=./cfg/x.ax"
+ecmcConfigOrDie "Cfg.SetAxisAllowSourceChangeWhenEnabled(1,1)"
+$(SCRIPTEXEC) $(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/x.sax
+
+# AXIS 2: Y
+epicsEnvSet("DRV_Y_SID",  "8")
+epicsEnvSet("DEV",      "$(IOC)")
+$(SCRIPTEXEC) $(ecmccfg_DIR)configureAxis.cmd, CONFIG=./cfg/y.ax
+ecmcConfigOrDie "Cfg.SetAxisAllowSourceChangeWhenEnabled(2,1)"
+$(SCRIPTEXEC) $(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/y.sax
+
+##############################################################################
+## X amplitude
+#
+epicsEnvSet("DEV",      "$(IOC)")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/amplitude_x.vax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/amplitude_x.sax)
+
+##############################################################################
+## Y amplitude
+#
+epicsEnvSet("DEV",      "$(IOC)")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/amplitude_y.vax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/amplitude_y.sax)
+
+##############################################################################
+## X offset
+#
+epicsEnvSet("DEV",      "$(IOC)")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/offset_x.vax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/offset_x.sax)
+
+##############################################################################
+## Y offset
+#
+epicsEnvSet("DEV",      "$(IOC)")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/offset_y.vax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/offset_y.sax)
+
+##############################################################################
+## freq scaling
+#
+epicsEnvSet("DEV",      "$(IOC)")
+$(SCRIPTEXEC) ($(ecmccfg_DIR)configureVirtualAxis.cmd, CONFIG=./cfg/freq.vax)
+$(SCRIPTEXEC) ($(ecmccfg_DIR)applyAxisSynchronization.cmd, CONFIG=./cfg/freq.sax)
+
+
+
+##############################################################################
+## Data Storage: Buffer for the X axis actpos for show in CSS x/yplot
+epicsEnvSet("ECMC_ID_DS_RES",0)
+epicsEnvSet("ECMC_BUFFER_SIZE",2000)
+$(SCRIPTEXEC) $(ecmccfg_DIR)addDataStorage.cmd "DS_ID=${ECMC_ID_DS_RES}, DS_SIZE=${ECMC_BUFFER_SIZE=1000}, SAMPLE_RATE_MS=-1, DS_TYPE=2")
+
+##############################################################################
+## Data Storage: Buffer for the Y axis actpos for show in CSS x/yplot
+epicsEnvSet("ECMC_ID_DS_RES",1)
+$(SCRIPTEXEC) $(ecmccfg_DIR)addDataStorage.cmd "DS_ID=${ECMC_ID_DS_RES}, DS_SIZE=${ECMC_BUFFER_SIZE=1000}, SAMPLE_RATE_MS=-1, DS_TYPE=2")
+
+##############################################################################
+## PLC 0: Startup seq
+$(SCRIPTEXEC) $(ecmccfg_DIR)loadPLCFile.cmd, "PLC_ID=0, SAMPLE_RATE_MS=100,FILE=./plc/startup.plc,PLC_MACROS='PLC_ID=0'"
+
+##############################################################################
+## Configure diagnostics:
+
+ecmcConfigOrDie "Cfg.EcSetDiagnostics(1)"
+ecmcConfigOrDie "Cfg.EcEnablePrintouts(0)"
+ecmcConfigOrDie "Cfg.EcSetDomainFailedCyclesLimit(100)"
+ecmcConfigOrDie "Cfg.SetDiagAxisIndex(1)"
+ecmcConfigOrDie "Cfg.SetDiagAxisFreq(2)"
+ecmcConfigOrDie "Cfg.SetDiagAxisEnable(0)"
+
+##############################################################################
+## Go active:
+$(SCRIPTEXEC) ($(ecmccfg_DIR)setAppMode.cmd)
+
+iocInit()
