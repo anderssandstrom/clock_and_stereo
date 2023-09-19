@@ -21,10 +21,13 @@
 #10  0:10  PREOP  +  EL7041 1Ch. Stepper motor output stage (50V, 5A)
 
 ${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=${X_DRV_SID=7}, HW_DESC=EL7041-0052, CONFIG=-Motor-Nanotec-ST2818M1006-bipolar"
-ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,600,2)"
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,900,2)"
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x2,900,2)"
 ${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=${Y_DRV_SID=8}, HW_DESC=EL7041-0052, CONFIG=-Motor-Nanotec-ST2818M1006-bipolar"
-ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,600,2)"
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,900,2)"
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x2,900,2)"
 ${SCRIPTEXEC} ${ecmccfg_DIR}configureSlave.cmd, "SLAVE_ID=${Z_DRV_SID=9}, HW_DESC=EL7041-0052, CONFIG=-Motor-Nanotec-ST2818M1006-bipolar"
-ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,600,2)"
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x1,900,2)"
+ecmcConfigOrDie "Cfg.EcAddSdo(${ECMC_EC_SLAVE_NUM},0x8010,0x2,900,2)"
 
 ecmcConfigOrDie "Cfg.EcApplyConfig(1)"
