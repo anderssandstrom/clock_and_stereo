@@ -21,8 +21,8 @@ if(static.state = 1 and  static.allenabled) {
 if(static.state = 2) {
   println('State 2: Homing');
   # Physical axes
-  mc_home_pos(1,0,1,5,5,-5);
-  mc_home_pos(1,1,1,5,5,-5);
+  mc_home_pos(1,0,1,5,5,-45);
+  mc_home_pos(1,1,1,5,5,-45);
 
   mc_home_pos(2,0,1,5,5,-5);
   mc_home_pos(2,1,1,5,5,-5);
