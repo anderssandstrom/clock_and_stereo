@@ -1,7 +1,8 @@
 ##############################################################################
 ## Demo xy table cnc
-
-require ecmccfg v9.0.1_RC2 "ECMC_VER=v9.0.1_RC1,EC_RATE=500"
+epicsEnvSet(MASTER_ID,0)
+epicsEnvSet("IOC",${IOC}_m${MASTER_ID=0})
+require ecmccfg v9.0.1_RC2 "ECMC_VER=v9.0.1_RC1,EC_RATE=${EC_RATE=500},MASTER_ID=${MASTER_ID=0}"
 require ecmc_plugin_grbl sandst_a
 
 ##############################################################################
