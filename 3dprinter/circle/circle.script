@@ -2,8 +2,16 @@
 ## Demo xy table cnc
 epicsEnvSet(MASTER_ID,0)
 epicsEnvSet("IOC",${IOC}_m${MASTER_ID=0})
-require ecmccfg v9.0.1_RC2 "ECMC_VER=v9.0.1_RC1,EC_RATE=${EC_RATE=500},MASTER_ID=${MASTER_ID=0}"
-require ecmc_plugin_grbl sandst_a
+require ecmccfg v9.0.1_RC2 "ECMC_VER=v9.0.1_RC2,EC_RATE=${EC_RATE=500},MASTER_ID=${MASTER_ID=0}"
+
+##############################################################################
+## Add rule to run ecmc_rt on specific core
+# Run on core 2 (core 1 is isloated)
+ecmcEpicsEnvSetCalc(CORE, "${MASTER_ID}+2")
+require MCoreUtils
+#- mcoreThreadRuleAdd <rule name> <sched_policy> <prio>
+mcoreThreadRuleAdd ecmc_rule * * ${CORE} ecmc_rt
+mcoreThreadRulesShow
 
 ##############################################################################
 ## Configure hardware:
